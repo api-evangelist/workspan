@@ -1,0 +1,119 @@
+openapi: 3.0.1
+info:
+  title: Authentication Actions Bulkload API
+  description: 'Implementation of [OAuth 2.0](https://tools.ietf.org/html/rfc6749  "Docs") with Client Credentials Grant type
+
+    '
+  version: '1.0'
+servers:
+- url: https://api-sandbox.workspan.com/oauth
+security:
+- {}
+- apiKeyHeader: []
+- apiKeyQuery: []
+tags:
+- name: Bulkload
+paths:
+  /bulkload:
+    post:
+      operationId: bulkload
+      summary: Bulk Load Objects to WorkSpan
+      description: Bulk Load Objects to WorkSpan. Data can be attached to the request body as JSON/CSV format, or attached as a JSON/CSV/XLSX file.
+      parameters:
+      - name: integration_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Integration ID of CRM integration that is configured in WorkSpan App
+      - name: data_format
+        in: query
+        required: false
+        schema:
+          type: string
+          default: CSV
+        description: The format of the data which is sent in the request body or in the attached file; this is case insensitive
+      - name: file_token
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Upload token that is associated with a GCS Signed URL.
+      - name: column_delimiter
+        in: query
+        required: false
+        schema:
+          type: string
+          default: ','
+        description: The column delimiter for the CSV data that is passed in or attached; default is ','
+      requestBody:
+        content:
+          plain/text: {}
+          application/json:
+            examples:
+              default:
+                value: '{}'
+          multipart/form-data: {}
+      responses:
+        '200':
+          description: data uploaded
+          content:
+            application/json:
+              examples:
+                default:
+                  value: "{\r\n  \"integration_id\": \"WS-Integration_agpzfndzLW\",\r\n  \"execution_id\": \"a64690c2450\",\r\n  \"created_at\": \"2020-05-18T14:06:57.572Z\",\r\n  \"data_format\": \"JSON\"\r\n}"
+        '400':
+          description: invalid input, object invalid
+        '401':
+          description: Authorization Error
+      tags:
+      - Bulkload
+  /bulkload/{integration_id}/upload_url:
+    get:
+      operationId: upload_url
+      summary: Get a Signed URL to upload a file directly to the Cloud Storage of WorkSpan.
+      description: Get a Signed URL to upload a file directly to the File Cloud Storage of WorkSpan.
+      parameters:
+      - name: integration_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Integration ID that is configured in WorkSpan App
+      - name: file_name
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The name of the file, with the file extension, to use when storing the file in the Cloud Storage of WorkSpan.
+      responses:
+        '200':
+          description: Signed URL for file upload successfully retrieved
+          content:
+            application/json:
+              examples:
+                default:
+                  value: "{\r\n  \"upload_url\": \"https://storage.googleapis.com/server/file_name.extension?Expires=12345567&GoogleAccessId=foobar&Signature=barfoo\",\r\n  \"upload_token\": \"eYgh4bLaH2qemcas9dTOKEN\"\r\n}"
+        '400':
+          description: invalid integration_id
+        '401':
+          description: Authorization Error
+        '404':
+          description: integration_id not found
+      tags:
+      - Bulkload
+components:
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+x-harvest:
+  source: https://developer.workspan.com/developer/apis/authentication-api?export=true&format=openapi+json&api-version=2022-04-01-preview
+  operations_source: https://developer.workspan.com/developer/apis/authentication-api/operations?api-version=2022-04-01-preview
+  harvested: '2026-07-21'
+  note: Assembled from WorkSpan's Azure APIM developer portal data API (export skeleton + published operations/schemas).

@@ -1,0 +1,184 @@
+openapi: 3.0.1
+info:
+  title: Authentication Actions Metadata API
+  description: 'Implementation of [OAuth 2.0](https://tools.ietf.org/html/rfc6749  "Docs") with Client Credentials Grant type
+
+    '
+  version: '1.0'
+servers:
+- url: https://api-sandbox.workspan.com/oauth
+security:
+- {}
+- apiKeyHeader: []
+- apiKeyQuery: []
+tags:
+- name: Metadata
+paths:
+  /metadata/picklists/hyperscaler:
+    get:
+      operationId: co-sell-picklist
+      summary: Co-Sell PickList
+      parameters:
+      - name: partner_id
+        in: query
+        required: true
+        schema:
+          type: String
+      - name: field_names
+        in: query
+        required: true
+        schema:
+          type: String
+      responses:
+        '200':
+          description: ''
+        '400':
+          description: ''
+        '503':
+          description: ''
+        '500':
+          description: ''
+      tags:
+      - Metadata
+  /metadata/event:
+    get:
+      operationId: GetEventList
+      summary: Get list of events
+      description: Get list of events
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              examples:
+                default:
+                  value: "{\r\n  \"events\": [\r\n    {\r\n      \"name\": \"string\",\r\n      \"description\": \"string\"\r\n    }\r\n  ]\r\n}"
+        '400':
+          description: API Error
+        '404':
+          description: event not defined
+      tags:
+      - Metadata
+  /metadata/integration:
+    get:
+      operationId: GetIntegrationList
+      summary: Get list of integrations
+      description: Get list of integrations
+      responses:
+        '200':
+          description: Successful in listing integrations
+          content:
+            application/json:
+              examples:
+                default:
+                  value: "{\r\n  \"integrations\": [\r\n    {\r\n      \"integration_id\": \"string\",\r\n      \"integration_type\": \"string\",\r\n      \"description\": \"string\",\r\n      \"name\": \"string\"\r\n    }\r\n  ]\r\n}"
+        '400':
+          description: API Error
+        '404':
+          description: integration not defined
+      tags:
+      - Metadata
+  /metadata/event/{event}:
+    get:
+      operationId: GetEventSchema
+      summary: Get schema of event
+      description: Get schema of event
+      parameters:
+      - name: event
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Name of event
+      - name: x-ws-env
+        in: header
+        required: false
+        schema:
+          type: string
+        description: Use only for WorkSpan Sandbox Environment
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              examples:
+                default:
+                  value: '{}'
+        '400':
+          description: API Error
+        '404':
+          description: event not defined
+      tags:
+      - Metadata
+  /metadata/integration/{integration_id}:
+    get:
+      operationId: GetObjectEventSchema
+      summary: Get schema of object event
+      description: Get schema of object event
+      parameters:
+      - name: integration_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Integration Id of Object Event Integration
+      responses:
+        '200':
+          description: Returns Integration Schema
+          content:
+            application/json:
+              examples:
+                default:
+                  value: '{}'
+        '400':
+          description: API Error
+        '404':
+          description: integration not defined
+      tags:
+      - Metadata
+  /{reportId}/metadata:
+    post:
+      operationId: getReportMetadata
+      summary: Get report metadata
+      description: Returns metadata information about the report.
+      parameters:
+      - name: reportId
+        in: path
+        required: true
+        schema:
+          type: integer
+        description: Format - int64.
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+        description: 'Format: bearer ${token}'
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '401':
+          description: Authorization Error
+        '404':
+          description: WorkSpan object Not Found
+        '500':
+          description: Internal Server Error
+      tags:
+      - Metadata
+components:
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+x-harvest:
+  source: https://developer.workspan.com/developer/apis/authentication-api?export=true&format=openapi+json&api-version=2022-04-01-preview
+  operations_source: https://developer.workspan.com/developer/apis/authentication-api/operations?api-version=2022-04-01-preview
+  harvested: '2026-07-21'
+  note: Assembled from WorkSpan's Azure APIM developer portal data API (export skeleton + published operations/schemas).

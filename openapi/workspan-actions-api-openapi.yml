@@ -1,0 +1,121 @@
+openapi: 3.0.1
+info:
+  title: Authentication Actions API
+  description: 'Implementation of [OAuth 2.0](https://tools.ietf.org/html/rfc6749  "Docs") with Client Credentials Grant type
+
+    '
+  version: '1.0'
+servers:
+- url: https://api-sandbox.workspan.com/oauth
+security:
+- {}
+- apiKeyHeader: []
+- apiKeyQuery: []
+tags:
+- name: Actions
+paths:
+  /actions/{action_id}:
+    get:
+      operationId: getMarketplaceActionById
+      summary: Get marketplace action status
+      description: Returns the current status of a previously submitted marketplace action, identified by action_id. For GCP actions, the status is synced live from the project's google_integration_status field on every call. For AWS actions, status is updated by the changeset polling infrastructure. For Azure actions, status is updated by the job polling infrastructure.
+      parameters:
+      - name: action_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The action_id returned from POST /actions.
+      responses:
+        '200':
+          description: Action status retrieved successfully.
+          content:
+            application/json:
+              examples:
+                default:
+                  value:
+                    action_id: WS-MarketplaceAction-550e8400-e29b-41d4-a716-446655440000
+                    object_id: offer-1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p
+                    object_type: ws-offer
+                    marketplace_type: aws
+                    action_type: withdraw
+                    status: IN_PROGRESS
+                    message: Withdrawal request in progress.
+        '400':
+          description: Bad Request - No action record found for the given action_id.
+        '401':
+          description: Authorization Error - Invalid or missing authentication token.
+        '500':
+          description: Internal Server Error
+      tags:
+      - Actions
+  /actions:
+    post:
+      operationId: createMarketplaceAction
+      summary: Submit a marketplace action (e.g. withdraw offer or authorization)
+      description: 'Initiates an asynchronous marketplace action on a WorkSpan offer. The request is validated synchronously — if all checks pass, an action_id is returned immediately with status IN_PROGRESS and the operation runs in the background. Poll GET /actions/{action_id} for the final status.
+
+
+        Validation checks performed before the action is accepted (in order):
+
+        1. Application User must have the MARKETPLACE_ACTIONS security profile.
+
+        2. action_type must be ''withdraw''.
+
+        3. object_type must be ''ws-offer''.
+
+        4. marketplace_type must be ''aws'', ''azure'', or ''gcp''.
+
+        5. object_id must resolve to an existing WorkSpan offer belonging to the caller''s company.
+
+        6. No existing IN_PROGRESS action for the same object_id and action_type.'
+      requestBody:
+        content:
+          application/json:
+            examples:
+              default:
+                value:
+                  action_type: withdraw
+                  object_type: ws-offer
+                  marketplace_type: aws
+                  object_id: offer-1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p
+      responses:
+        '200':
+          description: Action accepted and running asynchronously. status is always IN_PROGRESS in this response. Use the returned action_id to poll GET /actions/{action_id} for the final result.
+          content:
+            application/json:
+              examples:
+                default:
+                  value:
+                    action_id: WS-MarketplaceAction-550e8400-e29b-41d4-a716-446655440000
+                    object_id: offer-1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p
+                    object_type: ws-offer
+                    marketplace_type: aws
+                    action_type: withdraw
+                    status: IN_PROGRESS
+                    message: Withdrawal request in progress.
+        '400':
+          description: 'Bad Request. Possible reasons: missing required field, invalid action_type / object_type / marketplace_type, object_id not found, access denied, or a duplicate IN_PROGRESS action already exists for this object.'
+        '401':
+          description: Authorization Error - Invalid or missing authentication token.
+        '403':
+          description: Forbidden - Application User does not have the MARKETPLACE_ACTIONS security profile.
+        '500':
+          description: Internal Server Error
+      tags:
+      - Actions
+components:
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+x-harvest:
+  source: https://developer.workspan.com/developer/apis/authentication-api?export=true&format=openapi+json&api-version=2022-04-01-preview
+  operations_source: https://developer.workspan.com/developer/apis/authentication-api/operations?api-version=2022-04-01-preview
+  harvested: '2026-07-21'
+  note: Assembled from WorkSpan's Azure APIM developer portal data API (export skeleton + published operations/schemas).

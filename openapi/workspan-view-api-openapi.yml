@@ -1,0 +1,197 @@
+openapi: 3.0.1
+info:
+  title: Authentication Actions View API
+  description: 'Implementation of [OAuth 2.0](https://tools.ietf.org/html/rfc6749  "Docs") with Client Credentials Grant type
+
+    '
+  version: '1.0'
+servers:
+- url: https://api-sandbox.workspan.com/oauth
+security:
+- {}
+- apiKeyHeader: []
+- apiKeyQuery: []
+tags:
+- name: View
+paths:
+  /view/{viewId}/data:
+    post:
+      operationId: getReportViewData
+      summary: Get report view data
+      description: 'Returns report view data (paginated).
+
+        Report view data is guaranteed not to change after the view has been created. In case of subsequent report update new report view needs to be created.'
+      parameters:
+      - name: viewId
+        in: path
+        required: true
+        schema:
+          type: integer
+        description: Format - int64.
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+        description: 'Format: bearer ${token}'
+      requestBody:
+        content:
+          application/json:
+            examples:
+              default:
+                value:
+                  page:
+                    number: 0
+                    size: 100
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              examples:
+                default:
+                  value:
+                    version: 5
+                    endOfList: false
+                    results:
+                    - CRM ID: 1234
+                      Country: US
+                      Region: North
+                    - CRM ID: 1564
+                      Country: US
+                      Region: South
+        '400':
+          description: Bad Request
+        '401':
+          description: Authorization Error
+        '404':
+          description: WorkSpan object Not Found
+        '500':
+          description: Internal Server Error
+      tags:
+      - View
+  /view/{viewId}:
+    get:
+      operationId: getReportViewMetadata
+      summary: Get report view metadata
+      description: Returns the report view details (metadata information).
+      parameters:
+      - name: viewId
+        in: path
+        required: true
+        schema:
+          type: integer
+        description: Format - int64.
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+        description: 'Format: bearer ${token}'
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '404':
+          description: WorkSpan object Not Found
+        '500':
+          description: Internal Server Error
+      tags:
+      - View
+  /view/{viewId}/status:
+    get:
+      operationId: checkReportViewStatus
+      summary: Get report view status
+      description: "Returns the status of the report view.\nThe report view has following lifecycle:\n  - PENDING - creation of report view is scheduled\n  - RUNNING - report view is being created\n  - SUCCESS - report view has been successfully created\n  - FAILED - report view could not have been created\n  - DELETED - report view older then 24h have been deleted"
+      parameters:
+      - name: viewId
+        in: path
+        required: true
+        schema:
+          type: integer
+        description: Format - int64.
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+        description: 'Format: bearer ${token}'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              examples:
+                default:
+                  value:
+                    viewStatus: RUNNING
+        '400':
+          description: Bad Request
+        '401':
+          description: Authorization Error
+        '404':
+          description: WorkSpan object Not Found
+        '500':
+          description: Internal Server Error
+      tags:
+      - View
+  /view/{reportId}/prepare_export:
+    post:
+      operationId: prepareExport
+      summary: Prepare report view
+      description: 'Triggers a background job that will create a report view.
+
+        The report view will be created in a single transaction ensuring data consistency while exporting the data.
+
+        This approach is good for reports of any size but it is recommended way for exporting bigger reports when data consistency has to be guaranteed.'
+      parameters:
+      - name: reportId
+        in: path
+        required: true
+        schema:
+          type: integer
+        description: Format - int64.
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+        description: 'Format: bearer ${token}'
+      requestBody:
+        content:
+          application/json: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              examples:
+                default:
+                  value:
+                    viewId: 453
+        '400':
+          description: Bad Request
+        '401':
+          description: Authorization Error
+        '404':
+          description: WorkSpan object Not Found
+        '500':
+          description: Internal Server Error
+      tags:
+      - View
+components:
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+x-harvest:
+  source: https://developer.workspan.com/developer/apis/authentication-api?export=true&format=openapi+json&api-version=2022-04-01-preview
+  operations_source: https://developer.workspan.com/developer/apis/authentication-api/operations?api-version=2022-04-01-preview
+  harvested: '2026-07-21'
+  note: Assembled from WorkSpan's Azure APIM developer portal data API (export skeleton + published operations/schemas).

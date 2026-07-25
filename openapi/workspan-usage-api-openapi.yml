@@ -1,0 +1,70 @@
+openapi: 3.0.1
+info:
+  title: Authentication Actions Usage API
+  description: 'Implementation of [OAuth 2.0](https://tools.ietf.org/html/rfc6749  "Docs") with Client Credentials Grant type
+
+    '
+  version: '1.0'
+servers:
+- url: https://api-sandbox.workspan.com/oauth
+security:
+- {}
+- apiKeyHeader: []
+- apiKeyQuery: []
+tags:
+- name: Usage
+paths:
+  /usage/status:
+    get:
+      operationId: getMarketplaceUsageStatus
+      summary: Get marketplace usage upload status
+      description: Retrieves the status of marketplace usage upload by execution_id. Returns a list of projects associated with the execution_id, including their workflow status, project name, external ID, and project ID.
+      parameters:
+      - name: execution_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The execution ID to search for. This is the execution ID returned from the usage upload endpoint.
+      responses:
+        '200':
+          description: Successfully retrieved usage upload status
+          content:
+            application/json:
+              examples:
+                default:
+                  value:
+                    execution_id: execution-id-123
+                    projects:
+                    - project_name: Usage Project Name 1
+                      status: Received
+                      external_id: usage-external-id-123
+                      project_id: ws_global_id_1
+                      error_message:
+                      - ErrorMessage: No active entitlement found for the combination of product 'my-product' and customer 'customer-123'
+                        ErrorCode: USAGE-21
+        '400':
+          description: Bad Request - execution_id query parameter is required
+        '401':
+          description: Authorization Error - Invalid or missing authentication token
+        '403':
+          description: Permissions denied
+        '500':
+          description: Internal Server Error
+      tags:
+      - Usage
+components:
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+x-harvest:
+  source: https://developer.workspan.com/developer/apis/authentication-api?export=true&format=openapi+json&api-version=2022-04-01-preview
+  operations_source: https://developer.workspan.com/developer/apis/authentication-api/operations?api-version=2022-04-01-preview
+  harvested: '2026-07-21'
+  note: Assembled from WorkSpan's Azure APIM developer portal data API (export skeleton + published operations/schemas).

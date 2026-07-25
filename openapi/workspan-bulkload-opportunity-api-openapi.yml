@@ -1,0 +1,83 @@
+openapi: 3.0.1
+info:
+  title: Authentication Actions Bulkload Opportunity API
+  description: 'Implementation of [OAuth 2.0](https://tools.ietf.org/html/rfc6749  "Docs") with Client Credentials Grant type
+
+    '
+  version: '1.0'
+servers:
+- url: https://api-sandbox.workspan.com/oauth
+security:
+- {}
+- apiKeyHeader: []
+- apiKeyQuery: []
+tags:
+- name: Bulkload Opportunity
+paths:
+  /bulkload_opportunity:
+    post:
+      operationId: bulkload_opportunities
+      summary: Bulk Load Opportunities to WorkSpan
+      description: Bulk Load Opportunities to WorkSpan. Data can be Json or CSV
+      parameters:
+      - name: integration_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Integration ID of that is configured in WorkSpan App
+      - name: content_type
+        in: query
+        required: false
+        schema:
+          type: string
+          default: CSV
+      - name: column_delimiter
+        in: query
+        required: false
+        schema:
+          type: string
+          default: ','
+      - name: has_header_row
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: 'true'
+      requestBody:
+        content:
+          application/json:
+            examples:
+              default:
+                value: '{}'
+          multipart/form-data: {}
+          text/csv: {}
+      responses:
+        '200':
+          description: data uploaded
+          content:
+            application/json:
+              examples:
+                default:
+                  value: "{\r\n  \"integration_id\": \"WS-Integration_agpzfndzLW\",\r\n  \"execution_id\": \"a64690c2450\",\r\n  \"created_at\": \"2020-05-18T14:06:57.572Z\"\r\n}"
+        '400':
+          description: invalid input, object invalid
+        '401':
+          description: Authorization Error
+      tags:
+      - Bulkload Opportunity
+components:
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+x-harvest:
+  source: https://developer.workspan.com/developer/apis/authentication-api?export=true&format=openapi+json&api-version=2022-04-01-preview
+  operations_source: https://developer.workspan.com/developer/apis/authentication-api/operations?api-version=2022-04-01-preview
+  harvested: '2026-07-21'
+  note: Assembled from WorkSpan's Azure APIM developer portal data API (export skeleton + published operations/schemas).

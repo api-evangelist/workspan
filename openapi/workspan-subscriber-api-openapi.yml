@@ -1,0 +1,115 @@
+openapi: 3.0.1
+info:
+  title: Authentication Actions Subscriber API
+  description: 'Implementation of [OAuth 2.0](https://tools.ietf.org/html/rfc6749  "Docs") with Client Credentials Grant type
+
+    '
+  version: '1.0'
+servers:
+- url: https://api-sandbox.workspan.com/oauth
+security:
+- {}
+- apiKeyHeader: []
+- apiKeyQuery: []
+tags:
+- name: Subscriber
+paths:
+  /subscriber/{subscriber_id}:
+    delete:
+      operationId: DeleteSubscriber
+      summary: Delete a subscriber (unregister a webhook)
+      description: Delete a subscriber (unregister a webhook)
+      parameters:
+      - name: subscriber_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: ID of the subscriber that needs to be deleted
+      responses:
+        '200':
+          description: successful operation
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: subscriber not found
+      tags:
+      - Subscriber
+    get:
+      operationId: ReadSubscriber
+      summary: Read subscriber information
+      description: Read details of subscription
+      parameters:
+      - name: subscriber_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: subscriber id assigened by WorkSpan
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              examples:
+                default:
+                  value: "{\r\n  \"subscriber_id\": \"string\",\r\n  \"name\": \"string\",\r\n  \"objectids\": [\r\n    \"string\"\r\n  ],\r\n  \"integration_id\": \"string\",\r\n  \"filters\": \"string\",\r\n  \"subscriber_type\": \"webhook\"\r\n}"
+        '400':
+          description: API Error
+        '404':
+          description: Subscriber not found
+      tags:
+      - Subscriber
+  /subscriber:
+    get:
+      operationId: ListSubscribers
+      summary: List subscribers
+      description: List Subscribers
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              examples:
+                default:
+                  value: "{\r\n  \"items\": [\r\n    {\r\n      \"subscriber_id\": \"string\",\r\n      \"name\": \"string\",\r\n      \"objectids\": [\r\n        \"string\"\r\n      ],\r\n      \"integration_id\": \"string\",\r\n      \"filters\": \"string\",\r\n      \"subscriber_type\": \"webhook\"\r\n    }\r\n  ]\r\n}"
+        '400':
+          description: API Error
+        '404':
+          description: Subscriber not found
+      tags:
+      - Subscriber
+    post:
+      operationId: WebhookRegistration
+      summary: 'Webhook: subscribe to object update notification'
+      description: 'Webhook registration: Subscribe to object update notification'
+      requestBody:
+        content:
+          application/json: {}
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              examples:
+                default:
+                  value: "{\r\n  \"subscriber_id\": \"string\"\r\n}"
+        '400':
+          description: Error when subscribing to event via webhook
+      tags:
+      - Subscriber
+components:
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+x-harvest:
+  source: https://developer.workspan.com/developer/apis/authentication-api?export=true&format=openapi+json&api-version=2022-04-01-preview
+  operations_source: https://developer.workspan.com/developer/apis/authentication-api/operations?api-version=2022-04-01-preview
+  harvested: '2026-07-21'
+  note: Assembled from WorkSpan's Azure APIM developer portal data API (export skeleton + published operations/schemas).

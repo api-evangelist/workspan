@@ -1,0 +1,76 @@
+openapi: 3.0.1
+info:
+  title: Authentication Actions Usage Upload API
+  description: 'Implementation of [OAuth 2.0](https://tools.ietf.org/html/rfc6749  "Docs") with Client Credentials Grant type
+
+    '
+  version: '1.0'
+servers:
+- url: https://api-sandbox.workspan.com/oauth
+security:
+- {}
+- apiKeyHeader: []
+- apiKeyQuery: []
+tags:
+- name: Usage Upload
+paths:
+  /usage_upload:
+    post:
+      operationId: uploadMarketplaceUsage
+      summary: Upload marketplace usage data
+      description: Upload marketplace usage data for AWS, Azure, or Google Cloud marketplace integrations. Supports both JSON payload and CSV file uploads. Data is processed in batches and returns execution IDs for tracking. Payload structure varies by marketplace type - see definitions for AwsMarketplaceUsageUploadReq, AzureMarketplaceUsageUploadReq, or GoogleMarketplaceUsageUploadReq.
+      parameters:
+      - name: integration_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: 'WorkSpan integration ID identifying the target marketplace integration. Example: WS-Integration_ag1zfm1jYS1hcmp1bi00chULEgtJbnRlZ3JhdGlvbhiR7viJAQw'
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+        description: 'Format: bearer ${token}'
+      requestBody:
+        content:
+          application/json:
+            examples:
+              default:
+                value:
+                - {}
+          multipart/form-data: {}
+      responses:
+        '200':
+          description: Successfully processed marketplace usage upload
+          content:
+            application/json:
+              examples:
+                default:
+                  value:
+                    usage_execution_id: req_abc123_xyz789
+        '400':
+          description: Bad Request - Invalid payload or missing required fields
+        '401':
+          description: Authorization Error - Invalid or missing authentication token
+        '403':
+          description: Permissions denied
+        '500':
+          description: Internal Server Error
+      tags:
+      - Usage Upload
+components:
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+x-harvest:
+  source: https://developer.workspan.com/developer/apis/authentication-api?export=true&format=openapi+json&api-version=2022-04-01-preview
+  operations_source: https://developer.workspan.com/developer/apis/authentication-api/operations?api-version=2022-04-01-preview
+  harvested: '2026-07-21'
+  note: Assembled from WorkSpan's Azure APIM developer portal data API (export skeleton + published operations/schemas).

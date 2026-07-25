@@ -1,0 +1,84 @@
+openapi: 3.0.1
+info:
+  title: Authentication Actions List API
+  description: 'Implementation of [OAuth 2.0](https://tools.ietf.org/html/rfc6749  "Docs") with Client Credentials Grant type
+
+    '
+  version: '1.0'
+servers:
+- url: https://api-sandbox.workspan.com/oauth
+security:
+- {}
+- apiKeyHeader: []
+- apiKeyQuery: []
+tags:
+- name: List
+paths:
+  /list:
+    post:
+      operationId: getReports
+      summary: List all exportable reports
+      description: List all exportable reports (paginated)
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+        description: 'Format: bearer ${token}'
+      requestBody:
+        content:
+          application/json:
+            examples:
+              default:
+                value:
+                  page:
+                    number: 0
+                    size: 100
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              examples:
+                default:
+                  value:
+                    endOfList: false
+                    results:
+                    - id: 1729
+                      name: Report - All Opportunities
+                      description: All opportunites report
+                      reportStatus: DRAFT
+                      createdBy:
+                        id: WS-Person_ag9zfndzLXJlcG9ydHMtcWFyLAsSBlBlcnNvbiIgOGMzMGY5NDk2Naa
+                        name: Admin
+                      modifiedBy:
+                        id: WS-Person_ag9zfndzLXJlcG9ydHMtcWFyLAsSBlBlcnNvbiIgOGMzMGY5NDk2Naa
+                        name: Admin
+                      createdAt: '2021-05-10T14:25:04.96388Z'
+                      modifiedAt: '2021-05-10T14:25:04.96388Z'
+        '400':
+          description: Bad Request
+        '401':
+          description: Authorization Error
+        '404':
+          description: WorkSpan object not found
+        '500':
+          description: Internal Server Error
+      tags:
+      - List
+components:
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+x-harvest:
+  source: https://developer.workspan.com/developer/apis/authentication-api?export=true&format=openapi+json&api-version=2022-04-01-preview
+  operations_source: https://developer.workspan.com/developer/apis/authentication-api/operations?api-version=2022-04-01-preview
+  harvested: '2026-07-21'
+  note: Assembled from WorkSpan's Azure APIM developer portal data API (export skeleton + published operations/schemas).

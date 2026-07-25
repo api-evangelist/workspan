@@ -1,0 +1,231 @@
+openapi: 3.0.1
+info:
+  title: Authentication Actions Cosell API
+  description: 'Implementation of [OAuth 2.0](https://tools.ietf.org/html/rfc6749  "Docs") with Client Credentials Grant type
+
+    '
+  version: '1.0'
+servers:
+- url: https://api-sandbox.workspan.com/oauth
+security:
+- {}
+- apiKeyHeader: []
+- apiKeyQuery: []
+tags:
+- name: Cosell
+paths:
+  /cosell/action:
+    post:
+      operationId: co-sell-action
+      summary: Co-Sell Action
+      description: Co-Sell Action Public API
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Invite aws partner action'
+            examples:
+              default:
+                value:
+                  action: invite_aws_partner
+                  payload:
+                    inviting_from: salesforce
+                    opportunity_project_id: WS-8552
+                    referral_id: Qaf353qqagaj
+                    partner_project_id: WS-23183
+                    partner_responsibility:
+                    - Distributor
+                    invitation_message: Hi i want to connect with you on this opportunity
+                  version: v1
+      responses:
+        '200':
+          description: ''
+        '400':
+          description: ''
+        '401':
+          description: ''
+        '403':
+          description: ''
+        '404':
+          description: ''
+        '409':
+          description: ''
+        '429':
+          description: ''
+        '500':
+          description: ''
+        '503':
+          description: ''
+      tags:
+      - Cosell
+  /cosell/aws/partners/count:
+    get:
+      operationId: co-sell-count-aws-partner
+      summary: Co-Sell count AWS partner
+      responses:
+        '200':
+          description: ''
+        '400':
+          description: ''
+        '401':
+          description: ''
+        '403':
+          description: ''
+        '404':
+          description: ''
+        '409':
+          description: ''
+        '429':
+          description: ''
+        '500':
+          description: ''
+        '503':
+          description: ''
+      tags:
+      - Cosell
+  /cosell/aws/partners:
+    get:
+      operationId: co-sell-list-aws-partner
+      summary: Co-Sell List AWS Partner
+      responses:
+        '200':
+          description: ''
+        '400':
+          description: ''
+        '401':
+          description: ''
+        '403':
+          description: ''
+        '404':
+          description: ''
+        '409':
+          description: ''
+        '429':
+          description: ''
+        '500':
+          description: ''
+        '503':
+          description: ''
+      tags:
+      - Cosell
+  /cosell/opportunity/validate/crm:
+    post:
+      operationId: cosell-opportunity-crm-validate
+      summary: CoSell Opportunity CRM Validate
+      description: Validate the Opportunity for crm
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/payload_crm_validate'
+            examples:
+              default:
+                value: {}
+      responses:
+        '200':
+          description: ''
+        '400':
+          description: ''
+        '401':
+          description: ''
+        '403':
+          description: ''
+        '404':
+          description: ''
+        '500':
+          description: ''
+      tags:
+      - Cosell
+  /cosell/demo/test:
+    post:
+      operationId: test-dummy-api
+      summary: Test dummy api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Test definition'
+            examples:
+              default:
+                value: {}
+      responses:
+        '200':
+          description: ''
+        '403':
+          description: ''
+        '500':
+          description: ''
+        '401':
+          description: ''
+      tags:
+      - Cosell
+components:
+  schemas:
+    payload_crm_validate:
+      unrecognizedKeywords:
+        unrecognizedKeywords:
+          crm_type: salesforce
+          payload:
+            sourced_to_partner: Amazon
+            customer_name: Acme Corp
+            customer_country: United States
+            customer_industry: Healthcare
+            customer_duns: '123456789'
+            customer_website: https://acmecorp.com
+            opportunity_title: Acme Cloud Migration
+            opportunity_description: Migration to AWS infrastructure
+            target_close_date: '2026-06-30'
+            primary_contact_first_name: Jane
+            primary_contact_last_name: Doe
+            primary_contact_email: jane.doe@acmecorp.com
+            primary_contact_phone: +1-555-123-4567
+            primary_contact_title: CTO
+            opportunity_type: New Business
+            aws_monthly_revenue: '5000'
+            aws_delivery_model: SaaS
+            aws_is_opp_from_marketing_activity: 'No'
+            aws_use_case: Analytics
+            aws_partner_primary_need: Co-Sell
+            aws_competitive_tracking: No Opportunity
+            aws_account_id: '123456789012'
+            procurement_type: AWS Marketplace
+            customer_software_value: '10000'
+    Test definition: {}
+    Invite aws partner action:
+      type: object
+      properties:
+        action:
+          type: string
+        payload:
+          type: object
+          properties:
+            inviting_from:
+              type: string
+            opportunity_project_id:
+              type: string
+            referral_id:
+              type: string
+            partner_project_id:
+              type: string
+            partner_responsibility:
+              type: array
+              items:
+                type: string
+            invitation_message:
+              type: string
+        version:
+          type: string
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+x-harvest:
+  source: https://developer.workspan.com/developer/apis/authentication-api?export=true&format=openapi+json&api-version=2022-04-01-preview
+  operations_source: https://developer.workspan.com/developer/apis/authentication-api/operations?api-version=2022-04-01-preview
+  harvested: '2026-07-21'
+  note: Assembled from WorkSpan's Azure APIM developer portal data API (export skeleton + published operations/schemas).

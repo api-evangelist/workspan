@@ -1,0 +1,75 @@
+openapi: 3.0.1
+info:
+  title: Authentication Actions Crm Inbound V2 API
+  description: 'Implementation of [OAuth 2.0](https://tools.ietf.org/html/rfc6749  "Docs") with Client Credentials Grant type
+
+    '
+  version: '1.0'
+servers:
+- url: https://api-sandbox.workspan.com/oauth
+security:
+- {}
+- apiKeyHeader: []
+- apiKeyQuery: []
+tags:
+- name: Crm Inbound V2
+paths:
+  /crm_inbound_v2:
+    post:
+      operationId: inbound_v2
+      summary: Load AWS Marketplace Authorization to WorkSpan
+      description: 'Load AWS marketplace authorization objects to WorkSpan. Creates or updates marketplace authorizations with flexible pricing and payment configurations.
+
+
+        REQUEST MODEL: AwsMarketplaceAuthorizationInboundRequest
+
+
+        NESTED MODELS (in data payload):
+
+        - pricing_terms (array) → Dimension model
+
+        - payment_schedules (array) → PaymentScheduleTerms model
+
+
+        FILE UPLOADS (form fields):
+
+        - customer_eula_file (optional): Customer EULA document
+
+        - reseller_eula_file (optional): Reseller EULA document
+
+
+        DATA FORMAT: Send AwsMarketplaceAuthorizationInboundRequest as JSON in the ''data'' form field.'
+      parameters:
+      - name: integration_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Integration ID of CRM integration that is configured in WorkSpan App.
+      requestBody:
+        content:
+          multipart/form-data: {}
+      responses:
+        '200':
+          description: Data upload successful.
+        '400':
+          description: Invalid input, object invalid.
+        '401':
+          description: Authorization error.
+      tags:
+      - Crm Inbound V2
+components:
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+x-harvest:
+  source: https://developer.workspan.com/developer/apis/authentication-api?export=true&format=openapi+json&api-version=2022-04-01-preview
+  operations_source: https://developer.workspan.com/developer/apis/authentication-api/operations?api-version=2022-04-01-preview
+  harvested: '2026-07-21'
+  note: Assembled from WorkSpan's Azure APIM developer portal data API (export skeleton + published operations/schemas).

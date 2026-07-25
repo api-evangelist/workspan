@@ -1,0 +1,62 @@
+openapi: 3.0.1
+info:
+  title: Authentication Actions Upload Partner Account API
+  description: 'Implementation of [OAuth 2.0](https://tools.ietf.org/html/rfc6749  "Docs") with Client Credentials Grant type
+
+    '
+  version: '1.0'
+servers:
+- url: https://api-sandbox.workspan.com/oauth
+security:
+- {}
+- apiKeyHeader: []
+- apiKeyQuery: []
+tags:
+- name: Upload Partner Account
+paths:
+  /upload_partner_account:
+    post:
+      operationId: uploadPartnerAccount
+      summary: Bulk Load Partner Accounts to WorkSpan
+      description: Bulk Load Partner Accounts to WorkSpan. Data can be attached to the request body as JSON/CSV format, or attached as a JSON/CSV/XLSX file.
+      requestBody:
+        content:
+          application/json:
+            examples:
+              default:
+                value:
+                  file_service_id: string
+                  file_type: xlsx
+                  data:
+                  - {}
+      responses:
+        '200':
+          description: data uploaded
+          content:
+            application/json:
+              examples:
+                default:
+                  value:
+                    status: Success
+                    message: Partnering master uploaded successfully
+        '400':
+          description: invalid input, object invalid
+        '401':
+          description: Authorization Error
+      tags:
+      - Upload Partner Account
+components:
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+x-harvest:
+  source: https://developer.workspan.com/developer/apis/authentication-api?export=true&format=openapi+json&api-version=2022-04-01-preview
+  operations_source: https://developer.workspan.com/developer/apis/authentication-api/operations?api-version=2022-04-01-preview
+  harvested: '2026-07-21'
+  note: Assembled from WorkSpan's Azure APIM developer portal data API (export skeleton + published operations/schemas).

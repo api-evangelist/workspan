@@ -1,0 +1,115 @@
+openapi: 3.0.1
+info:
+  title: Authentication Actions Data API
+  description: 'Implementation of [OAuth 2.0](https://tools.ietf.org/html/rfc6749  "Docs") with Client Credentials Grant type
+
+    '
+  version: '1.0'
+servers:
+- url: https://api-sandbox.workspan.com/oauth
+security:
+- {}
+- apiKeyHeader: []
+- apiKeyQuery: []
+tags:
+- name: Data
+paths:
+  /{reportId}/data:
+    post:
+      operationId: getReportData
+      summary: Get report data
+      description: 'Returns real-time report data (paginated).
+
+        Good for small reports (<10K rows) because no preparation step is required. Usable for bigger reports too with the risk of missing or ghost rows due to concurrent updates going in the same time.'
+      parameters:
+      - name: reportId
+        in: path
+        required: true
+        schema:
+          type: integer
+        description: Format - int64.
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+        description: 'Format: bearer ${token}'
+      requestBody:
+        content:
+          application/json:
+            examples:
+              default:
+                value:
+                  filters:
+                    op: AND
+                    group:
+                    - op: OR
+                      group: []
+                      fieldFilters:
+                      - type: TEXT
+                        colId: '0'
+                        filter:
+                          op: EQUAL_TO
+                          negate: false
+                          values:
+                          - CREATE_FAILED
+                      - type: TEXT
+                        colId: '0'
+                        filter:
+                          op: EQUAL_TO
+                          negate: false
+                          values:
+                          - UPDATE_FAILED
+                    fieldFilters:
+                    - type: TEXT
+                      colId: '1'
+                      filter:
+                        op: EQUAL_TO
+                        negate: true
+                        values:
+                        - FAILED
+                  page:
+                    number: 0
+                    size: 100
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              examples:
+                default:
+                  value:
+                    version: 5
+                    endOfList: false
+                    results:
+                    - CRM ID: 1234
+                      Country: US
+                      Region: North
+                    - CRM ID: 1564
+                      Country: US
+                      Region: South
+        '400':
+          description: Bad Request
+        '401':
+          description: Authorization Error
+        '404':
+          description: WorkSpan object Not Found
+        '500':
+          description: Internal Server Error
+      tags:
+      - Data
+components:
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+x-harvest:
+  source: https://developer.workspan.com/developer/apis/authentication-api?export=true&format=openapi+json&api-version=2022-04-01-preview
+  operations_source: https://developer.workspan.com/developer/apis/authentication-api/operations?api-version=2022-04-01-preview
+  harvested: '2026-07-21'
+  note: Assembled from WorkSpan's Azure APIM developer portal data API (export skeleton + published operations/schemas).

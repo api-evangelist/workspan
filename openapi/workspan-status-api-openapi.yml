@@ -1,0 +1,79 @@
+openapi: 3.0.1
+info:
+  title: Authentication Actions Status API
+  description: 'Implementation of [OAuth 2.0](https://tools.ietf.org/html/rfc6749  "Docs") with Client Credentials Grant type
+
+    '
+  version: '1.0'
+servers:
+- url: https://api-sandbox.workspan.com/oauth
+security:
+- {}
+- apiKeyHeader: []
+- apiKeyQuery: []
+tags:
+- name: Status
+paths:
+  /status/{integration_id}:
+    get:
+      operationId: status
+      summary: Get Status of execution of integration using integration id
+      description: Check the execution status of your integration.
+      parameters:
+      - name: integration_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Integration ID that is configured in WorkSpan App
+      - name: execution_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Execution ID of an integration execution which is returned from bulk API
+      - name: include_errors
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: 'false'
+        description: Include errors in the response if there are any errors
+      - name: max_errors
+        in: query
+        required: false
+        schema:
+          type: number
+          default: '10'
+        description: Maximum number of errors to return back in the response
+      responses:
+        '200':
+          description: Execution is retrieved successfully
+          content:
+            application/json:
+              examples:
+                default:
+                  value: "{\r\n  \"integration_id\": \"WS-Integration_agpzfndzLW\",\r\n  \"execution_id\": \"a64690c2450\",\r\n  \"status\": \"completed\",\r\n  \"input_count\": 200,\r\n  \"error_count\": 3,\r\n  \"success_count\": 197,\r\n  \"skip_count\": 0,\r\n  \"started_at\": \"2020-05-07T14:06:57.572Z\",\r\n  \"completed_at\": \"2020-05-07T14:07:10.572Z\",\r\n  \"include_errors\": true,\r\n  \"errors\": [\r\n    {\r\n      \"id\": \"aw00079\",\r\n      \"message\": \"invalid value in field 'close_date'\",\r\n      \"data_row\": {\r\n        \"opportunity_id\": \"aw00079\",\r\n        \"close_date\": \"20-jan-2020\",\r\n        \"amount\": 250000\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"aw00082\",\r\n      \"message\": \"invalid value in field 'amount'\",\r\n      \"data_row\": {\r\n        \"opportunity_id\": \"aw00082\",\r\n        \"close_date\": \"2021-01-20\",\r\n        \"amount\": \"-\"\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"\",\r\n      \"message\": \"Missing value of key field\",\r\n      \"data_row\": {\r\n        \"opportunity_id\": \"\",\r\n        \"close_date\": \"2020-10-20\",\r\n        \"amount\": 75000\r\n      }\r\n    }\r\n  ]\r\n}"
+        '400':
+          description: invalid execution_id
+        '401':
+          description: Authorization Error
+        '404':
+          description: integration_id or execution_id not found
+      tags:
+      - Status
+components:
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+x-harvest:
+  source: https://developer.workspan.com/developer/apis/authentication-api?export=true&format=openapi+json&api-version=2022-04-01-preview
+  operations_source: https://developer.workspan.com/developer/apis/authentication-api/operations?api-version=2022-04-01-preview
+  harvested: '2026-07-21'
+  note: Assembled from WorkSpan's Azure APIM developer portal data API (export skeleton + published operations/schemas).

@@ -1,0 +1,119 @@
+openapi: 3.0.1
+info:
+  title: Authentication Actions Chart Data API
+  description: 'Implementation of [OAuth 2.0](https://tools.ietf.org/html/rfc6749  "Docs") with Client Credentials Grant type
+
+    '
+  version: '1.0'
+servers:
+- url: https://api-sandbox.workspan.com/oauth
+security:
+- {}
+- apiKeyHeader: []
+- apiKeyQuery: []
+tags:
+- name: Chart Data
+paths:
+  /{reportId}/chart-data:
+    post:
+      operationId: getChartData
+      summary: Get charts data for a report
+      description: Returns real-time chart data for a report.
+      parameters:
+      - name: reportId
+        in: path
+        required: true
+        schema:
+          type: integer
+        description: Format - int64.
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+        description: 'Format: bearer ${token}'
+      requestBody:
+        content:
+          application/json:
+            examples:
+              default:
+                value:
+                  filters:
+                    op: AND
+                    group:
+                    - op: OR
+                      group: []
+                      fieldFilters:
+                      - type: TEXT
+                        colId: '0'
+                        filter:
+                          op: EQUAL_TO
+                          negate: true
+                          values:
+                          - TESTED
+                      - type: TEXT
+                        colId: '0'
+                        filter:
+                          op: EQUAL_TO
+                          negate: false
+                          values:
+                          - UPDATE_FAILED
+                    fieldFilters:
+                    - type: TEXT
+                      colId: '1'
+                      filter:
+                        op: EQUAL_TO
+                        negate: true
+                        values:
+                        - FAILED
+                  chartIds:
+                  - 1
+                  - 2
+                  - 3
+                  - 4
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              examples:
+                default:
+                  value:
+                    reportVersion: 5
+                    reportName: report name
+                    charts:
+                    - id: 1
+                      version: 10
+                      name: chart name
+                      results:
+                      - Object name: Obj name
+                        count: 12
+                        Object Id: WS-7007
+                      - Object name: New Obj name
+                        count: 1
+                        Object Id: WS-7127
+        '400':
+          description: Bad Request
+        '401':
+          description: Authorization Error
+        '404':
+          description: WorkSpan object Not Found
+        '500':
+          description: Internal Server Error
+      tags:
+      - Chart Data
+components:
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+x-harvest:
+  source: https://developer.workspan.com/developer/apis/authentication-api?export=true&format=openapi+json&api-version=2022-04-01-preview
+  operations_source: https://developer.workspan.com/developer/apis/authentication-api/operations?api-version=2022-04-01-preview
+  harvested: '2026-07-21'
+  note: Assembled from WorkSpan's Azure APIM developer portal data API (export skeleton + published operations/schemas).

@@ -1,0 +1,62 @@
+openapi: 3.0.1
+info:
+  title: Authentication Actions Export Report API
+  description: 'Implementation of [OAuth 2.0](https://tools.ietf.org/html/rfc6749  "Docs") with Client Credentials Grant type
+
+    '
+  version: '1.0'
+servers:
+- url: https://api-sandbox.workspan.com/oauth
+security:
+- {}
+- apiKeyHeader: []
+- apiKeyQuery: []
+tags:
+- name: Export Report
+paths:
+  /export_report:
+    post:
+      operationId: marketplace_report_export
+      summary: Get outbound export data
+      description: 'Returns real-time report data (paginated).
+
+        Good for small reports (<10K rows) from report having tag - marketplace:{marketplace_type}:{object_type}:{operation}:report. Usable for bigger reports too with the risk of missing or ghost rows due to concurrent updates going in the same time.'
+      requestBody:
+        content:
+          application/json:
+            examples:
+              default:
+                value:
+                  operation: publish
+                  marketplace_type: google
+                  object_type: offer
+                  size: 100
+                  page: 0
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '401':
+          description: Authorization Error
+        '404':
+          description: WorkSpan object Not Found
+        '500':
+          description: Internal Server Error
+      tags:
+      - Export Report
+components:
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+x-harvest:
+  source: https://developer.workspan.com/developer/apis/authentication-api?export=true&format=openapi+json&api-version=2022-04-01-preview
+  operations_source: https://developer.workspan.com/developer/apis/authentication-api/operations?api-version=2022-04-01-preview
+  harvested: '2026-07-21'
+  note: Assembled from WorkSpan's Azure APIM developer portal data API (export skeleton + published operations/schemas).

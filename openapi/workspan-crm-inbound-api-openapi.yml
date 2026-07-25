@@ -1,0 +1,55 @@
+openapi: 3.0.1
+info:
+  title: Authentication Actions Crm Inbound API
+  description: 'Implementation of [OAuth 2.0](https://tools.ietf.org/html/rfc6749  "Docs") with Client Credentials Grant type
+
+    '
+  version: '1.0'
+servers:
+- url: https://api-sandbox.workspan.com/oauth
+security:
+- {}
+- apiKeyHeader: []
+- apiKeyQuery: []
+tags:
+- name: Crm Inbound
+paths:
+  /crm_inbound:
+    post:
+      operationId: inbound
+      summary: Load Object to WorkSpan
+      description: Load Object to WorkSpan. Data can be attached to the form data as JSON, and an agreement file can be attached to form as a PDF/TXT file.
+      parameters:
+      - name: integration_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Integration ID of CRM integration that is configured in WorkSpan App.
+      requestBody:
+        content:
+          multipart/form-data: {}
+      responses:
+        '200':
+          description: Data upload successful.
+        '400':
+          description: Invalid input, object invalid.
+        '401':
+          description: Authorization error.
+      tags:
+      - Crm Inbound
+components:
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+x-harvest:
+  source: https://developer.workspan.com/developer/apis/authentication-api?export=true&format=openapi+json&api-version=2022-04-01-preview
+  operations_source: https://developer.workspan.com/developer/apis/authentication-api/operations?api-version=2022-04-01-preview
+  harvested: '2026-07-21'
+  note: Assembled from WorkSpan's Azure APIM developer portal data API (export skeleton + published operations/schemas).

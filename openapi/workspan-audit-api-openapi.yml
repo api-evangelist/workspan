@@ -1,0 +1,65 @@
+openapi: 3.0.1
+info:
+  title: Authentication Actions Audit API
+  description: 'Implementation of [OAuth 2.0](https://tools.ietf.org/html/rfc6749  "Docs") with Client Credentials Grant type
+
+    '
+  version: '1.0'
+servers:
+- url: https://api-sandbox.workspan.com/oauth
+security:
+- {}
+- apiKeyHeader: []
+- apiKeyQuery: []
+tags:
+- name: Audit
+paths:
+  /{object_id}/audit:
+    patch:
+      operationId: audit_object
+      summary: Supply Audit information for a WorkSpan ID
+      description: Supply Audit information for a WorkSpan ID
+      parameters:
+      - name: object_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Object ID of object receiving audit information assigned by WorkSpan (long ID)
+      requestBody:
+        content:
+          application/json:
+            examples:
+              default:
+                value: "{\r\n  \"field_name\": \"partner_center.integration_status\",\r\n  \"integration_id\": \"WS-Integration_XYZabc123\",\r\n  \"external_id\": \"000owa24575\",\r\n  \"status_code\": \"CREATE_FAILED\",\r\n  \"message\": \"Successfully created Referral in Partner Center.\"\r\n}"
+      responses:
+        '200':
+          description: Audit update is successful
+          content:
+            application/json:
+              examples:
+                default:
+                  value: "{\r\n  \"object_id\": \"WS-Project_agpzfndzLWF.\",\r\n  \"field_name\": \"partner_center.integration_status\",\r\n  \"status_code\": \"LINKED\"\r\n}"
+        '400':
+          description: Invalid input.
+        '401':
+          description: Authorization Error
+        '404':
+          description: WorkSpan object not found
+      tags:
+      - Audit
+components:
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+x-harvest:
+  source: https://developer.workspan.com/developer/apis/authentication-api?export=true&format=openapi+json&api-version=2022-04-01-preview
+  operations_source: https://developer.workspan.com/developer/apis/authentication-api/operations?api-version=2022-04-01-preview
+  harvested: '2026-07-21'
+  note: Assembled from WorkSpan's Azure APIM developer portal data API (export skeleton + published operations/schemas).

@@ -1,0 +1,279 @@
+openapi: 3.0.1
+info:
+  title: Authentication Actions Users API
+  description: 'Implementation of [OAuth 2.0](https://tools.ietf.org/html/rfc6749  "Docs") with Client Credentials Grant type
+
+    '
+  version: '1.0'
+servers:
+- url: https://api-sandbox.workspan.com/oauth
+security:
+- {}
+- apiKeyHeader: []
+- apiKeyQuery: []
+tags:
+- name: Users
+paths:
+  /Users:
+    post:
+      operationId: createUser
+      summary: Create the user if user doesnt exist with the same email
+      description: Create User
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+        description: 'Format: bearer ${token}'
+      requestBody:
+        content:
+          application/json:
+            examples:
+              default:
+                value:
+                  schemas:
+                  - urn:ietf:params:scim:schemas:core:2.0:User
+                  - urn:ietf:params:scim:schemas:extension:enterprise:2.0:User
+                  userName: scim_user@test.com
+                  name:
+                    givenName: scim user
+                    familyName: scim family
+                  emails:
+                  - primary: true
+                    value: scim_user@test.com
+                    type: work
+                  displayName: scim_user_display_name
+                  meta:
+                    resourceType: User
+                  active: true
+                  urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
+                    department: Sales
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              examples:
+                default:
+                  value:
+                    schemas:
+                    - urn:ietf:params:scim:schemas:core:2.0:User
+                    - urn:ietf:params:scim:schemas:extension:enterprise:2.0:User
+                    userName: scim_user@test.com
+                    name:
+                      givenName: scim user
+                      familyName: scim family
+                    emails:
+                    - primary: true
+                      value: scim_user@test.com
+                      type: work
+                    displayName: scim_user_display_name
+                    meta:
+                      resourceType: User
+                    id: Ws-Person_workspan_generated_id
+                    active: true
+                    urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
+                      department: Sales
+        '400':
+          description: Bad Request
+        '401':
+          description: Authorization Error
+        '403':
+          description: permissions denied
+        '404':
+          description: WorkSpan object not found
+        '500':
+          description: Internal Server Error
+      tags:
+      - Users
+    get:
+      operationId: searchViaGet
+      summary: search or list users
+      description: search or list users
+      parameters:
+      - name: filter
+        in: query
+        required: false
+        schema:
+          type: string
+        description: only support 'userName' filter expressions for now
+      - name: startIndex
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: start index (1-based)
+      - name: count
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: page size
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+        description: 'Format: bearer ${token}'
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              examples:
+                default:
+                  value:
+                    Resources:
+                    - schemas:
+                      - urn:ietf:params:scim:schemas:core:2.0:User
+                      - urn:ietf:params:scim:schemas:extension:enterprise:2.0:User
+                      userName: scim_user@test.com
+                      meta:
+                        resourceType: User
+                      id: Ws-Person_workspan_generated_id
+                      active: true
+                      urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
+                        department: Sales
+                    schemas:
+                    - urn:ietf:params:scim:api:messages:2.0:ListResponse
+                    startIndex: 0
+                    totalResults: 0
+        '400':
+          description: Bad Request
+        '401':
+          description: Authorization Error
+        '403':
+          description: permissions denied
+        '404':
+          description: WorkSpan object not found
+        '500':
+          description: Internal Server Error
+      tags:
+      - Users
+  /Users/{user_id}:
+    get:
+      operationId: getUser
+      summary: Get the user based on the id
+      description: Get User
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: User id to Get
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+        description: 'Format: bearer ${token}'
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              examples:
+                default:
+                  value:
+                    schemas:
+                    - urn:ietf:params:scim:schemas:core:2.0:User
+                    - urn:ietf:params:scim:schemas:extension:enterprise:2.0:User
+                    userName: scim_user@test.com
+                    meta:
+                      resourceType: User
+                    id: Ws-Person_workspan_generated_id
+                    active: true
+                    urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
+                      department: Sales
+        '400':
+          description: Bad Request
+        '401':
+          description: Authorization Error
+        '403':
+          description: permissions denied
+        '404':
+          description: WorkSpan object not found
+        '500':
+          description: Internal Server Error
+      tags:
+      - Users
+    put:
+      operationId: updateUser
+      summary: Update/Suspend User if user with same id exist
+      description: Update User
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: User id to be updated
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+        description: 'Format: bearer ${token}'
+      requestBody:
+        content:
+          application/json:
+            examples:
+              default:
+                value:
+                  schemas:
+                  - urn:ietf:params:scim:schemas:core:2.0:User
+                  - urn:ietf:params:scim:schemas:extension:enterprise:2.0:User
+                  userName: scim_user@test.com
+                  meta:
+                    resourceType: User
+                  id: Ws-Person_workspan_generated_id
+                  active: false
+                  urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
+                    department: Sales
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              examples:
+                default:
+                  value:
+                    schemas:
+                    - urn:ietf:params:scim:schemas:core:2.0:User
+                    - urn:ietf:params:scim:schemas:extension:enterprise:2.0:User
+                    userName: scim_user@test.com
+                    meta:
+                      resourceType: User
+                    id: Ws-Person_workspan_generated_id
+                    active: false
+                    urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
+                      department: Sales
+        '400':
+          description: Bad Request
+        '401':
+          description: Authorization Error
+        '403':
+          description: permissions denied
+        '404':
+          description: WorkSpan object not found
+        '500':
+          description: Internal Server Error
+      tags:
+      - Users
+components:
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+x-harvest:
+  source: https://developer.workspan.com/developer/apis/authentication-api?export=true&format=openapi+json&api-version=2022-04-01-preview
+  operations_source: https://developer.workspan.com/developer/apis/authentication-api/operations?api-version=2022-04-01-preview
+  harvested: '2026-07-21'
+  note: Assembled from WorkSpan's Azure APIM developer portal data API (export skeleton + published operations/schemas).
