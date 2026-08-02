@@ -1,0 +1,306 @@
+openapi: 3.0.1
+info:
+  title: WorkSpan Marketplace API
+  description: 'Unified API for WorkSpan marketplace operations. This API provides endpoints for: (1) Creating and updating
+    marketplace offers for AWS, Azure, and Google Cloud, (2) Uploading marketplace usage data for AWS, Azure, or Google Cloud
+    marketplace integrations, (3) Retrieving usage upload status, and (4) Exporting report data with presigned read URLs for
+    EULA files.'
+  contact:
+    email: api-team@workspan.com
+  version: '1.0'
+servers:
+- url: https://api-sandbox.workspan.com/app/v1/marketplace
+paths:
+  /actions/{action_id}:
+    get:
+      operationId: getMarketplaceActionById
+      summary: Get marketplace action status
+      description: Returns the current status of a previously submitted marketplace action, identified by action_id. For GCP
+        actions, the status is synced live from the project's google_integration_status field on every call. For AWS actions,
+        status is updated by the changeset polling infrastructure. For Azure actions, status is updated by the job polling
+        infrastructure.
+      parameters:
+      - name: action_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The action_id returned from POST /actions.
+      responses:
+        '200':
+          description: Action status retrieved successfully.
+          content:
+            application/json:
+              examples:
+                default:
+                  value:
+                    action_id: WS-MarketplaceAction-550e8400-e29b-41d4-a716-446655440000
+                    object_id: offer-1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p
+                    object_type: ws-offer
+                    marketplace_type: aws
+                    action_type: withdraw
+                    status: IN_PROGRESS
+                    message: Withdrawal request in progress.
+        '400':
+          description: Bad Request - No action record found for the given action_id.
+        '401':
+          description: Authorization Error - Invalid or missing authentication token.
+        '500':
+          description: Internal Server Error
+  /usage/status:
+    get:
+      operationId: getMarketplaceUsageStatus
+      summary: Get marketplace usage upload status
+      description: Retrieves the status of marketplace usage upload by execution_id. Returns a list of projects associated
+        with the execution_id, including their workflow status, project name, external ID, and project ID.
+      parameters:
+      - name: execution_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The execution ID to search for. This is the execution ID returned from the usage upload endpoint.
+      responses:
+        '200':
+          description: Successfully retrieved usage upload status
+          content:
+            application/json:
+              examples:
+                default:
+                  value:
+                    execution_id: execution-id-123
+                    projects:
+                    - project_name: Usage Project Name 1
+                      status: Received
+                      external_id: usage-external-id-123
+                      project_id: ws_global_id_1
+                      error_message:
+                      - ErrorMessage: No active entitlement found for the combination of product 'my-product' and customer
+                          'customer-123'
+                        ErrorCode: USAGE-21
+        '400':
+          description: Bad Request - execution_id query parameter is required
+        '401':
+          description: Authorization Error - Invalid or missing authentication token
+        '403':
+          description: Permissions denied
+        '500':
+          description: Internal Server Error
+  /export_report:
+    post:
+      operationId: marketplace_report_export
+      summary: Get outbound export data
+      description: 'Returns real-time report data (paginated).
+
+        Good for small reports (<10K rows) from report having tag - marketplace:{marketplace_type}:{object_type}:{operation}:report.
+        Usable for bigger reports too with the risk of missing or ghost rows due to concurrent updates going in the same time.'
+      requestBody:
+        content:
+          application/json:
+            examples:
+              default:
+                value:
+                  operation: publish
+                  marketplace_type: google
+                  object_type: offer
+                  size: 100
+                  page: 0
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '401':
+          description: Authorization Error
+        '404':
+          description: WorkSpan object Not Found
+        '500':
+          description: Internal Server Error
+  /crm_inbound_v2:
+    post:
+      operationId: inbound_v2
+      summary: Load AWS Marketplace Authorization to WorkSpan
+      description: 'Load AWS marketplace authorization objects to WorkSpan. Creates or updates marketplace authorizations
+        with flexible pricing and payment configurations.
+
+
+        REQUEST MODEL: AwsMarketplaceAuthorizationInboundRequest
+
+
+        NESTED MODELS (in data payload):
+
+        - pricing_terms (array) → Dimension model
+
+        - payment_schedules (array) → PaymentScheduleTerms model
+
+
+        FILE UPLOADS (form fields):
+
+        - customer_eula_file (optional): Customer EULA document
+
+        - reseller_eula_file (optional): Reseller EULA document
+
+
+        DATA FORMAT: Send AwsMarketplaceAuthorizationInboundRequest as JSON in the ''data'' form field.'
+      parameters:
+      - name: integration_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Integration ID of CRM integration that is configured in WorkSpan App.
+      requestBody:
+        content:
+          multipart/form-data: {}
+      responses:
+        '200':
+          description: Data upload successful.
+        '400':
+          description: Invalid input, object invalid.
+        '401':
+          description: Authorization error.
+  /crm_inbound:
+    post:
+      operationId: inbound
+      summary: Load Object to WorkSpan
+      description: Load Object to WorkSpan. Data can be attached to the form data as JSON, and an agreement file can be attached
+        to form as a PDF/TXT file.
+      parameters:
+      - name: integration_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Integration ID of CRM integration that is configured in WorkSpan App.
+      requestBody:
+        content:
+          multipart/form-data: {}
+      responses:
+        '200':
+          description: Data upload successful.
+        '400':
+          description: Invalid input, object invalid.
+        '401':
+          description: Authorization error.
+  /actions:
+    post:
+      operationId: createMarketplaceAction
+      summary: Submit a marketplace action (e.g. withdraw offer or authorization)
+      description: 'Initiates an asynchronous marketplace action on a WorkSpan offer. The request is validated synchronously
+        — if all checks pass, an action_id is returned immediately with status IN_PROGRESS and the operation runs in the background.
+        Poll GET /actions/{action_id} for the final status.
+
+
+        Validation checks performed before the action is accepted (in order):
+
+        1. Application User must have the MARKETPLACE_ACTIONS security profile.
+
+        2. action_type must be ''withdraw''.
+
+        3. object_type must be ''ws-offer''.
+
+        4. marketplace_type must be ''aws'', ''azure'', or ''gcp''.
+
+        5. object_id must resolve to an existing WorkSpan offer belonging to the caller''s company.
+
+        6. No existing IN_PROGRESS action for the same object_id and action_type.'
+      requestBody:
+        content:
+          application/json:
+            examples:
+              default:
+                value:
+                  action_type: withdraw
+                  object_type: ws-offer
+                  marketplace_type: aws
+                  object_id: offer-1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p
+      responses:
+        '200':
+          description: Action accepted and running asynchronously. status is always IN_PROGRESS in this response. Use the
+            returned action_id to poll GET /actions/{action_id} for the final result.
+          content:
+            application/json:
+              examples:
+                default:
+                  value:
+                    action_id: WS-MarketplaceAction-550e8400-e29b-41d4-a716-446655440000
+                    object_id: offer-1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p
+                    object_type: ws-offer
+                    marketplace_type: aws
+                    action_type: withdraw
+                    status: IN_PROGRESS
+                    message: Withdrawal request in progress.
+        '400':
+          description: 'Bad Request. Possible reasons: missing required field, invalid action_type / object_type / marketplace_type,
+            object_id not found, access denied, or a duplicate IN_PROGRESS action already exists for this object.'
+        '401':
+          description: Authorization Error - Invalid or missing authentication token.
+        '403':
+          description: Forbidden - Application User does not have the MARKETPLACE_ACTIONS security profile.
+        '500':
+          description: Internal Server Error
+  /usage_upload:
+    post:
+      operationId: uploadMarketplaceUsage
+      summary: Upload marketplace usage data
+      description: Upload marketplace usage data for AWS, Azure, or Google Cloud marketplace integrations. Supports both JSON
+        payload and CSV file uploads. Data is processed in batches and returns execution IDs for tracking. Payload structure
+        varies by marketplace type - see definitions for AwsMarketplaceUsageUploadReq, AzureMarketplaceUsageUploadReq, or
+        GoogleMarketplaceUsageUploadReq.
+      parameters:
+      - name: integration_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: 'WorkSpan integration ID identifying the target marketplace integration. Example: WS-Integration_ag1zfm1jYS1hcmp1bi00chULEgtJbnRlZ3JhdGlvbhiR7viJAQw'
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+        description: 'Format: bearer ${token}'
+      requestBody:
+        content:
+          application/json:
+            examples:
+              default:
+                value:
+                - {}
+          multipart/form-data: {}
+      responses:
+        '200':
+          description: Successfully processed marketplace usage upload
+          content:
+            application/json:
+              examples:
+                default:
+                  value:
+                    usage_execution_id: req_abc123_xyz789
+        '400':
+          description: Bad Request - Invalid payload or missing required fields
+        '401':
+          description: Authorization Error - Invalid or missing authentication token
+        '403':
+          description: Permissions denied
+        '500':
+          description: Internal Server Error
+components:
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+security:
+- {}
+- apiKeyHeader: []
+- apiKeyQuery: []
+x-harvest:
+  source: https://developer.workspan.com/developer/apis/workspan-marketplace-object-inbound-api?export=true&format=openapi+json&api-version=2022-04-01-preview
+  operations_source: https://developer.workspan.com/developer/apis/workspan-marketplace-object-inbound-api/operations?api-version=2022-04-01-preview
+  harvested: '2026-07-21'
+  note: Assembled from WorkSpan's Azure APIM developer portal data API (export skeleton + published operations/schemas).

@@ -1,0 +1,16 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/ + probes of workspan.com hosts
+versioning:
+  scheme: uri-path
+  evidence: 'API base paths carry versions: users/v1, bulk/v1, event/v1, app/v1/*, dataproduct/v1, report/v1, api/scim/v2;
+    the marketplace API additionally exposes an inbound_v2 operation alongside inbound.'
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: No public deprecation policy found; no operations are marked deprecated in the published specs.
+sla:
+  url: null
+status_page: null
+status_page_note: status.workspan.com does not resolve; no public status page found.
+deprecated_operations: []

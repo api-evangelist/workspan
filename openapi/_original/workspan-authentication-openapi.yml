@@ -1,0 +1,83 @@
+openapi: 3.0.1
+info:
+  title: Authentication API
+  description: 'Implementation of [OAuth 2.0](https://tools.ietf.org/html/rfc6749  "Docs") with Client Credentials Grant type
+
+    '
+  version: '1.0'
+servers:
+- url: https://api-sandbox.workspan.com/oauth
+paths:
+  /token:
+    delete:
+      operationId: delete-token
+      summary: Invalidate access token
+      description: Invalidate access token
+      responses:
+        '200':
+          description: Empty body with 200 code
+        '403':
+          description: Access Token already invalidated or not found
+        '500':
+          description: Internal server error
+    post:
+      operationId: post-token
+      summary: Request Access Token
+      description: 'Partner makes a request to the token endpoint by adding the
+
+        following parameters describerd  below
+
+        '
+      parameters:
+      - name: x-ws-env
+        in: header
+        required: false
+        schema:
+          type: string
+        description: Use this for WorkSpan Sandbox environment e.g. ws-api-1.appspot.com
+      requestBody:
+        content:
+          application/json: {}
+      responses:
+        '200':
+          description: Authorization token (Bearer)
+          content:
+            application/json:
+              examples:
+                default:
+                  value: "{\r\n  \"access_token\": \"2YotnFZFEjr1zCsicMWpAA\",\r\n  \"token_type\": \"Bearer\",\r\n  \"expires_in\"\
+                    : 3600,\r\n  \"refresh_token\": \"FZFEicMWpA\"\r\n}"
+        '400':
+          description: As per RFC authorisation server responds with 400 in case of error
+          content:
+            application/json:
+              examples:
+                default:
+                  value: "{\r\n  \"error\": \"invalid_request\"\r\n}"
+  /authorize:
+    get:
+      operationId: get-authorize
+      summary: Request Authorization Code
+      description: Provide Authorization code (dummy)
+      responses:
+        '302':
+          description: Authorization code
+components:
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+security:
+- {}
+- apiKeyHeader: []
+- apiKeyQuery: []
+x-harvest:
+  source: https://developer.workspan.com/developer/apis/authentication-api?export=true&format=openapi+json&api-version=2022-04-01-preview
+  operations_source: https://developer.workspan.com/developer/apis/authentication-api/operations?api-version=2022-04-01-preview
+  harvested: '2026-07-21'
+  note: Assembled from WorkSpan's Azure APIM developer portal data API (export skeleton + published operations/schemas).

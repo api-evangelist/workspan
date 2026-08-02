@@ -1,0 +1,39 @@
+generated: '2026-07-21'
+method: derived
+spec_type: Webhooks
+source: openapi/workspan-events-openapi.yml (WorkSpan Events API, harvested from https://developer.workspan.com)
+note: 'WorkSpan publishes no AsyncAPI document, but the Events API is a full webhook subscription surface: register
+  a webhook subscriber, list published event types, and fetch event payload schemas.'
+delivery:
+  type: webhook
+  registration: API-managed (WebhookRegistration operation)
+management_operations:
+- operation: WebhookRegistration
+  summary: Register a webhook subscriber
+- operation: ListSubscribers
+  summary: List subscribers
+- operation: ReadSubscriber
+  summary: Read subscriber information
+- operation: DeleteSubscriber
+  summary: Delete a subscriber (unregister a webhook)
+- operation: GetEventList
+  summary: Get list of events
+- operation: GetEventSchema
+  summary: Get event schema
+- operation: GetObjectEventSchema
+  summary: Get object event schema
+- operation: GetIntegrationList
+  summary: Get list of integrations
+subscriber_shape:
+  fields:
+  - subscriber_id
+  - name
+  - objectids
+  - integration_id
+  - filters
+  - subscriber_type
+  subscriber_type: webhook
+  source: ReadSubscriber 200 example
+event_catalog:
+  discovery: GET /metadata/event (GetEventList) returns events[] with name + description
+  note: The concrete event list requires an authenticated call and is not published statically.

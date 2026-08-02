@@ -1,20 +1,301 @@
 aid: workspan
 name: WorkSpan
-description: WorkSpan is a company surfaced as a portfolio company of insight-partners and added to the
-  API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: WorkSpan is an ecosystem business management platform that helps companies run co-sell, marketplace,
+  and channel partnerships with cloud hyperscalers such as AWS, Microsoft, and Google Cloud. Its public APIs, published
+  on an Azure API Management developer portal, cover OAuth 2.0 authentication, co-sell actions and CRM opportunity
+  validation, bulk data loading, webhook event subscriptions, cloud marketplace offers and usage reporting, report
+  data access, and SCIM 2.0 user provisioning.
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://cdn.prod.website-files.com/6865a78843894cb2dbe5e6ad/69ce55e179374acfada1040a_workspan%20symbol.svg
 url: https://raw.githubusercontent.com/api-evangelist/workspan/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - insight-partners
-x-tier: stub
-x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
-- Company
-apis: []
+- Co-Sell
+- Partnerships
+- Ecosystem
+- Cloud Marketplaces
+- Sales
+- B2B
+- SaaS
+apis:
+- aid: workspan:workspan-actions-api
+  name: WorkSpan Actions API
+  description: The Actions API from WorkSpan — 2 operation(s) for actions.
+  humanURL: https://developer.workspan.com/api-details#api=authentication-api
+  baseURL: https://api-sandbox.workspan.com/oauth
+  tags:
+  - Actions
+  properties:
+  - type: OpenAPI
+    url: openapi/workspan-actions-api-openapi.yml
+- aid: workspan:workspan-audit-api
+  name: WorkSpan Audit API
+  description: The Audit API from WorkSpan — 1 operation(s) for audit.
+  humanURL: https://developer.workspan.com/api-details#api=authentication-api
+  baseURL: https://api-sandbox.workspan.com/oauth
+  tags:
+  - Audit
+  properties:
+  - type: OpenAPI
+    url: openapi/workspan-audit-api-openapi.yml
+- aid: workspan:workspan-authorize-api
+  name: WorkSpan Authorize API
+  description: The Authorize API from WorkSpan — 1 operation(s) for authorize.
+  humanURL: https://developer.workspan.com/api-details#api=authentication-api
+  baseURL: https://api-sandbox.workspan.com/oauth
+  tags:
+  - Authorize
+  properties:
+  - type: OpenAPI
+    url: openapi/workspan-authorize-api-openapi.yml
+- aid: workspan:workspan-bulkload-api
+  name: WorkSpan Bulkload API
+  description: The Bulkload API from WorkSpan — 2 operation(s) for bulkload.
+  humanURL: https://developer.workspan.com/api-details#api=authentication-api
+  baseURL: https://api-sandbox.workspan.com/oauth
+  tags:
+  - Bulkload
+  properties:
+  - type: OpenAPI
+    url: openapi/workspan-bulkload-api-openapi.yml
+- aid: workspan:workspan-bulkload-opportunity-api
+  name: WorkSpan Bulkload Opportunity API
+  description: The Bulkload Opportunity API from WorkSpan — 1 operation(s) for bulkload opportunity.
+  humanURL: https://developer.workspan.com/api-details#api=authentication-api
+  baseURL: https://api-sandbox.workspan.com/oauth
+  tags:
+  - Bulkload Opportunity
+  properties:
+  - type: OpenAPI
+    url: openapi/workspan-bulkload-opportunity-api-openapi.yml
+- aid: workspan:workspan-chart-data-api
+  name: WorkSpan Chart Data API
+  description: The Chart Data API from WorkSpan — 1 operation(s) for chart data.
+  humanURL: https://developer.workspan.com/api-details#api=authentication-api
+  baseURL: https://api-sandbox.workspan.com/oauth
+  tags:
+  - Chart Data
+  properties:
+  - type: OpenAPI
+    url: openapi/workspan-chart-data-api-openapi.yml
+- aid: workspan:workspan-chart-metadata-api
+  name: WorkSpan Chart Metadata API
+  description: The Chart Metadata API from WorkSpan — 1 operation(s) for chart metadata.
+  humanURL: https://developer.workspan.com/api-details#api=authentication-api
+  baseURL: https://api-sandbox.workspan.com/oauth
+  tags:
+  - Chart Metadata
+  properties:
+  - type: OpenAPI
+    url: openapi/workspan-chart-metadata-api-openapi.yml
+- aid: workspan:workspan-check-attribute-api
+  name: WorkSpan Check Attribute API
+  description: The Check Attribute API from WorkSpan — 1 operation(s) for check attribute.
+  humanURL: https://developer.workspan.com/api-details#api=authentication-api
+  baseURL: https://api-sandbox.workspan.com/oauth
+  tags:
+  - Check Attribute
+  properties:
+  - type: OpenAPI
+    url: openapi/workspan-check-attribute-api-openapi.yml
+- aid: workspan:workspan-cosell-api
+  name: WorkSpan Cosell API
+  description: The Cosell API from WorkSpan — 5 operation(s) for cosell.
+  humanURL: https://developer.workspan.com/api-details#api=authentication-api
+  baseURL: https://api-sandbox.workspan.com/oauth
+  tags:
+  - Cosell
+  properties:
+  - type: OpenAPI
+    url: openapi/workspan-cosell-api-openapi.yml
+- aid: workspan:workspan-crm-inbound-api
+  name: WorkSpan Crm Inbound API
+  description: The Crm Inbound API from WorkSpan — 1 operation(s) for crm inbound.
+  humanURL: https://developer.workspan.com/api-details#api=authentication-api
+  baseURL: https://api-sandbox.workspan.com/oauth
+  tags:
+  - Crm Inbound
+  properties:
+  - type: OpenAPI
+    url: openapi/workspan-crm-inbound-api-openapi.yml
+- aid: workspan:workspan-crm-inbound-v2-api
+  name: WorkSpan Crm Inbound V2 API
+  description: The Crm Inbound V2 API from WorkSpan — 1 operation(s) for crm inbound v2.
+  humanURL: https://developer.workspan.com/api-details#api=authentication-api
+  baseURL: https://api-sandbox.workspan.com/oauth
+  tags:
+  - Crm Inbound V2
+  properties:
+  - type: OpenAPI
+    url: openapi/workspan-crm-inbound-v2-api-openapi.yml
+- aid: workspan:workspan-data-api
+  name: WorkSpan Data API
+  description: The Data API from WorkSpan — 1 operation(s) for data.
+  humanURL: https://developer.workspan.com/api-details#api=authentication-api
+  baseURL: https://api-sandbox.workspan.com/oauth
+  tags:
+  - Data
+  properties:
+  - type: OpenAPI
+    url: openapi/workspan-data-api-openapi.yml
+- aid: workspan:workspan-data-schema-api
+  name: WorkSpan Data Schema API
+  description: The Data Schema API from WorkSpan — 1 operation(s) for data schema.
+  humanURL: https://developer.workspan.com/api-details#api=authentication-api
+  baseURL: https://api-sandbox.workspan.com/oauth
+  tags:
+  - Data Schema
+  properties:
+  - type: OpenAPI
+    url: openapi/workspan-data-schema-api-openapi.yml
+- aid: workspan:workspan-export-report-api
+  name: WorkSpan Export Report API
+  description: The Export Report API from WorkSpan — 1 operation(s) for export report.
+  humanURL: https://developer.workspan.com/api-details#api=authentication-api
+  baseURL: https://api-sandbox.workspan.com/oauth
+  tags:
+  - Export Report
+  properties:
+  - type: OpenAPI
+    url: openapi/workspan-export-report-api-openapi.yml
+- aid: workspan:workspan-external-id-api
+  name: WorkSpan External Id API
+  description: The External Id API from WorkSpan — 1 operation(s) for external id.
+  humanURL: https://developer.workspan.com/api-details#api=authentication-api
+  baseURL: https://api-sandbox.workspan.com/oauth
+  tags:
+  - External Id
+  properties:
+  - type: OpenAPI
+    url: openapi/workspan-external-id-api-openapi.yml
+- aid: workspan:workspan-list-api
+  name: WorkSpan List API
+  description: The List API from WorkSpan — 1 operation(s) for list.
+  humanURL: https://developer.workspan.com/api-details#api=authentication-api
+  baseURL: https://api-sandbox.workspan.com/oauth
+  tags:
+  - List
+  properties:
+  - type: OpenAPI
+    url: openapi/workspan-list-api-openapi.yml
+- aid: workspan:workspan-lists-api
+  name: WorkSpan Lists API
+  description: The Lists API from WorkSpan — 1 operation(s) for lists.
+  humanURL: https://developer.workspan.com/api-details#api=authentication-api
+  baseURL: https://api-sandbox.workspan.com/oauth
+  tags:
+  - Lists
+  properties:
+  - type: OpenAPI
+    url: openapi/workspan-lists-api-openapi.yml
+- aid: workspan:workspan-metadata-api
+  name: WorkSpan Metadata API
+  description: The Metadata API from WorkSpan — 6 operation(s) for metadata.
+  humanURL: https://developer.workspan.com/api-details#api=authentication-api
+  baseURL: https://api-sandbox.workspan.com/oauth
+  tags:
+  - Metadata
+  properties:
+  - type: OpenAPI
+    url: openapi/workspan-metadata-api-openapi.yml
+- aid: workspan:workspan-status-api
+  name: WorkSpan Status API
+  description: The Status API from WorkSpan — 1 operation(s) for status.
+  humanURL: https://developer.workspan.com/api-details#api=authentication-api
+  baseURL: https://api-sandbox.workspan.com/oauth
+  tags:
+  - Status
+  properties:
+  - type: OpenAPI
+    url: openapi/workspan-status-api-openapi.yml
+- aid: workspan:workspan-subscriber-api
+  name: WorkSpan Subscriber API
+  description: The Subscriber API from WorkSpan — 2 operation(s) for subscriber.
+  humanURL: https://developer.workspan.com/api-details#api=authentication-api
+  baseURL: https://api-sandbox.workspan.com/oauth
+  tags:
+  - Subscriber
+  properties:
+  - type: OpenAPI
+    url: openapi/workspan-subscriber-api-openapi.yml
+- aid: workspan:workspan-token-api
+  name: WorkSpan Token API
+  description: The Token API from WorkSpan — 1 operation(s) for token.
+  humanURL: https://developer.workspan.com/api-details#api=authentication-api
+  baseURL: https://api-sandbox.workspan.com/oauth
+  tags:
+  - Token
+  properties:
+  - type: OpenAPI
+    url: openapi/workspan-token-api-openapi.yml
+- aid: workspan:workspan-upload-partner-account-api
+  name: WorkSpan Upload Partner Account API
+  description: >-
+    The Upload Partner Account API from WorkSpan — 1 operation(s) for upload partner account.
+  humanURL: https://developer.workspan.com/api-details#api=authentication-api
+  baseURL: https://api-sandbox.workspan.com/oauth
+  tags:
+  - Upload Partner Account
+  properties:
+  - type: OpenAPI
+    url: openapi/workspan-upload-partner-account-api-openapi.yml
+- aid: workspan:workspan-usage-api
+  name: WorkSpan Usage API
+  description: The Usage API from WorkSpan — 1 operation(s) for usage.
+  humanURL: https://developer.workspan.com/api-details#api=authentication-api
+  baseURL: https://api-sandbox.workspan.com/oauth
+  tags:
+  - Usage
+  properties:
+  - type: OpenAPI
+    url: openapi/workspan-usage-api-openapi.yml
+- aid: workspan:workspan-usage-upload-api
+  name: WorkSpan Usage Upload API
+  description: The Usage Upload API from WorkSpan — 1 operation(s) for usage upload.
+  humanURL: https://developer.workspan.com/api-details#api=authentication-api
+  baseURL: https://api-sandbox.workspan.com/oauth
+  tags:
+  - Usage Upload
+  properties:
+  - type: OpenAPI
+    url: openapi/workspan-usage-upload-api-openapi.yml
+- aid: workspan:workspan-users-api
+  name: WorkSpan Users API
+  description: The Users API from WorkSpan — 2 operation(s) for users.
+  humanURL: https://developer.workspan.com/api-details#api=authentication-api
+  baseURL: https://api-sandbox.workspan.com/oauth
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/workspan-users-api-openapi.yml
+- aid: workspan:workspan-view-api
+  name: WorkSpan View API
+  description: The View API from WorkSpan — 4 operation(s) for view.
+  humanURL: https://developer.workspan.com/api-details#api=authentication-api
+  baseURL: https://api-sandbox.workspan.com/oauth
+  tags:
+  - View
+  properties:
+  - type: OpenAPI
+    url: openapi/workspan-view-api-openapi.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -23,3 +304,62 @@ maintainers:
 common:
 - type: Website
   url: https://www.workspan.com/
+- type: DeveloperPortal
+  url: https://developer.workspan.com/
+- type: APIReference
+  url: https://developer.workspan.com/apis
+- type: Documentation
+  url: https://support.workspan.com/hc/en-us
+- type: GettingStarted
+  url: https://support.workspan.com/hc/en-us/categories/360001518393-Getting-Started-with-WorkSpan
+- type: Support
+  url: https://support.workspan.com/hc/en-us
+- type: Blog
+  url: https://www.workspan.com/blog
+- type: SignUp
+  url: https://developer.workspan.com/signup
+- type: Login
+  url: https://developer.workspan.com/signin
+- type: TermsOfService
+  url: https://www.workspan.com/legal/user-agreement
+- type: PrivacyPolicy
+  url: https://www.workspan.com/legal/privacy-policy
+- type: GitHubOrganization
+  url: https://github.com/workspaninc
+- type: ContactUs
+  url: https://www.workspan.com/company/contact
+- type: Authentication
+  url: authentication/workspan-authentication.yml
+- type: DomainSecurity
+  url: security/workspan-domain-security.yml
+- type: TrustCenter
+  url: security/workspan-trust-center.yml
+- type: Compliance
+  url: https://www.workspan.com/platform/security
+- type: Conformance
+  url: conformance/workspan-conformance.yml
+- type: WellKnown
+  url: well-known/workspan-well-known.yml
+- type: MCPServer
+  url: mcp/workspan-mcp.yml
+- type: LLMsTxt
+  url: llms/workspan-llms.txt
+- type: ErrorCatalog
+  url: errors/workspan-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/workspan-lifecycle.yml
+- type: Sandbox
+  url: sandbox/workspan-sandbox.yml
+- type: Conventions
+  url: conventions/workspan-conventions.yml
+- type: DataModel
+  url: data-model/workspan-data-model.yml
+- type: Webhooks
+  url: asyncapi/workspan-webhooks.yml
+- type: AgentSkill
+  url: skills/_index.yml
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 39
+  pass: local-v1

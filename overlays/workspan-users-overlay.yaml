@@ -1,0 +1,21 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for WorkSpan Users API
+  version: 1.0.0
+extends: openapi/workspan-users-openapi.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist:
+      aid: workspan
+      harvested: '2026-07-21'
+      source: https://developer.workspan.com/api-details#api=<apim-id> (assembled from the APIM developer data API)
+      tags:
+      - Users
+    contact:
+      name: WorkSpan API Team
+      email: api-team@workspan.com
+- target: $.externalDocs
+  update:
+    description: WorkSpan Developer Portal
+    url: https://developer.workspan.com/apis

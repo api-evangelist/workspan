@@ -1,0 +1,94 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/ (paths, parameters, request/response examples)
+entities:
+- name: Opportunity
+  id_field: opportunity_project_id
+  id_prefix: WS-
+  apis:
+  - openapi/workspan-co-sell-openapi.yml
+  - openapi/workspan-bulk-openapi.yml
+- name: Referral
+  id_field: referral_id
+  apis:
+  - openapi/workspan-co-sell-openapi.yml
+- name: Partner
+  id_field: partner_project_id
+  id_prefix: WS-
+  apis:
+  - openapi/workspan-co-sell-openapi.yml
+- name: WorkSpanObject
+  id_field: external_id
+  apis:
+  - openapi/workspan-object-openapi.yml
+  note: 'Generic object surface: update/read external ids, audit trail.'
+- name: Subscriber
+  id_field: subscriber_id
+  apis:
+  - openapi/workspan-events-openapi.yml
+  note: 'Webhook subscription (subscriber_type: webhook).'
+- name: Event
+  apis:
+  - openapi/workspan-events-openapi.yml
+- name: Integration
+  id_field: integration_id
+  apis:
+  - openapi/workspan-events-openapi.yml
+  - openapi/workspan-bulk-openapi.yml
+- name: Company
+  apis:
+  - openapi/workspan-company-openapi.yml
+- name: MarketplaceOffer
+  apis:
+  - openapi/workspan-marketplace-openapi.yml
+  note: AWS / Azure / Google Cloud marketplace offers.
+- name: MarketplaceUsage
+  apis:
+  - openapi/workspan-marketplace-openapi.yml
+- name: Report
+  id_field: reportId
+  apis:
+  - openapi/workspan-report-openapi.yml
+- name: ReportView
+  id_field: viewId
+  apis:
+  - openapi/workspan-report-openapi.yml
+- name: User
+  id_field: user_id
+  apis:
+  - openapi/workspan-scim-openapi.yml
+  - openapi/workspan-users-openapi.yml
+- name: PartnerAccount
+  apis:
+  - openapi/workspan-partner-account-load-openapi.yml
+relationships:
+- from: Opportunity
+  to: Partner
+  type: has_many
+  via: partner_project_id
+  evidence: co-sell invite_aws_partner action payload links opportunity_project_id to partner_project_id
+- from: Opportunity
+  to: Referral
+  type: has_many
+  via: referral_id
+  evidence: co-sell action payload carries referral_id
+- from: Subscriber
+  to: WorkSpanObject
+  type: has_many
+  via: objectids
+  evidence: 'subscriber body: objectids[]'
+- from: Subscriber
+  to: Integration
+  type: belongs_to
+  via: integration_id
+  evidence: 'subscriber body: integration_id'
+- from: ReportView
+  to: Report
+  type: belongs_to
+  via: reportId
+  evidence: 'report API: /view/{reportId}/prepare_export'
+- from: Event
+  to: WorkSpanObject
+  type: belongs_to
+  via: object event schema
+  evidence: GetObjectEventSchema operation

@@ -1,0 +1,39 @@
+# WorkSpan
+
+> WorkSpan is an ecosystem business management platform for co-selling with cloud hyperscalers and channel partners. Its public APIs — published on an Azure API Management developer portal at developer.workspan.com — cover authentication (OAuth 2.0 client credentials), co-sell actions, bulk data loading, webhook event subscriptions, cloud marketplace offers and usage, reporting, and SCIM 2.0 user provisioning. Access uses a bearer token from the token endpoint plus an Ocp-Apim-Subscription-Key subscription key against the api-sandbox.workspan.com gateway.
+
+## APIs
+
+- [Authentication API](https://developer.workspan.com/apis): OAuth 2.0 (RFC 6749) client-credentials token endpoint. Base URL: https://api-sandbox.workspan.com/oauth
+- [Co-Sell API](https://developer.workspan.com/apis): Co-sell actions with hyperscaler partners (invite AWS partners, validate CRM opportunities). Base URL: https://api-sandbox.workspan.com
+- [SCIM API](https://developer.workspan.com/apis): SCIM 2.0 user provisioning. Base URL: https://api-sandbox.workspan.com/api/scim/v2
+- [Users API](https://developer.workspan.com/apis): User attribute checks. Base URL: https://api-sandbox.workspan.com/users/v1
+- [WorkSpan Bulk API](https://developer.workspan.com/apis): Bulk load objects (JSON/CSV/XLSX) into WorkSpan. Base URL: https://api-sandbox.workspan.com/bulk/v1
+- [workspan Company API](https://developer.workspan.com/apis): Company-related data. Base URL: https://api-sandbox.workspan.com/app/v1/company
+- [WorkSpan Events API](https://developer.workspan.com/apis): Webhook subscriptions to WorkSpan events. Base URL: https://api-sandbox.workspan.com/event/v1
+- [WorkSpan Marketplace API](https://developer.workspan.com/apis): AWS / Azure / Google Cloud marketplace offers, usage uploads, report export. Base URL: https://api-sandbox.workspan.com/app/v1/marketplace
+- [WorkSpan Object API](https://developer.workspan.com/apis): External-id operations and audit on WorkSpan objects. Base URL: https://api-sandbox.workspan.com/app/v1/object
+- [WorkSpan Partner Account Load API](https://developer.workspan.com/apis): Partner account data loading. Base URL: https://api-sandbox.workspan.com/dataproduct/v1
+- [WorkSpan Report API](https://developer.workspan.com/apis): Report data, chart data, views, and exports. Base URL: https://api-sandbox.workspan.com/report/v1
+
+## Specs
+
+- [Authentication API OpenAPI](https://raw.githubusercontent.com/api-evangelist/workspan/refs/heads/main/openapi/workspan-authentication-openapi.yml)
+- [Co-Sell API OpenAPI](https://raw.githubusercontent.com/api-evangelist/workspan/refs/heads/main/openapi/workspan-co-sell-openapi.yml)
+- [SCIM API OpenAPI](https://raw.githubusercontent.com/api-evangelist/workspan/refs/heads/main/openapi/workspan-scim-openapi.yml)
+- [Users API OpenAPI](https://raw.githubusercontent.com/api-evangelist/workspan/refs/heads/main/openapi/workspan-users-openapi.yml)
+- [WorkSpan Bulk API OpenAPI](https://raw.githubusercontent.com/api-evangelist/workspan/refs/heads/main/openapi/workspan-bulk-openapi.yml)
+- [workspan Company API OpenAPI](https://raw.githubusercontent.com/api-evangelist/workspan/refs/heads/main/openapi/workspan-company-openapi.yml)
+- [WorkSpan Events API OpenAPI](https://raw.githubusercontent.com/api-evangelist/workspan/refs/heads/main/openapi/workspan-events-openapi.yml)
+- [WorkSpan Marketplace API OpenAPI](https://raw.githubusercontent.com/api-evangelist/workspan/refs/heads/main/openapi/workspan-marketplace-openapi.yml)
+- [WorkSpan Object API OpenAPI](https://raw.githubusercontent.com/api-evangelist/workspan/refs/heads/main/openapi/workspan-object-openapi.yml)
+- [WorkSpan Partner Account Load API OpenAPI](https://raw.githubusercontent.com/api-evangelist/workspan/refs/heads/main/openapi/workspan-partner-account-load-openapi.yml)
+- [WorkSpan Report API OpenAPI](https://raw.githubusercontent.com/api-evangelist/workspan/refs/heads/main/openapi/workspan-report-openapi.yml)
+
+## Docs
+
+- [Developer Portal](https://developer.workspan.com/)
+- [API Catalog](https://developer.workspan.com/apis)
+- [Sign up for API access](https://developer.workspan.com/signup)
+- [Product Documentation](https://support.workspan.com/hc/en-us)
+- [Security at WorkSpan](https://www.workspan.com/platform/security)

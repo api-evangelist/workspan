@@ -1,0 +1,24 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/ + https://www.workspan.com/platform/security
+standards:
+- id: oauth2
+  conforms: true
+  evidence: Authentication API is documented as an implementation of OAuth 2.0 (RFC 6749) with the Client Credentials
+    grant; token/authorize endpoints published.
+- id: scim-2.0
+  conforms: true
+  evidence: SCIM API described as "SCIM V2 API implemented by WorkSpan"; /Users resource with startIndex/count/filter
+    parameters at api/scim/v2.
+- id: oidc
+  conforms: false
+  evidence: No openid-configuration published (404 on all hosts).
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Error responses are plain JSON, not application/problem+json.
+- id: soc2
+  conforms: true
+  evidence: https://www.workspan.com/platform/security states WorkSpan is "Fully SOC2 and GDPR compliant".
+- id: gdpr
+  conforms: true
+  evidence: https://www.workspan.com/platform/security states WorkSpan is "Fully SOC2 and GDPR compliant".

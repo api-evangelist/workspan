@@ -1,0 +1,44 @@
+openapi: 3.0.1
+info:
+  title: workspan Company API
+  description: API for managing company-related data.
+  version: '1.0'
+servers:
+- url: https://api-sandbox.workspan.com/app/v1/company
+paths:
+  /lists/aws_solutions/items:
+    get:
+      operationId: get-lists-aws_solutions-items
+      summary: Get AWS Solutions List
+      description: Returns a list of AWS solutions with their IDs and names.
+      responses:
+        '200':
+          description: A JSON object containing the list name and items.
+          content:
+            application/json:
+              examples:
+                default:
+                  value:
+                    list_name: aws_solutions
+                    items:
+                    - id: S-1234
+                      name: Solution One
+components:
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+security:
+- {}
+- apiKeyHeader: []
+- apiKeyQuery: []
+x-harvest:
+  source: https://developer.workspan.com/developer/apis/workspan-company-api?export=true&format=openapi+json&api-version=2022-04-01-preview
+  operations_source: https://developer.workspan.com/developer/apis/workspan-company-api/operations?api-version=2022-04-01-preview
+  harvested: '2026-07-21'
+  note: Assembled from WorkSpan's Azure APIM developer portal data API (export skeleton + published operations/schemas).

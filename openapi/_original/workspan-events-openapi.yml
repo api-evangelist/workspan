@@ -1,0 +1,197 @@
+openapi: 3.0.1
+info:
+  title: WorkSpan Events API
+  description: 'Subscribe to events '
+  version: '1.0'
+servers:
+- url: https://api-sandbox.workspan.com/event/v1
+paths:
+  /subscriber/{subscriber_id}:
+    delete:
+      operationId: DeleteSubscriber
+      summary: Delete a subscriber (unregister a webhook)
+      description: Delete a subscriber (unregister a webhook)
+      parameters:
+      - name: subscriber_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: ID of the subscriber that needs to be deleted
+      responses:
+        '200':
+          description: successful operation
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: subscriber not found
+    get:
+      operationId: ReadSubscriber
+      summary: Read subscriber information
+      description: Read details of subscription
+      parameters:
+      - name: subscriber_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: subscriber id assigened by WorkSpan
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              examples:
+                default:
+                  value: "{\r\n  \"subscriber_id\": \"string\",\r\n  \"name\": \"string\",\r\n  \"objectids\": [\r\n    \"\
+                    string\"\r\n  ],\r\n  \"integration_id\": \"string\",\r\n  \"filters\": \"string\",\r\n  \"subscriber_type\"\
+                    : \"webhook\"\r\n}"
+        '400':
+          description: API Error
+        '404':
+          description: Subscriber not found
+  /metadata/event:
+    get:
+      operationId: GetEventList
+      summary: Get list of events
+      description: Get list of events
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              examples:
+                default:
+                  value: "{\r\n  \"events\": [\r\n    {\r\n      \"name\": \"string\",\r\n      \"description\": \"string\"\
+                    \r\n    }\r\n  ]\r\n}"
+        '400':
+          description: API Error
+        '404':
+          description: event not defined
+  /metadata/integration:
+    get:
+      operationId: GetIntegrationList
+      summary: Get list of integrations
+      description: Get list of integrations
+      responses:
+        '200':
+          description: Successful in listing integrations
+          content:
+            application/json:
+              examples:
+                default:
+                  value: "{\r\n  \"integrations\": [\r\n    {\r\n      \"integration_id\": \"string\",\r\n      \"integration_type\"\
+                    : \"string\",\r\n      \"description\": \"string\",\r\n      \"name\": \"string\"\r\n    }\r\n  ]\r\n}"
+        '400':
+          description: API Error
+        '404':
+          description: integration not defined
+  /metadata/event/{event}:
+    get:
+      operationId: GetEventSchema
+      summary: Get schema of event
+      description: Get schema of event
+      parameters:
+      - name: event
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Name of event
+      - name: x-ws-env
+        in: header
+        required: false
+        schema:
+          type: string
+        description: Use only for WorkSpan Sandbox Environment
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              examples:
+                default:
+                  value: '{}'
+        '400':
+          description: API Error
+        '404':
+          description: event not defined
+  /metadata/integration/{integration_id}:
+    get:
+      operationId: GetObjectEventSchema
+      summary: Get schema of object event
+      description: Get schema of object event
+      parameters:
+      - name: integration_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Integration Id of Object Event Integration
+      responses:
+        '200':
+          description: Returns Integration Schema
+          content:
+            application/json:
+              examples:
+                default:
+                  value: '{}'
+        '400':
+          description: API Error
+        '404':
+          description: integration not defined
+  /subscriber:
+    get:
+      operationId: ListSubscribers
+      summary: List subscribers
+      description: List Subscribers
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              examples:
+                default:
+                  value: "{\r\n  \"items\": [\r\n    {\r\n      \"subscriber_id\": \"string\",\r\n      \"name\": \"string\"\
+                    ,\r\n      \"objectids\": [\r\n        \"string\"\r\n      ],\r\n      \"integration_id\": \"string\"\
+                    ,\r\n      \"filters\": \"string\",\r\n      \"subscriber_type\": \"webhook\"\r\n    }\r\n  ]\r\n}"
+        '400':
+          description: API Error
+        '404':
+          description: Subscriber not found
+    post:
+      operationId: WebhookRegistration
+      summary: 'Webhook: subscribe to object update notification'
+      description: 'Webhook registration: Subscribe to object update notification'
+      requestBody:
+        content:
+          application/json: {}
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              examples:
+                default:
+                  value: "{\r\n  \"subscriber_id\": \"string\"\r\n}"
+        '400':
+          description: Error when subscribing to event via webhook
+components:
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+security:
+- {}
+- apiKeyHeader: []
+- apiKeyQuery: []
+x-harvest:
+  source: https://developer.workspan.com/developer/apis/workspan-events-api?export=true&format=openapi+json&api-version=2022-04-01-preview
+  operations_source: https://developer.workspan.com/developer/apis/workspan-events-api/operations?api-version=2022-04-01-preview
+  harvested: '2026-07-21'
+  note: Assembled from WorkSpan's Azure APIM developer portal data API (export skeleton + published operations/schemas).

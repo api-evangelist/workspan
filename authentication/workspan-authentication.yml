@@ -1,0 +1,62 @@
+generated: '2026-07-21'
+method: searched
+source: openapi/workspan-authentication-openapi.yml, openapi/workspan-bulk-openapi.yml, openapi/workspan-co-sell-openapi.yml,
+  openapi/workspan-company-openapi.yml, openapi/workspan-events-openapi.yml, openapi/workspan-marketplace-openapi.yml,
+  openapi/workspan-object-openapi.yml, openapi/workspan-partner-account-load-openapi.yml, openapi/workspan-report-openapi.yml,
+  openapi/workspan-scim-openapi.yml, openapi/workspan-users-openapi.yml
+summary:
+  types:
+  - oauth2
+  - apiKey
+  api_key_in:
+  - header
+  - query
+  oauth2_flows:
+  - clientCredentials
+schemes:
+- name: OAuth2ClientCredentials
+  type: oauth2
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api-sandbox.workspan.com/oauth/token
+  description: Documented as "Implementation of OAuth 2.0 (RFC 6749) with Client Credentials Grant type". POST /token
+    returns access_token (Bearer, expires_in 3600) + refresh_token; DELETE /token invalidates it. The x-ws-env header
+    selects the sandbox environment.
+  sources:
+  - openapi/workspan-authentication-openapi.yml
+  - https://developer.workspan.com/api-details#api=authentication-api
+- name: apiKeyHeader
+  type: apiKey
+  in: header
+  parameter: Ocp-Apim-Subscription-Key
+  sources:
+  - openapi/workspan-authentication-openapi.yml
+  - openapi/workspan-bulk-openapi.yml
+  - openapi/workspan-co-sell-openapi.yml
+  - openapi/workspan-company-openapi.yml
+  - openapi/workspan-events-openapi.yml
+  - openapi/workspan-marketplace-openapi.yml
+  - openapi/workspan-object-openapi.yml
+  - openapi/workspan-partner-account-load-openapi.yml
+  - openapi/workspan-report-openapi.yml
+  - openapi/workspan-scim-openapi.yml
+  - openapi/workspan-users-openapi.yml
+- name: apiKeyQuery
+  type: apiKey
+  in: query
+  parameter: subscription-key
+  sources:
+  - openapi/workspan-authentication-openapi.yml
+  - openapi/workspan-bulk-openapi.yml
+  - openapi/workspan-co-sell-openapi.yml
+  - openapi/workspan-company-openapi.yml
+  - openapi/workspan-events-openapi.yml
+  - openapi/workspan-marketplace-openapi.yml
+  - openapi/workspan-object-openapi.yml
+  - openapi/workspan-partner-account-load-openapi.yml
+  - openapi/workspan-report-openapi.yml
+  - openapi/workspan-scim-openapi.yml
+  - openapi/workspan-users-openapi.yml
+docs: https://developer.workspan.com/api-details#api=authentication-api
+note: All gateway calls additionally carry the Azure APIM subscription key (Ocp-Apim-Subscription-Key header or
+  subscription-key query parameter).

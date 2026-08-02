@@ -1,0 +1,78 @@
+openapi: 3.0.1
+info:
+  title: Users API
+  description: API for user attributes check
+  contact:
+    email: api-team@workspan.com
+  version: '1.0'
+servers:
+- url: https://api-sandbox.workspan.com/users/v1
+paths:
+  /check-attribute:
+    post:
+      operationId: check-attribute
+      summary: Check user attribute values
+      description: Checks user attribute values for the given user.
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+        description: 'Format: bearer ${token}'
+      requestBody:
+        content:
+          application/json:
+            examples:
+              default:
+                value:
+                  email: string
+                  namespace: 0
+                  filter_value:
+                    attribute: string
+                    value:
+                    - string
+      responses:
+        '201':
+          description: Result
+          content:
+            application/json:
+              examples:
+                default:
+                  value:
+                    email: string
+                    namespace: 0
+                    filter_value:
+                      data:
+                        attribute: string
+                        value:
+                        - string
+        '400':
+          description: Bad Request
+        '401':
+          description: Authorization Error
+        '403':
+          description: Access denied
+        '404':
+          description: WorkSpan object not found
+        '500':
+          description: Internal Server Error
+components:
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+security:
+- {}
+- apiKeyHeader: []
+- apiKeyQuery: []
+x-harvest:
+  source: https://developer.workspan.com/developer/apis/users-api?export=true&format=openapi+json&api-version=2022-04-01-preview
+  operations_source: https://developer.workspan.com/developer/apis/users-api/operations?api-version=2022-04-01-preview
+  harvested: '2026-07-21'
+  note: Assembled from WorkSpan's Azure APIM developer portal data API (export skeleton + published operations/schemas).

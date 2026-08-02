@@ -1,0 +1,110 @@
+generated: '2026-07-21'
+method: derived
+format: json
+source: openapi/ 4xx/5xx responses (11 specs harvested from developer.workspan.com)
+note: 'WorkSpan does not use RFC 9457 application/problem+json; errors are plain JSON. The OAuth token endpoint
+  returns RFC 6749 error bodies (e.g. {"error": "invalid_request"}).'
+problems:
+- status: 400
+  title: Bad request
+  documented_descriptions:
+  - API Error
+  - As per RFC authorisation server responds with 400 in case of error
+  - Bad Request
+  - Bad Request - Invalid payload or missing required fields
+  - Bad Request - No action record found for the given action_id.
+  - Bad Request - execution_id query parameter is required
+  - 'Bad Request. Possible reasons: missing required field, invalid action_type / object_type / marketplace_type,
+    object_id not found, access denied, or a duplicate IN_PROGRESS action already exists for this object.'
+  - Error when subscribing to event via webhook
+  occurrences: 42
+  sample_operations:
+  - openapi/workspan-authentication-openapi.yml#post-token
+  - openapi/workspan-bulk-openapi.yml#bulkload
+  - openapi/workspan-bulk-openapi.yml#bulkload_opportunities
+  - openapi/workspan-bulk-openapi.yml#upload_url
+  - openapi/workspan-bulk-openapi.yml#status
+- status: 401
+  title: Unauthorized
+  documented_descriptions:
+  - Authorization Error
+  - Authorization Error - Invalid or missing authentication token
+  - Authorization Error - Invalid or missing authentication token.
+  - Authorization error.
+  occurrences: 34
+  sample_operations:
+  - openapi/workspan-bulk-openapi.yml#bulkload
+  - openapi/workspan-bulk-openapi.yml#bulkload_opportunities
+  - openapi/workspan-bulk-openapi.yml#upload_url
+  - openapi/workspan-bulk-openapi.yml#status
+  - openapi/workspan-co-sell-openapi.yml#co-sell-action
+- status: 403
+  title: Forbidden
+  documented_descriptions:
+  - Access Token already invalidated or not found
+  - Access denied
+  - Forbidden - Application User does not have the MARKETPLACE_ACTIONS security profile.
+  - Permissions denied
+  - permissions denied
+  occurrences: 14
+  sample_operations:
+  - openapi/workspan-authentication-openapi.yml#delete-token
+  - openapi/workspan-co-sell-openapi.yml#co-sell-action
+  - openapi/workspan-co-sell-openapi.yml#co-sell-count-aws-partner
+  - openapi/workspan-co-sell-openapi.yml#co-sell-list-aws-partner
+  - openapi/workspan-co-sell-openapi.yml#cosell-opportunity-crm-validate
+- status: 404
+  title: Not found
+  documented_descriptions:
+  - Subscriber not found
+  - WorkSpan object Not Found
+  - WorkSpan object not found
+  - event not defined
+  - integration not defined
+  - integration_id not found
+  - integration_id or execution_id not found
+  - subscriber not found
+  occurrences: 32
+  sample_operations:
+  - openapi/workspan-bulk-openapi.yml#upload_url
+  - openapi/workspan-bulk-openapi.yml#status
+  - openapi/workspan-co-sell-openapi.yml#co-sell-action
+  - openapi/workspan-co-sell-openapi.yml#co-sell-count-aws-partner
+  - openapi/workspan-co-sell-openapi.yml#co-sell-list-aws-partner
+- status: 409
+  title: Conflict
+  documented_descriptions: []
+  occurrences: 3
+  sample_operations:
+  - openapi/workspan-co-sell-openapi.yml#co-sell-action
+  - openapi/workspan-co-sell-openapi.yml#co-sell-count-aws-partner
+  - openapi/workspan-co-sell-openapi.yml#co-sell-list-aws-partner
+- status: 429
+  title: Too many requests
+  documented_descriptions: []
+  occurrences: 3
+  sample_operations:
+  - openapi/workspan-co-sell-openapi.yml#co-sell-action
+  - openapi/workspan-co-sell-openapi.yml#co-sell-count-aws-partner
+  - openapi/workspan-co-sell-openapi.yml#co-sell-list-aws-partner
+- status: 500
+  title: Internal server error
+  documented_descriptions:
+  - Internal Server Error
+  - Internal server error
+  occurrences: 27
+  sample_operations:
+  - openapi/workspan-authentication-openapi.yml#delete-token
+  - openapi/workspan-co-sell-openapi.yml#co-sell-action
+  - openapi/workspan-co-sell-openapi.yml#co-sell-count-aws-partner
+  - openapi/workspan-co-sell-openapi.yml#co-sell-list-aws-partner
+  - openapi/workspan-co-sell-openapi.yml#cosell-opportunity-crm-validate
+- status: 503
+  title: Service unavailable
+  documented_descriptions: []
+  occurrences: 4
+  sample_operations:
+  - openapi/workspan-co-sell-openapi.yml#co-sell-action
+  - openapi/workspan-co-sell-openapi.yml#co-sell-count-aws-partner
+  - openapi/workspan-co-sell-openapi.yml#co-sell-list-aws-partner
+  - openapi/workspan-co-sell-openapi.yml#co-sell-picklist

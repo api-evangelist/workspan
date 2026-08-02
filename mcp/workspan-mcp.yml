@@ -1,0 +1,166 @@
+generated: '2026-07-21'
+method: derived
+status: candidate
+source: openapi/ (11 specs harvested from developer.workspan.com)
+note: WorkSpan publishes no official MCP server (none in npm, the MCP registry surfaces checked, or its GitHub org).
+  Candidate tool list derived from the published API operations.
+server:
+  name: workspan
+  transport: http
+tools:
+- name: delete_token
+  description: Invalidate access token
+  source_operation: openapi/workspan-authentication-openapi.yml#delete-token
+- name: post_token
+  description: Partner makes a request to the token endpoint by adding the
+  source_operation: openapi/workspan-authentication-openapi.yml#post-token
+- name: get_authorize
+  description: Provide Authorization code (dummy)
+  source_operation: openapi/workspan-authentication-openapi.yml#get-authorize
+- name: bulkload
+  description: Bulk Load Objects to WorkSpan. Data can be attached to the request body as JSON/CSV format, or attached
+    as a JSON/CSV/XLSX file.
+  source_operation: openapi/workspan-bulk-openapi.yml#bulkload
+- name: bulkload_opportunities
+  description: Bulk Load Opportunities to WorkSpan. Data can be Json or CSV
+  source_operation: openapi/workspan-bulk-openapi.yml#bulkload_opportunities
+- name: upload_url
+  description: Get a Signed URL to upload a file directly to the File Cloud Storage of WorkSpan.
+  source_operation: openapi/workspan-bulk-openapi.yml#upload_url
+- name: status
+  description: Check the execution status of your integration.
+  source_operation: openapi/workspan-bulk-openapi.yml#status
+- name: co_sell_action
+  description: Co-Sell Action Public API
+  source_operation: openapi/workspan-co-sell-openapi.yml#co-sell-action
+- name: co_sell_count_aws_partner
+  description: Co-Sell count AWS partner
+  source_operation: openapi/workspan-co-sell-openapi.yml#co-sell-count-aws-partner
+- name: co_sell_list_aws_partner
+  description: Co-Sell List AWS Partner
+  source_operation: openapi/workspan-co-sell-openapi.yml#co-sell-list-aws-partner
+- name: cosell_opportunity_crm_validate
+  description: Validate the Opportunity for crm
+  source_operation: openapi/workspan-co-sell-openapi.yml#cosell-opportunity-crm-validate
+- name: co_sell_picklist
+  description: Co-Sell PickList
+  source_operation: openapi/workspan-co-sell-openapi.yml#co-sell-picklist
+- name: test_bulk
+  description: Bulk Load Objects to WorkSpan. Data can be attached to the request body as JSON/CSV format, or attached
+    as a JSON/CSV/XLSX file.
+  source_operation: openapi/workspan-co-sell-openapi.yml#test-bulk
+- name: test_dummy_api
+  description: Test dummy api
+  source_operation: openapi/workspan-co-sell-openapi.yml#test-dummy-api
+- name: get_lists_aws_solutions_items
+  description: Returns a list of AWS solutions with their IDs and names.
+  source_operation: openapi/workspan-company-openapi.yml#get-lists-aws_solutions-items
+- name: deletesubscriber
+  description: Delete a subscriber (unregister a webhook)
+  source_operation: openapi/workspan-events-openapi.yml#DeleteSubscriber
+- name: readsubscriber
+  description: Read details of subscription
+  source_operation: openapi/workspan-events-openapi.yml#ReadSubscriber
+- name: geteventlist
+  description: Get list of events
+  source_operation: openapi/workspan-events-openapi.yml#GetEventList
+- name: getintegrationlist
+  description: Get list of integrations
+  source_operation: openapi/workspan-events-openapi.yml#GetIntegrationList
+- name: geteventschema
+  description: Get schema of event
+  source_operation: openapi/workspan-events-openapi.yml#GetEventSchema
+- name: getobjecteventschema
+  description: Get schema of object event
+  source_operation: openapi/workspan-events-openapi.yml#GetObjectEventSchema
+- name: listsubscribers
+  description: List Subscribers
+  source_operation: openapi/workspan-events-openapi.yml#ListSubscribers
+- name: webhookregistration
+  description: 'Webhook registration: Subscribe to object update notification'
+  source_operation: openapi/workspan-events-openapi.yml#WebhookRegistration
+- name: getmarketplaceactionbyid
+  description: Returns the current status of a previously submitted marketplace action, identified by action_id.
+    For GCP actions, the status is synced live from the project's google_integration_status field on every
+  source_operation: openapi/workspan-marketplace-openapi.yml#getMarketplaceActionById
+- name: getmarketplaceusagestatus
+  description: Retrieves the status of marketplace usage upload by execution_id. Returns a list of projects associated
+    with the execution_id, including their workflow status, project name, external ID, and project I
+  source_operation: openapi/workspan-marketplace-openapi.yml#getMarketplaceUsageStatus
+- name: marketplace_report_export
+  description: Returns real-time report data (paginated).
+  source_operation: openapi/workspan-marketplace-openapi.yml#marketplace_report_export
+- name: inbound_v2
+  description: Load AWS marketplace authorization objects to WorkSpan. Creates or updates marketplace authorizations
+    with flexible pricing and payment configurations.
+  source_operation: openapi/workspan-marketplace-openapi.yml#inbound_v2
+- name: inbound
+  description: Load Object to WorkSpan. Data can be attached to the form data as JSON, and an agreement file can
+    be attached to form as a PDF/TXT file.
+  source_operation: openapi/workspan-marketplace-openapi.yml#inbound
+- name: createmarketplaceaction
+  description: Initiates an asynchronous marketplace action on a WorkSpan offer. The request is validated synchronously
+    — if all checks pass, an action_id is returned immediately with status IN_PROGRESS and the oper
+  source_operation: openapi/workspan-marketplace-openapi.yml#createMarketplaceAction
+- name: uploadmarketplaceusage
+  description: Upload marketplace usage data for AWS, Azure, or Google Cloud marketplace integrations. Supports
+    both JSON payload and CSV file uploads. Data is processed in batches and returns execution IDs for trac
+  source_operation: openapi/workspan-marketplace-openapi.yml#uploadMarketplaceUsage
+- name: get_external_id
+  description: Get external ID for WorkSpan ID
+  source_operation: openapi/workspan-object-openapi.yml#get_external_id
+- name: update_external_id
+  description: Connect an external ID to a WorkSpan ID
+  source_operation: openapi/workspan-object-openapi.yml#update_external_id
+- name: audit_object
+  description: Supply Audit information for a WorkSpan ID
+  source_operation: openapi/workspan-object-openapi.yml#audit_object
+- name: uploadpartneraccount
+  description: Bulk Load Partner Accounts to WorkSpan. Data can be attached to the request body as JSON/CSV format,
+    or attached as a JSON/CSV/XLSX file.
+  source_operation: openapi/workspan-partner-account-load-openapi.yml#uploadPartnerAccount
+- name: getchartdata
+  description: Returns real-time chart data for a report.
+  source_operation: openapi/workspan-report-openapi.yml#getChartData
+- name: getchartmetadata
+  description: Returns real-time charts meta data for a report.
+  source_operation: openapi/workspan-report-openapi.yml#getChartMetaData
+- name: getreportdata
+  description: Returns real-time report data (paginated).
+  source_operation: openapi/workspan-report-openapi.yml#getReportData
+- name: getreportdataschema
+  description: Returns schema information about the report data.
+  source_operation: openapi/workspan-report-openapi.yml#getReportDataSchema
+- name: getreportmetadata
+  description: Returns metadata information about the report.
+  source_operation: openapi/workspan-report-openapi.yml#getReportMetadata
+- name: getreportviewdata
+  description: Returns report view data (paginated).
+  source_operation: openapi/workspan-report-openapi.yml#getReportViewData
+- name: getreportviewmetadata
+  description: Returns the report view details (metadata information).
+  source_operation: openapi/workspan-report-openapi.yml#getReportViewMetadata
+- name: checkreportviewstatus
+  description: Returns the status of the report view.
+  source_operation: openapi/workspan-report-openapi.yml#checkReportViewStatus
+- name: getreports
+  description: List all exportable reports (paginated)
+  source_operation: openapi/workspan-report-openapi.yml#getReports
+- name: prepareexport
+  description: Triggers a background job that will create a report view.
+  source_operation: openapi/workspan-report-openapi.yml#prepareExport
+- name: searchviaget
+  description: search or list users
+  source_operation: openapi/workspan-scim-openapi.yml#searchViaGet
+- name: createuser
+  description: Create User
+  source_operation: openapi/workspan-scim-openapi.yml#createUser
+- name: getuser
+  description: Get User
+  source_operation: openapi/workspan-scim-openapi.yml#getUser
+- name: updateuser
+  description: Update User
+  source_operation: openapi/workspan-scim-openapi.yml#updateUser
+- name: check_attribute
+  description: Checks user attribute values for the given user.
+  source_operation: openapi/workspan-users-openapi.yml#check-attribute

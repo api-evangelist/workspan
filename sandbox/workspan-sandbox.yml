@@ -1,0 +1,18 @@
+generated: '2026-07-21'
+method: searched
+source: https://developer.workspan.com/
+environments:
+- name: sandbox
+  gateway: https://api-sandbox.workspan.com
+  evidence: The only gateway hostname the developer portal publishes for every API (developer data API hostnames
+    endpoint).
+environment_selection:
+  header: x-ws-env
+  documented_on: Authentication API POST /token
+  description: Use this for WorkSpan Sandbox environment e.g. ws-api-1.appspot.com
+access:
+  signup: https://developer.workspan.com/signup
+  subscription_key_header: Ocp-Apim-Subscription-Key
+  subscription_key_query: subscription-key
+  note: API access is provisioned per-partner; the portal exposes an interactive API console after sign-up. No public
+    magic test values are published.

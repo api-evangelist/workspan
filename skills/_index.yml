@@ -1,0 +1,35 @@
+generated: '2026-07-21'
+method: generated
+source: openapi/ (operationIds verified against harvested specs)
+skills:
+- file: workspan-authenticate-and-bulk-load.md
+  name: Authenticate and bulk load objects into WorkSpan
+  api: openapi/workspan-bulk-openapi.yml
+  operations:
+  - post-token
+  - upload_url
+  - bulkload
+  - bulkload_opportunities
+  - status
+- file: workspan-register-webhooks.md
+  name: Subscribe to WorkSpan events via webhooks
+  api: openapi/workspan-events-openapi.yml
+  operations:
+  - post-token
+  - GetEventList
+  - GetIntegrationList
+  - GetEventSchema
+  - WebhookRegistration
+  - ListSubscribers
+  - ReadSubscriber
+  - DeleteSubscriber
+- file: workspan-co-sell-hyperscaler.md
+  name: Run a co-sell motion with a hyperscaler partner
+  api: openapi/workspan-co-sell-openapi.yml
+  operations:
+  - post-token
+  - cosell-opportunity-crm-validate
+  - co-sell-list-aws-partner
+  - co-sell-count-aws-partner
+  - co-sell-picklist
+  - co-sell-action

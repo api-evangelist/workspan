@@ -1,0 +1,502 @@
+openapi: 3.0.1
+info:
+  title: WorkSpan Report API
+  description: API for WorkSpan Reports
+  version: '1.0'
+servers:
+- url: https://api-sandbox.workspan.com/report/v1
+paths:
+  /{reportId}/chart-data:
+    post:
+      operationId: getChartData
+      summary: Get charts data for a report
+      description: Returns real-time chart data for a report.
+      parameters:
+      - name: reportId
+        in: path
+        required: true
+        schema:
+          type: integer
+        description: Format - int64.
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+        description: 'Format: bearer ${token}'
+      requestBody:
+        content:
+          application/json:
+            examples:
+              default:
+                value:
+                  filters:
+                    op: AND
+                    group:
+                    - op: OR
+                      group: []
+                      fieldFilters:
+                      - type: TEXT
+                        colId: '0'
+                        filter:
+                          op: EQUAL_TO
+                          negate: true
+                          values:
+                          - TESTED
+                      - type: TEXT
+                        colId: '0'
+                        filter:
+                          op: EQUAL_TO
+                          negate: false
+                          values:
+                          - UPDATE_FAILED
+                    fieldFilters:
+                    - type: TEXT
+                      colId: '1'
+                      filter:
+                        op: EQUAL_TO
+                        negate: true
+                        values:
+                        - FAILED
+                  chartIds:
+                  - 1
+                  - 2
+                  - 3
+                  - 4
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              examples:
+                default:
+                  value:
+                    reportVersion: 5
+                    reportName: report name
+                    charts:
+                    - id: 1
+                      version: 10
+                      name: chart name
+                      results:
+                      - Object name: Obj name
+                        count: 12
+                        Object Id: WS-7007
+                      - Object name: New Obj name
+                        count: 1
+                        Object Id: WS-7127
+        '400':
+          description: Bad Request
+        '401':
+          description: Authorization Error
+        '404':
+          description: WorkSpan object Not Found
+        '500':
+          description: Internal Server Error
+  /{reportId}/chart-metadata:
+    post:
+      operationId: getChartMetaData
+      summary: Get charts meta data for a report
+      description: Returns real-time charts meta data for a report.
+      parameters:
+      - name: reportId
+        in: path
+        required: true
+        schema:
+          type: integer
+        description: Format - int64.
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+        description: 'Format: bearer ${token}'
+      requestBody:
+        content:
+          application/json:
+            examples:
+              default:
+                value:
+                  chartIds:
+                  - 1
+                  - 2
+                  - 3
+                  - 4
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '401':
+          description: Authorization Error
+        '404':
+          description: WorkSpan object Not Found
+        '500':
+          description: Internal Server Error
+  /{reportId}/data:
+    post:
+      operationId: getReportData
+      summary: Get report data
+      description: 'Returns real-time report data (paginated).
+
+        Good for small reports (<10K rows) because no preparation step is required. Usable for bigger reports too with the
+        risk of missing or ghost rows due to concurrent updates going in the same time.'
+      parameters:
+      - name: reportId
+        in: path
+        required: true
+        schema:
+          type: integer
+        description: Format - int64.
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+        description: 'Format: bearer ${token}'
+      requestBody:
+        content:
+          application/json:
+            examples:
+              default:
+                value:
+                  filters:
+                    op: AND
+                    group:
+                    - op: OR
+                      group: []
+                      fieldFilters:
+                      - type: TEXT
+                        colId: '0'
+                        filter:
+                          op: EQUAL_TO
+                          negate: false
+                          values:
+                          - CREATE_FAILED
+                      - type: TEXT
+                        colId: '0'
+                        filter:
+                          op: EQUAL_TO
+                          negate: false
+                          values:
+                          - UPDATE_FAILED
+                    fieldFilters:
+                    - type: TEXT
+                      colId: '1'
+                      filter:
+                        op: EQUAL_TO
+                        negate: true
+                        values:
+                        - FAILED
+                  page:
+                    number: 0
+                    size: 100
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              examples:
+                default:
+                  value:
+                    version: 5
+                    endOfList: false
+                    results:
+                    - CRM ID: 1234
+                      Country: US
+                      Region: North
+                    - CRM ID: 1564
+                      Country: US
+                      Region: South
+        '400':
+          description: Bad Request
+        '401':
+          description: Authorization Error
+        '404':
+          description: WorkSpan object Not Found
+        '500':
+          description: Internal Server Error
+  /{reportId}/data-schema:
+    post:
+      operationId: getReportDataSchema
+      summary: Get report data schema
+      description: Returns schema information about the report data.
+      parameters:
+      - name: reportId
+        in: path
+        required: true
+        schema:
+          type: integer
+        description: Format - int64.
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '401':
+          description: Authorization Error
+        '404':
+          description: WorkSpan object Not Found
+        '500':
+          description: Internal Server Error
+  /{reportId}/metadata:
+    post:
+      operationId: getReportMetadata
+      summary: Get report metadata
+      description: Returns metadata information about the report.
+      parameters:
+      - name: reportId
+        in: path
+        required: true
+        schema:
+          type: integer
+        description: Format - int64.
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+        description: 'Format: bearer ${token}'
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '401':
+          description: Authorization Error
+        '404':
+          description: WorkSpan object Not Found
+        '500':
+          description: Internal Server Error
+  /view/{viewId}/data:
+    post:
+      operationId: getReportViewData
+      summary: Get report view data
+      description: 'Returns report view data (paginated).
+
+        Report view data is guaranteed not to change after the view has been created. In case of subsequent report update
+        new report view needs to be created.'
+      parameters:
+      - name: viewId
+        in: path
+        required: true
+        schema:
+          type: integer
+        description: Format - int64.
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+        description: 'Format: bearer ${token}'
+      requestBody:
+        content:
+          application/json:
+            examples:
+              default:
+                value:
+                  page:
+                    number: 0
+                    size: 100
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              examples:
+                default:
+                  value:
+                    version: 5
+                    endOfList: false
+                    results:
+                    - CRM ID: 1234
+                      Country: US
+                      Region: North
+                    - CRM ID: 1564
+                      Country: US
+                      Region: South
+        '400':
+          description: Bad Request
+        '401':
+          description: Authorization Error
+        '404':
+          description: WorkSpan object Not Found
+        '500':
+          description: Internal Server Error
+  /view/{viewId}:
+    get:
+      operationId: getReportViewMetadata
+      summary: Get report view metadata
+      description: Returns the report view details (metadata information).
+      parameters:
+      - name: viewId
+        in: path
+        required: true
+        schema:
+          type: integer
+        description: Format - int64.
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+        description: 'Format: bearer ${token}'
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '404':
+          description: WorkSpan object Not Found
+        '500':
+          description: Internal Server Error
+  /view/{viewId}/status:
+    get:
+      operationId: checkReportViewStatus
+      summary: Get report view status
+      description: "Returns the status of the report view.\nThe report view has following lifecycle:\n  - PENDING - creation\
+        \ of report view is scheduled\n  - RUNNING - report view is being created\n  - SUCCESS - report view has been successfully\
+        \ created\n  - FAILED - report view could not have been created\n  - DELETED - report view older then 24h have been\
+        \ deleted"
+      parameters:
+      - name: viewId
+        in: path
+        required: true
+        schema:
+          type: integer
+        description: Format - int64.
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+        description: 'Format: bearer ${token}'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              examples:
+                default:
+                  value:
+                    viewStatus: RUNNING
+        '400':
+          description: Bad Request
+        '401':
+          description: Authorization Error
+        '404':
+          description: WorkSpan object Not Found
+        '500':
+          description: Internal Server Error
+  /list:
+    post:
+      operationId: getReports
+      summary: List all exportable reports
+      description: List all exportable reports (paginated)
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+        description: 'Format: bearer ${token}'
+      requestBody:
+        content:
+          application/json:
+            examples:
+              default:
+                value:
+                  page:
+                    number: 0
+                    size: 100
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              examples:
+                default:
+                  value:
+                    endOfList: false
+                    results:
+                    - id: 1729
+                      name: Report - All Opportunities
+                      description: All opportunites report
+                      reportStatus: DRAFT
+                      createdBy:
+                        id: WS-Person_ag9zfndzLXJlcG9ydHMtcWFyLAsSBlBlcnNvbiIgOGMzMGY5NDk2Naa
+                        name: Admin
+                      modifiedBy:
+                        id: WS-Person_ag9zfndzLXJlcG9ydHMtcWFyLAsSBlBlcnNvbiIgOGMzMGY5NDk2Naa
+                        name: Admin
+                      createdAt: '2021-05-10T14:25:04.96388Z'
+                      modifiedAt: '2021-05-10T14:25:04.96388Z'
+        '400':
+          description: Bad Request
+        '401':
+          description: Authorization Error
+        '404':
+          description: WorkSpan object not found
+        '500':
+          description: Internal Server Error
+  /view/{reportId}/prepare_export:
+    post:
+      operationId: prepareExport
+      summary: Prepare report view
+      description: 'Triggers a background job that will create a report view.
+
+        The report view will be created in a single transaction ensuring data consistency while exporting the data.
+
+        This approach is good for reports of any size but it is recommended way for exporting bigger reports when data consistency
+        has to be guaranteed.'
+      parameters:
+      - name: reportId
+        in: path
+        required: true
+        schema:
+          type: integer
+        description: Format - int64.
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+        description: 'Format: bearer ${token}'
+      requestBody:
+        content:
+          application/json: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              examples:
+                default:
+                  value:
+                    viewId: 453
+        '400':
+          description: Bad Request
+        '401':
+          description: Authorization Error
+        '404':
+          description: WorkSpan object Not Found
+        '500':
+          description: Internal Server Error
+components:
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+security:
+- {}
+- apiKeyHeader: []
+- apiKeyQuery: []
+x-harvest:
+  source: https://developer.workspan.com/developer/apis/workspan-report-api?export=true&format=openapi+json&api-version=2022-04-01-preview
+  operations_source: https://developer.workspan.com/developer/apis/workspan-report-api/operations?api-version=2022-04-01-preview
+  harvested: '2026-07-21'
+  note: Assembled from WorkSpan's Azure APIM developer portal data API (export skeleton + published operations/schemas).
