@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Authentication Actions Upload Partner Account API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Upload Partner Account",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Bulk Load Partner Accounts to WorkSpan",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.workspan.com/oauth/upload_partner_account",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Bulk Load Partner Accounts to WorkSpan. Data can be attached to the request body as JSON/CSV format, or attached as a JSON/CSV/XLSX file."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

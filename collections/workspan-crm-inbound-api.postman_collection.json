@@ -1,0 +1,202 @@
+{
+  "item": [
+    {
+      "id": "c8202452-70cb-4191-8c3a-5466324432c9",
+      "name": "Crm Inbound",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "27cda307-c66e-4e9f-bdaa-38db0a0bf78e",
+          "name": "Load Object to WorkSpan",
+          "request": {
+            "name": "Load Object to WorkSpan",
+            "description": {
+              "content": "Load Object to WorkSpan. Data can be attached to the form data as JSON, and an agreement file can be attached to form as a PDF/TXT file.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "crm_inbound"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "integration_id",
+                  "description": "(Required) Integration ID of CRM integration that is configured in WorkSpan App."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            }
+          },
+          "response": [
+            {
+              "id": "a8929302-f99e-4f55-9ace-8563bc94a4ea",
+              "name": "Data upload successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "crm_inbound"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_id",
+                      "description": "(Required) Integration ID of CRM integration that is configured in WorkSpan App."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "05a05f9e-04cd-4061-b332-ca1ff818a434",
+              "name": "Invalid input, object invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "crm_inbound"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_id",
+                      "description": "(Required) Integration ID of CRM integration that is configured in WorkSpan App."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8f25bb6d-ea81-4d29-a551-67a5654dd3b4",
+              "name": "Authorization error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "crm_inbound"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_id",
+                      "description": "(Required) Integration ID of CRM integration that is configured in WorkSpan App."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-sandbox.workspan.com/oauth",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "noauth"
+  },
+  "info": {
+    "_postman_id": "6d8d1f24-b2c1-492c-ac20-bb93cd14b604",
+    "name": "Authentication Actions Crm Inbound API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Implementation of [OAuth 2.0](https://tools.ietf.org/html/rfc6749  \"Docs\") with Client Credentials Grant type\n",
+      "type": "text/plain"
+    }
+  }
+}

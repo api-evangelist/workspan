@@ -1,0 +1,264 @@
+{
+  "item": [
+    {
+      "id": "6a1ff2eb-da79-42e9-b098-ce677b072360",
+      "name": "Export Report",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d97915f2-12e3-4cfb-ba54-f04343e3fb50",
+          "name": "Get outbound export data",
+          "request": {
+            "name": "Get outbound export data",
+            "description": {
+              "content": "Returns real-time report data (paginated).\nGood for small reports (<10K rows) from report having tag - marketplace:{marketplace_type}:{object_type}:{operation}:report. Usable for bigger reports too with the risk of missing or ghost rows due to concurrent updates going in the same time.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "export_report"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"operation\": \"publish\",\n  \"marketplace_type\": \"google\",\n  \"object_type\": \"offer\",\n  \"size\": 100,\n  \"page\": 0\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7e30d8eb-62c7-4cc9-be26-f4babe90e2bc",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "export_report"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"operation\": \"publish\",\n  \"marketplace_type\": \"google\",\n  \"object_type\": \"offer\",\n  \"size\": 100,\n  \"page\": 0\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3239e93d-16bb-487b-a6ca-cc19b73cfeb5",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "export_report"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"operation\": \"publish\",\n  \"marketplace_type\": \"google\",\n  \"object_type\": \"offer\",\n  \"size\": 100,\n  \"page\": 0\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "de697cc7-594c-4b7f-86a7-eea5e7d16bb7",
+              "name": "Authorization Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "export_report"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"operation\": \"publish\",\n  \"marketplace_type\": \"google\",\n  \"object_type\": \"offer\",\n  \"size\": 100,\n  \"page\": 0\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a54e484c-2863-425c-b7f9-d4bce631c41b",
+              "name": "WorkSpan object Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "export_report"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"operation\": \"publish\",\n  \"marketplace_type\": \"google\",\n  \"object_type\": \"offer\",\n  \"size\": 100,\n  \"page\": 0\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f91ba47c-d52a-4e27-8452-2fdd8ca4d5f5",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "export_report"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"operation\": \"publish\",\n  \"marketplace_type\": \"google\",\n  \"object_type\": \"offer\",\n  \"size\": 100,\n  \"page\": 0\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-sandbox.workspan.com/oauth",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "noauth"
+  },
+  "info": {
+    "_postman_id": "a0912e34-f707-4403-8e0f-3eb2f72edf8c",
+    "name": "Authentication Actions Export Report API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Implementation of [OAuth 2.0](https://tools.ietf.org/html/rfc6749  \"Docs\") with Client Credentials Grant type\n",
+      "type": "text/plain"
+    }
+  }
+}

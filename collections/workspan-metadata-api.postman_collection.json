@@ -1,0 +1,1128 @@
+{
+  "item": [
+    {
+      "id": "59da59f8-1f91-40d8-b326-024ef083f622",
+      "name": "Metadata",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9755fa74-4619-4986-861b-1c59e7ce30ec",
+          "name": "Co-Sell PickList",
+          "request": {
+            "name": "Co-Sell PickList",
+            "description": {},
+            "url": {
+              "path": [
+                "metadata",
+                "picklists",
+                "hyperscaler"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "partner_id",
+                  "value": "<String>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "field_names",
+                  "value": "<String>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2bad2bdc-d284-4232-91bc-2f0accbac92f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metadata",
+                    "picklists",
+                    "hyperscaler"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "partner_id",
+                      "value": "<String>"
+                    },
+                    {
+                      "key": "field_names",
+                      "value": "<String>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6f665368-3cc5-43aa-a34f-5d5b5ed4dad9",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metadata",
+                    "picklists",
+                    "hyperscaler"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "partner_id",
+                      "value": "<String>"
+                    },
+                    {
+                      "key": "field_names",
+                      "value": "<String>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d1cd7ea1-660f-4a74-b3c6-19760c2d90be",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metadata",
+                    "picklists",
+                    "hyperscaler"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "partner_id",
+                      "value": "<String>"
+                    },
+                    {
+                      "key": "field_names",
+                      "value": "<String>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "915fd7b3-8be7-406c-b671-a860b815162a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metadata",
+                    "picklists",
+                    "hyperscaler"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "partner_id",
+                      "value": "<String>"
+                    },
+                    {
+                      "key": "field_names",
+                      "value": "<String>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0fd67d65-9acf-42c9-8aeb-df4be8bc7346",
+          "name": "Get list of events",
+          "request": {
+            "name": "Get list of events",
+            "description": {
+              "content": "Get list of events",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "metadata",
+                "event"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b9af3edc-4f42-455d-b4f6-fcb85be9bf85",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metadata",
+                    "event"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\r\\n  \\\"events\\\": [\\r\\n    {\\r\\n      \\\"name\\\": \\\"string\\\",\\r\\n      \\\"description\\\": \\\"string\\\"\\r\\n    }\\r\\n  ]\\r\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ec6cb4f1-b797-4568-9641-e89759aca2f9",
+              "name": "API Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metadata",
+                    "event"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "760ed973-bf89-42a2-9cc6-2b02713960db",
+              "name": "event not defined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metadata",
+                    "event"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "95569fd9-5c79-4eb1-9d8b-e171611e31a4",
+          "name": "Get list of integrations",
+          "request": {
+            "name": "Get list of integrations",
+            "description": {
+              "content": "Get list of integrations",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "metadata",
+                "integration"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "37e486e0-8cb1-4ca5-9509-37f19c059a8d",
+              "name": "Successful in listing integrations",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metadata",
+                    "integration"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\r\\n  \\\"integrations\\\": [\\r\\n    {\\r\\n      \\\"integration_id\\\": \\\"string\\\",\\r\\n      \\\"integration_type\\\": \\\"string\\\",\\r\\n      \\\"description\\\": \\\"string\\\",\\r\\n      \\\"name\\\": \\\"string\\\"\\r\\n    }\\r\\n  ]\\r\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b351569d-5cc2-4823-9978-c337bb5e731a",
+              "name": "API Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metadata",
+                    "integration"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2c514300-e8b4-4237-9e0b-38ab605f749f",
+              "name": "integration not defined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metadata",
+                    "integration"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b7832286-9eeb-411e-9066-cc913ba4e336",
+          "name": "Get schema of event",
+          "request": {
+            "name": "Get schema of event",
+            "description": {
+              "content": "Get schema of event",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "metadata",
+                "event",
+                ":event"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "event",
+                  "description": "(Required) Name of event"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Use only for WorkSpan Sandbox Environment",
+                "key": "x-ws-env",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "054c17ec-3429-443a-bf81-110d3b8f4ebb",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metadata",
+                    "event",
+                    ":event"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "event",
+                      "description": "(Required) Name of event"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Use only for WorkSpan Sandbox Environment",
+                    "key": "x-ws-env",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "608654b3-c3ee-4abc-9ac2-787e3e3dc12b",
+              "name": "API Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metadata",
+                    "event",
+                    ":event"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "event",
+                      "description": "(Required) Name of event"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Use only for WorkSpan Sandbox Environment",
+                    "key": "x-ws-env",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9085a37e-8de3-4738-91ce-d89695d58a10",
+              "name": "event not defined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metadata",
+                    "event",
+                    ":event"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "event",
+                      "description": "(Required) Name of event"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Use only for WorkSpan Sandbox Environment",
+                    "key": "x-ws-env",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "083e0c3b-a15c-476d-bdf6-435933402c9c",
+          "name": "Get schema of object event",
+          "request": {
+            "name": "Get schema of object event",
+            "description": {
+              "content": "Get schema of object event",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "metadata",
+                "integration",
+                ":integration_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "integration_id",
+                  "description": "(Required) Integration Id of Object Event Integration"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9b83becd-5a95-4558-b910-23bc0c35e6fa",
+              "name": "Returns Integration Schema",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metadata",
+                    "integration",
+                    ":integration_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_id",
+                      "description": "(Required) Integration Id of Object Event Integration"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "374d645e-6a7f-422a-93d8-357b5498eded",
+              "name": "API Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metadata",
+                    "integration",
+                    ":integration_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_id",
+                      "description": "(Required) Integration Id of Object Event Integration"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "64a3bee1-0d7d-4661-80d3-c991ee863cce",
+              "name": "integration not defined",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metadata",
+                    "integration",
+                    ":integration_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_id",
+                      "description": "(Required) Integration Id of Object Event Integration"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "48673aee-28b0-431c-a1c6-3a9d1e95cf73",
+          "name": "Get report metadata",
+          "request": {
+            "name": "Get report metadata",
+            "description": {
+              "content": "Returns metadata information about the report.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":reportId",
+                "metadata"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "reportId",
+                  "description": "(Required) Format - int64."
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9070e635-a1f4-4c6c-93cd-a168a65c2b9c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":reportId",
+                    "metadata"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "reportId",
+                      "description": "(Required) Format - int64."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Format: bearer ${token}",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "82049243-d814-4bd1-98b6-19c658e622bc",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":reportId",
+                    "metadata"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "reportId",
+                      "description": "(Required) Format - int64."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Format: bearer ${token}",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "45e272a8-73e1-4507-ad29-6c280476b2cb",
+              "name": "Authorization Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":reportId",
+                    "metadata"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "reportId",
+                      "description": "(Required) Format - int64."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Format: bearer ${token}",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "13855b29-bfc0-41ec-9139-cd171f838f2f",
+              "name": "WorkSpan object Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":reportId",
+                    "metadata"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "reportId",
+                      "description": "(Required) Format - int64."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Format: bearer ${token}",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d84edd8a-648f-4e12-a98c-c9a0cfa89d05",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":reportId",
+                    "metadata"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "reportId",
+                      "description": "(Required) Format - int64."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Format: bearer ${token}",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-sandbox.workspan.com/oauth",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "noauth"
+  },
+  "info": {
+    "_postman_id": "15118f0f-5a76-43b5-b727-3db0fc448173",
+    "name": "Authentication Actions Metadata API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Implementation of [OAuth 2.0](https://tools.ietf.org/html/rfc6749  \"Docs\") with Client Credentials Grant type\n",
+      "type": "text/plain"
+    }
+  }
+}

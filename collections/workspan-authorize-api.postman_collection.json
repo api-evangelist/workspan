@@ -1,0 +1,93 @@
+{
+  "item": [
+    {
+      "id": "ab1f9d46-9e4e-4667-8f00-68c1d69bc2bf",
+      "name": "Authorize",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "deac085a-6bf4-4418-addf-86d57a66dfcb",
+          "name": "Request Authorization Code",
+          "request": {
+            "name": "Request Authorization Code",
+            "description": {
+              "content": "Provide Authorization code (dummy)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "authorize"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "95bd96a9-02b9-4ab2-b969-88e30e40c037",
+              "name": "Authorization code",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "authorize"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Found",
+              "code": 302,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-sandbox.workspan.com/oauth",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "noauth"
+  },
+  "info": {
+    "_postman_id": "74964b2c-b7b3-4f6f-af53-842de1f419f8",
+    "name": "Authentication Actions Authorize API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Implementation of [OAuth 2.0](https://tools.ietf.org/html/rfc6749  \"Docs\") with Client Credentials Grant type\n",
+      "type": "text/plain"
+    }
+  }
+}

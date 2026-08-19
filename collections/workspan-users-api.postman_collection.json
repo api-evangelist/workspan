@@ -1,0 +1,1424 @@
+{
+  "item": [
+    {
+      "id": "eba65548-41ab-44ae-a975-a812cd456aae",
+      "name": "Users",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "96f49426-466f-4e03-a285-c339b1d1523b",
+          "name": "Create the user if user doesnt exist with the same email",
+          "request": {
+            "name": "Create the user if user doesnt exist with the same email",
+            "description": {
+              "content": "Create User",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"schemas\": [\n    \"urn:ietf:params:scim:schemas:core:2.0:User\",\n    \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\"\n  ],\n  \"userName\": \"scim_user@test.com\",\n  \"name\": {\n    \"givenName\": \"scim user\",\n    \"familyName\": \"scim family\"\n  },\n  \"emails\": [\n    {\n      \"primary\": true,\n      \"value\": \"scim_user@test.com\",\n      \"type\": \"work\"\n    }\n  ],\n  \"displayName\": \"scim_user_display_name\",\n  \"meta\": {\n    \"resourceType\": \"User\"\n  },\n  \"active\": true,\n  \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\": {\n    \"department\": \"Sales\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7d67f3d8-fbda-49b3-8708-639c2c023ce5",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Format: bearer ${token}",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"schemas\": [\n    \"urn:ietf:params:scim:schemas:core:2.0:User\",\n    \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\"\n  ],\n  \"userName\": \"scim_user@test.com\",\n  \"name\": {\n    \"givenName\": \"scim user\",\n    \"familyName\": \"scim family\"\n  },\n  \"emails\": [\n    {\n      \"primary\": true,\n      \"value\": \"scim_user@test.com\",\n      \"type\": \"work\"\n    }\n  ],\n  \"displayName\": \"scim_user_display_name\",\n  \"meta\": {\n    \"resourceType\": \"User\"\n  },\n  \"active\": true,\n  \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\": {\n    \"department\": \"Sales\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"schemas\": [\n    \"urn:ietf:params:scim:schemas:core:2.0:User\",\n    \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\"\n  ],\n  \"userName\": \"scim_user@test.com\",\n  \"name\": {\n    \"givenName\": \"scim user\",\n    \"familyName\": \"scim family\"\n  },\n  \"emails\": [\n    {\n      \"primary\": true,\n      \"value\": \"scim_user@test.com\",\n      \"type\": \"work\"\n    }\n  ],\n  \"displayName\": \"scim_user_display_name\",\n  \"meta\": {\n    \"resourceType\": \"User\"\n  },\n  \"id\": \"Ws-Person_workspan_generated_id\",\n  \"active\": true,\n  \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\": {\n    \"department\": \"Sales\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ee683d6f-1de0-461a-a372-e3d8b624bac8",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Format: bearer ${token}",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"schemas\": [\n    \"urn:ietf:params:scim:schemas:core:2.0:User\",\n    \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\"\n  ],\n  \"userName\": \"scim_user@test.com\",\n  \"name\": {\n    \"givenName\": \"scim user\",\n    \"familyName\": \"scim family\"\n  },\n  \"emails\": [\n    {\n      \"primary\": true,\n      \"value\": \"scim_user@test.com\",\n      \"type\": \"work\"\n    }\n  ],\n  \"displayName\": \"scim_user_display_name\",\n  \"meta\": {\n    \"resourceType\": \"User\"\n  },\n  \"active\": true,\n  \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\": {\n    \"department\": \"Sales\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "807867a5-27ea-48cd-8a43-f0ef035d5a9e",
+              "name": "Authorization Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Format: bearer ${token}",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"schemas\": [\n    \"urn:ietf:params:scim:schemas:core:2.0:User\",\n    \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\"\n  ],\n  \"userName\": \"scim_user@test.com\",\n  \"name\": {\n    \"givenName\": \"scim user\",\n    \"familyName\": \"scim family\"\n  },\n  \"emails\": [\n    {\n      \"primary\": true,\n      \"value\": \"scim_user@test.com\",\n      \"type\": \"work\"\n    }\n  ],\n  \"displayName\": \"scim_user_display_name\",\n  \"meta\": {\n    \"resourceType\": \"User\"\n  },\n  \"active\": true,\n  \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\": {\n    \"department\": \"Sales\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d9089d39-d0a3-4544-95e5-94d3515e54b3",
+              "name": "permissions denied",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Format: bearer ${token}",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"schemas\": [\n    \"urn:ietf:params:scim:schemas:core:2.0:User\",\n    \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\"\n  ],\n  \"userName\": \"scim_user@test.com\",\n  \"name\": {\n    \"givenName\": \"scim user\",\n    \"familyName\": \"scim family\"\n  },\n  \"emails\": [\n    {\n      \"primary\": true,\n      \"value\": \"scim_user@test.com\",\n      \"type\": \"work\"\n    }\n  ],\n  \"displayName\": \"scim_user_display_name\",\n  \"meta\": {\n    \"resourceType\": \"User\"\n  },\n  \"active\": true,\n  \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\": {\n    \"department\": \"Sales\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "59c318b3-fd7a-463d-b30d-dafc2c7401ff",
+              "name": "WorkSpan object not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Format: bearer ${token}",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"schemas\": [\n    \"urn:ietf:params:scim:schemas:core:2.0:User\",\n    \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\"\n  ],\n  \"userName\": \"scim_user@test.com\",\n  \"name\": {\n    \"givenName\": \"scim user\",\n    \"familyName\": \"scim family\"\n  },\n  \"emails\": [\n    {\n      \"primary\": true,\n      \"value\": \"scim_user@test.com\",\n      \"type\": \"work\"\n    }\n  ],\n  \"displayName\": \"scim_user_display_name\",\n  \"meta\": {\n    \"resourceType\": \"User\"\n  },\n  \"active\": true,\n  \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\": {\n    \"department\": \"Sales\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "04ed05fe-d9b0-4fb4-93ab-26fabeb18fcd",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Format: bearer ${token}",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"schemas\": [\n    \"urn:ietf:params:scim:schemas:core:2.0:User\",\n    \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\"\n  ],\n  \"userName\": \"scim_user@test.com\",\n  \"name\": {\n    \"givenName\": \"scim user\",\n    \"familyName\": \"scim family\"\n  },\n  \"emails\": [\n    {\n      \"primary\": true,\n      \"value\": \"scim_user@test.com\",\n      \"type\": \"work\"\n    }\n  ],\n  \"displayName\": \"scim_user_display_name\",\n  \"meta\": {\n    \"resourceType\": \"User\"\n  },\n  \"active\": true,\n  \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\": {\n    \"department\": \"Sales\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8f6dcb47-cd07-4582-9bdf-f2748299db87",
+          "name": "search or list users",
+          "request": {
+            "name": "search or list users",
+            "description": {
+              "content": "search or list users",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "only support 'userName' filter expressions for now"
+                },
+                {
+                  "disabled": false,
+                  "key": "startIndex",
+                  "value": "<integer>",
+                  "description": "start index (1-based)"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>",
+                  "description": "page size"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d85b432c-d1d0-4095-8dda-c67d43b05831",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startIndex",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Format: bearer ${token}",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Resources\": [\n    {\n      \"schemas\": [\n        \"urn:ietf:params:scim:schemas:core:2.0:User\",\n        \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\"\n      ],\n      \"userName\": \"scim_user@test.com\",\n      \"meta\": {\n        \"resourceType\": \"User\"\n      },\n      \"id\": \"Ws-Person_workspan_generated_id\",\n      \"active\": true,\n      \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\": {\n        \"department\": \"Sales\"\n      }\n    }\n  ],\n  \"schemas\": [\n    \"urn:ietf:params:scim:api:messages:2.0:ListResponse\"\n  ],\n  \"startIndex\": 0,\n  \"totalResults\": 0\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "98c09372-4f7e-425d-aeeb-133f27ea6392",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startIndex",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Format: bearer ${token}",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9e2bda24-0eb6-4c5f-a6f2-d78c9353e5eb",
+              "name": "Authorization Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startIndex",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Format: bearer ${token}",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6fc16182-f9ad-4736-b440-9aceca2092de",
+              "name": "permissions denied",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startIndex",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Format: bearer ${token}",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8cfda8e8-02a7-46cd-b8f6-3a0a99ae43c0",
+              "name": "WorkSpan object not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startIndex",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Format: bearer ${token}",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8245ab4d-cbe1-4652-9728-0f529d4ec65d",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startIndex",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Format: bearer ${token}",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b29c64f5-2229-4357-9833-792043bda343",
+          "name": "Get the user based on the id",
+          "request": {
+            "name": "Get the user based on the id",
+            "description": {
+              "content": "Get User",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Users",
+                ":user_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_id",
+                  "description": "(Required) User id to Get"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "36f9ad82-a3ff-4d12-bcd4-d7598444a4e3",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Users",
+                    ":user_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) User id to Get"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Format: bearer ${token}",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"schemas\": [\n    \"urn:ietf:params:scim:schemas:core:2.0:User\",\n    \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\"\n  ],\n  \"userName\": \"scim_user@test.com\",\n  \"meta\": {\n    \"resourceType\": \"User\"\n  },\n  \"id\": \"Ws-Person_workspan_generated_id\",\n  \"active\": true,\n  \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\": {\n    \"department\": \"Sales\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c23ae7b7-f5fc-4f5f-bb10-44f7d81b3a5f",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Users",
+                    ":user_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) User id to Get"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Format: bearer ${token}",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cba491b7-e9c0-4b77-9ed2-5df655647a7e",
+              "name": "Authorization Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Users",
+                    ":user_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) User id to Get"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Format: bearer ${token}",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "83c626bc-ff5d-419e-98c7-d7035b8d014a",
+              "name": "permissions denied",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Users",
+                    ":user_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) User id to Get"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Format: bearer ${token}",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "78d5c4f0-717b-4baa-ba69-01450075a88c",
+              "name": "WorkSpan object not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Users",
+                    ":user_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) User id to Get"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Format: bearer ${token}",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f1f04424-0d04-448a-844e-fb56db41a071",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Users",
+                    ":user_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) User id to Get"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Format: bearer ${token}",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "df03771d-07b2-4ba0-bdf0-87098fd629c9",
+          "name": "Update/Suspend User if user with same id exist",
+          "request": {
+            "name": "Update/Suspend User if user with same id exist",
+            "description": {
+              "content": "Update User",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Users",
+                ":user_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_id",
+                  "description": "(Required) User id to be updated"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"schemas\": [\n    \"urn:ietf:params:scim:schemas:core:2.0:User\",\n    \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\"\n  ],\n  \"userName\": \"scim_user@test.com\",\n  \"meta\": {\n    \"resourceType\": \"User\"\n  },\n  \"id\": \"Ws-Person_workspan_generated_id\",\n  \"active\": false,\n  \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\": {\n    \"department\": \"Sales\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9a39df40-8d80-4fe5-b0e9-a336ade57924",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Users",
+                    ":user_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) User id to be updated"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Format: bearer ${token}",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"schemas\": [\n    \"urn:ietf:params:scim:schemas:core:2.0:User\",\n    \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\"\n  ],\n  \"userName\": \"scim_user@test.com\",\n  \"meta\": {\n    \"resourceType\": \"User\"\n  },\n  \"id\": \"Ws-Person_workspan_generated_id\",\n  \"active\": false,\n  \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\": {\n    \"department\": \"Sales\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"schemas\": [\n    \"urn:ietf:params:scim:schemas:core:2.0:User\",\n    \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\"\n  ],\n  \"userName\": \"scim_user@test.com\",\n  \"meta\": {\n    \"resourceType\": \"User\"\n  },\n  \"id\": \"Ws-Person_workspan_generated_id\",\n  \"active\": false,\n  \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\": {\n    \"department\": \"Sales\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cb190eeb-0737-443e-a88b-051906248696",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Users",
+                    ":user_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) User id to be updated"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Format: bearer ${token}",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"schemas\": [\n    \"urn:ietf:params:scim:schemas:core:2.0:User\",\n    \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\"\n  ],\n  \"userName\": \"scim_user@test.com\",\n  \"meta\": {\n    \"resourceType\": \"User\"\n  },\n  \"id\": \"Ws-Person_workspan_generated_id\",\n  \"active\": false,\n  \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\": {\n    \"department\": \"Sales\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "205d85ea-4976-49b2-8fe1-d0cdec2fc0f5",
+              "name": "Authorization Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Users",
+                    ":user_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) User id to be updated"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Format: bearer ${token}",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"schemas\": [\n    \"urn:ietf:params:scim:schemas:core:2.0:User\",\n    \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\"\n  ],\n  \"userName\": \"scim_user@test.com\",\n  \"meta\": {\n    \"resourceType\": \"User\"\n  },\n  \"id\": \"Ws-Person_workspan_generated_id\",\n  \"active\": false,\n  \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\": {\n    \"department\": \"Sales\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f8b277e7-f6b0-4e8d-8680-1718b178f8d2",
+              "name": "permissions denied",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Users",
+                    ":user_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) User id to be updated"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Format: bearer ${token}",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"schemas\": [\n    \"urn:ietf:params:scim:schemas:core:2.0:User\",\n    \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\"\n  ],\n  \"userName\": \"scim_user@test.com\",\n  \"meta\": {\n    \"resourceType\": \"User\"\n  },\n  \"id\": \"Ws-Person_workspan_generated_id\",\n  \"active\": false,\n  \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\": {\n    \"department\": \"Sales\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8cdab189-9133-47bd-b1b8-64a01e7791d1",
+              "name": "WorkSpan object not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Users",
+                    ":user_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) User id to be updated"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Format: bearer ${token}",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"schemas\": [\n    \"urn:ietf:params:scim:schemas:core:2.0:User\",\n    \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\"\n  ],\n  \"userName\": \"scim_user@test.com\",\n  \"meta\": {\n    \"resourceType\": \"User\"\n  },\n  \"id\": \"Ws-Person_workspan_generated_id\",\n  \"active\": false,\n  \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\": {\n    \"department\": \"Sales\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "aaaa0be9-4234-420a-a7ca-b3ee1e922a38",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Users",
+                    ":user_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) User id to be updated"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Format: bearer ${token}",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"schemas\": [\n    \"urn:ietf:params:scim:schemas:core:2.0:User\",\n    \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\"\n  ],\n  \"userName\": \"scim_user@test.com\",\n  \"meta\": {\n    \"resourceType\": \"User\"\n  },\n  \"id\": \"Ws-Person_workspan_generated_id\",\n  \"active\": false,\n  \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\": {\n    \"department\": \"Sales\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-sandbox.workspan.com/oauth",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "noauth"
+  },
+  "info": {
+    "_postman_id": "527e306b-2861-421d-952f-00e5cfde4edc",
+    "name": "Authentication Actions Users API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Implementation of [OAuth 2.0](https://tools.ietf.org/html/rfc6749  \"Docs\") with Client Credentials Grant type\n",
+      "type": "text/plain"
+    }
+  }
+}

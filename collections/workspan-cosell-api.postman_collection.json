@@ -1,0 +1,1495 @@
+{
+  "item": [
+    {
+      "id": "5ba4a03d-257d-4b18-bac1-cb21abf0f372",
+      "name": "Cosell",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "16a8813b-ef0e-46e9-9842-782902d73493",
+          "name": "Co-Sell Action",
+          "request": {
+            "name": "Co-Sell Action",
+            "description": {
+              "content": "Co-Sell Action Public API",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cosell",
+                "action"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"action\": \"<string>\",\n  \"payload\": {\n    \"inviting_from\": \"<string>\",\n    \"opportunity_project_id\": \"<string>\",\n    \"referral_id\": \"<string>\",\n    \"partner_project_id\": \"<string>\",\n    \"partner_responsibility\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"invitation_message\": \"<string>\"\n  },\n  \"version\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5b1da728-1e39-47d0-981e-9d0628d8b84b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cosell",
+                    "action"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"invite_aws_partner\",\n  \"payload\": {\n    \"inviting_from\": \"salesforce\",\n    \"opportunity_project_id\": \"WS-8552\",\n    \"referral_id\": \"Qaf353qqagaj\",\n    \"partner_project_id\": \"WS-23183\",\n    \"partner_responsibility\": [\n      \"Distributor\"\n    ],\n    \"invitation_message\": \"Hi i want to connect with you on this opportunity\"\n  },\n  \"version\": \"v1\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4029cf69-60c5-42f0-a503-df4dc84be7c7",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cosell",
+                    "action"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"invite_aws_partner\",\n  \"payload\": {\n    \"inviting_from\": \"salesforce\",\n    \"opportunity_project_id\": \"WS-8552\",\n    \"referral_id\": \"Qaf353qqagaj\",\n    \"partner_project_id\": \"WS-23183\",\n    \"partner_responsibility\": [\n      \"Distributor\"\n    ],\n    \"invitation_message\": \"Hi i want to connect with you on this opportunity\"\n  },\n  \"version\": \"v1\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4eae0992-21a3-445a-9ca0-521db4c41126",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cosell",
+                    "action"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"invite_aws_partner\",\n  \"payload\": {\n    \"inviting_from\": \"salesforce\",\n    \"opportunity_project_id\": \"WS-8552\",\n    \"referral_id\": \"Qaf353qqagaj\",\n    \"partner_project_id\": \"WS-23183\",\n    \"partner_responsibility\": [\n      \"Distributor\"\n    ],\n    \"invitation_message\": \"Hi i want to connect with you on this opportunity\"\n  },\n  \"version\": \"v1\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6c677ca2-590b-4715-9525-eab451fe8063",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cosell",
+                    "action"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"invite_aws_partner\",\n  \"payload\": {\n    \"inviting_from\": \"salesforce\",\n    \"opportunity_project_id\": \"WS-8552\",\n    \"referral_id\": \"Qaf353qqagaj\",\n    \"partner_project_id\": \"WS-23183\",\n    \"partner_responsibility\": [\n      \"Distributor\"\n    ],\n    \"invitation_message\": \"Hi i want to connect with you on this opportunity\"\n  },\n  \"version\": \"v1\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a362b78b-509b-4d41-b1ab-1dd1b2d11f94",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cosell",
+                    "action"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"invite_aws_partner\",\n  \"payload\": {\n    \"inviting_from\": \"salesforce\",\n    \"opportunity_project_id\": \"WS-8552\",\n    \"referral_id\": \"Qaf353qqagaj\",\n    \"partner_project_id\": \"WS-23183\",\n    \"partner_responsibility\": [\n      \"Distributor\"\n    ],\n    \"invitation_message\": \"Hi i want to connect with you on this opportunity\"\n  },\n  \"version\": \"v1\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bdc5fca0-a4db-4377-8e50-764f441ae4ff",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cosell",
+                    "action"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"invite_aws_partner\",\n  \"payload\": {\n    \"inviting_from\": \"salesforce\",\n    \"opportunity_project_id\": \"WS-8552\",\n    \"referral_id\": \"Qaf353qqagaj\",\n    \"partner_project_id\": \"WS-23183\",\n    \"partner_responsibility\": [\n      \"Distributor\"\n    ],\n    \"invitation_message\": \"Hi i want to connect with you on this opportunity\"\n  },\n  \"version\": \"v1\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0b772d1d-da91-46c0-bd3b-4be53121f7ce",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cosell",
+                    "action"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"invite_aws_partner\",\n  \"payload\": {\n    \"inviting_from\": \"salesforce\",\n    \"opportunity_project_id\": \"WS-8552\",\n    \"referral_id\": \"Qaf353qqagaj\",\n    \"partner_project_id\": \"WS-23183\",\n    \"partner_responsibility\": [\n      \"Distributor\"\n    ],\n    \"invitation_message\": \"Hi i want to connect with you on this opportunity\"\n  },\n  \"version\": \"v1\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6d138ec6-5e59-456a-9742-ba3595e28dc2",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cosell",
+                    "action"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"invite_aws_partner\",\n  \"payload\": {\n    \"inviting_from\": \"salesforce\",\n    \"opportunity_project_id\": \"WS-8552\",\n    \"referral_id\": \"Qaf353qqagaj\",\n    \"partner_project_id\": \"WS-23183\",\n    \"partner_responsibility\": [\n      \"Distributor\"\n    ],\n    \"invitation_message\": \"Hi i want to connect with you on this opportunity\"\n  },\n  \"version\": \"v1\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "23e531a3-e252-4739-935a-fe6aaf419a3c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cosell",
+                    "action"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"invite_aws_partner\",\n  \"payload\": {\n    \"inviting_from\": \"salesforce\",\n    \"opportunity_project_id\": \"WS-8552\",\n    \"referral_id\": \"Qaf353qqagaj\",\n    \"partner_project_id\": \"WS-23183\",\n    \"partner_responsibility\": [\n      \"Distributor\"\n    ],\n    \"invitation_message\": \"Hi i want to connect with you on this opportunity\"\n  },\n  \"version\": \"v1\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2ffee073-7fb4-41e5-9316-5b002381f55c",
+          "name": "Co-Sell count AWS partner",
+          "request": {
+            "name": "Co-Sell count AWS partner",
+            "description": {},
+            "url": {
+              "path": [
+                "cosell",
+                "aws",
+                "partners",
+                "count"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "31b92fda-2e72-4564-9b4a-236f14dd2072",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cosell",
+                    "aws",
+                    "partners",
+                    "count"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "40280ef7-095a-41dd-9396-70a47ec79ab7",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cosell",
+                    "aws",
+                    "partners",
+                    "count"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b6b1b77d-ea78-4c0a-a6c8-03df29273fef",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cosell",
+                    "aws",
+                    "partners",
+                    "count"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cdeb3cb3-2a33-4033-b618-e4629db2e620",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cosell",
+                    "aws",
+                    "partners",
+                    "count"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b15f7798-e682-4923-8258-1c18a9dfbaf3",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cosell",
+                    "aws",
+                    "partners",
+                    "count"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "61d82060-0b59-4ee6-95d8-35cca98cf8b9",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cosell",
+                    "aws",
+                    "partners",
+                    "count"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f58ab0eb-30b0-4ceb-9396-b1c6c8b16eee",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cosell",
+                    "aws",
+                    "partners",
+                    "count"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "480489ca-f83f-4b63-a1f2-13be3e21b79f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cosell",
+                    "aws",
+                    "partners",
+                    "count"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4d5f0dbb-d701-44df-a3b8-4cee278e998a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cosell",
+                    "aws",
+                    "partners",
+                    "count"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8e54bf0e-b049-4745-96b2-ff983d47b991",
+          "name": "Co-Sell List AWS Partner",
+          "request": {
+            "name": "Co-Sell List AWS Partner",
+            "description": {},
+            "url": {
+              "path": [
+                "cosell",
+                "aws",
+                "partners"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "55f3a207-7b55-4a2d-a8ec-0160f6ade8f9",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cosell",
+                    "aws",
+                    "partners"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4b336f1a-cd24-41df-acc7-ed9a713da611",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cosell",
+                    "aws",
+                    "partners"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4636d58c-6abf-496b-b89a-28f424362f9a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cosell",
+                    "aws",
+                    "partners"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b6ec73fa-11ed-4470-9904-494155bffb0d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cosell",
+                    "aws",
+                    "partners"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "987ae399-7065-4d66-9520-53ed8c2d7341",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cosell",
+                    "aws",
+                    "partners"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "25fd1f7e-e7fc-44c8-b414-7c065a3f4d52",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cosell",
+                    "aws",
+                    "partners"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c04a3af0-a049-4e89-81f0-20829c3201e4",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cosell",
+                    "aws",
+                    "partners"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "affa7422-7ab2-4336-ba3d-df6f1bae36ee",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cosell",
+                    "aws",
+                    "partners"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "895c2993-56a5-4d77-ac2b-0c000fb050e6",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cosell",
+                    "aws",
+                    "partners"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b4813bff-d43b-4b7e-bf3e-02a14f76ebcb",
+          "name": "CoSell Opportunity CRM Validate",
+          "request": {
+            "name": "CoSell Opportunity CRM Validate",
+            "description": {
+              "content": "Validate the Opportunity for crm",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cosell",
+                "opportunity",
+                "validate",
+                "crm"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "75d75aa0-ad24-4db7-9adc-ac66a648dfa7",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cosell",
+                    "opportunity",
+                    "validate",
+                    "crm"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5329b74f-1380-4862-931b-503a84cbc9a8",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cosell",
+                    "opportunity",
+                    "validate",
+                    "crm"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ed623faf-9e23-4c19-859d-4b406d20a7f8",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cosell",
+                    "opportunity",
+                    "validate",
+                    "crm"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3b7cec7c-738f-484e-8864-e0b7fd98579c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cosell",
+                    "opportunity",
+                    "validate",
+                    "crm"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d5219c76-fa10-4181-b26f-fd4c4ea90f48",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cosell",
+                    "opportunity",
+                    "validate",
+                    "crm"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "eb16590d-7508-4ddf-b50e-add24081845d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cosell",
+                    "opportunity",
+                    "validate",
+                    "crm"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c999d17a-c345-4a72-83cb-67ca7c1bf846",
+          "name": "Test dummy api",
+          "request": {
+            "name": "Test dummy api",
+            "description": {},
+            "url": {
+              "path": [
+                "cosell",
+                "demo",
+                "test"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "21c57723-98bf-4e61-8906-1a68dcbca1b8",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cosell",
+                    "demo",
+                    "test"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fec99ff3-2276-4882-b91d-41239c919cee",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cosell",
+                    "demo",
+                    "test"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3e179113-23ef-4773-8151-abcb237563b7",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cosell",
+                    "demo",
+                    "test"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3b5b4261-3031-4683-a938-d24bc948e1a5",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cosell",
+                    "demo",
+                    "test"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-sandbox.workspan.com/oauth",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "noauth"
+  },
+  "info": {
+    "_postman_id": "2e9d6b51-01ad-4e5e-ac08-d6aca5d4a73c",
+    "name": "Authentication Actions Cosell API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Implementation of [OAuth 2.0](https://tools.ietf.org/html/rfc6749  \"Docs\") with Client Credentials Grant type\n",
+      "type": "text/plain"
+    }
+  }
+}

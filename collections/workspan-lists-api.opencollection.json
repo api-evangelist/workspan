@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Authentication Actions Lists API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Lists",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get AWS Solutions List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.workspan.com/oauth/lists/aws_solutions/items"
+          },
+          "docs": "Returns a list of AWS solutions with their IDs and names."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

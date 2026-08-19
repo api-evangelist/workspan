@@ -1,0 +1,476 @@
+{
+  "item": [
+    {
+      "id": "fd4c6f10-9a08-4e1e-affe-6beb3e1c6425",
+      "name": "Actions",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2a3573bb-9ed1-4ead-8cfb-e893603aa9e6",
+          "name": "Get marketplace action status",
+          "request": {
+            "name": "Get marketplace action status",
+            "description": {
+              "content": "Returns the current status of a previously submitted marketplace action, identified by action_id. For GCP actions, the status is synced live from the project's google_integration_status field on every call. For AWS actions, status is updated by the changeset polling infrastructure. For Azure actions, status is updated by the job polling infrastructure.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "actions",
+                ":action_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "action_id",
+                  "description": "(Required) The action_id returned from POST /actions."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "070ff623-5431-4116-9919-a68632105b02",
+              "name": "Action status retrieved successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "actions",
+                    ":action_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "action_id",
+                      "description": "(Required) The action_id returned from POST /actions."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"action_id\": \"WS-MarketplaceAction-550e8400-e29b-41d4-a716-446655440000\",\n  \"object_id\": \"offer-1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p\",\n  \"object_type\": \"ws-offer\",\n  \"marketplace_type\": \"aws\",\n  \"action_type\": \"withdraw\",\n  \"status\": \"IN_PROGRESS\",\n  \"message\": \"Withdrawal request in progress.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9e1a069b-4eb9-40fc-8a21-73898599afc2",
+              "name": "Bad Request - No action record found for the given action_id.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "actions",
+                    ":action_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "action_id",
+                      "description": "(Required) The action_id returned from POST /actions."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e9d32076-e2a3-4929-9268-190997f67548",
+              "name": "Authorization Error - Invalid or missing authentication token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "actions",
+                    ":action_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "action_id",
+                      "description": "(Required) The action_id returned from POST /actions."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1b8ee031-0ac8-4de5-abd3-7ccad8c05afa",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "actions",
+                    ":action_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "action_id",
+                      "description": "(Required) The action_id returned from POST /actions."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5d586210-5e80-49f3-a14e-9bc0e9891857",
+          "name": "Submit a marketplace action (e.g. withdraw offer or authorization)",
+          "request": {
+            "name": "Submit a marketplace action (e.g. withdraw offer or authorization)",
+            "description": {
+              "content": "Initiates an asynchronous marketplace action on a WorkSpan offer. The request is validated synchronously — if all checks pass, an action_id is returned immediately with status IN_PROGRESS and the operation runs in the background. Poll GET /actions/{action_id} for the final status.\n\nValidation checks performed before the action is accepted (in order):\n1. Application User must have the MARKETPLACE_ACTIONS security profile.\n2. action_type must be 'withdraw'.\n3. object_type must be 'ws-offer'.\n4. marketplace_type must be 'aws', 'azure', or 'gcp'.\n5. object_id must resolve to an existing WorkSpan offer belonging to the caller's company.\n6. No existing IN_PROGRESS action for the same object_id and action_type.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "actions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"action_type\": \"withdraw\",\n  \"object_type\": \"ws-offer\",\n  \"marketplace_type\": \"aws\",\n  \"object_id\": \"offer-1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2c31f76f-beaa-42bb-b56a-a94dc5483546",
+              "name": "Action accepted and running asynchronously. status is always IN_PROGRESS in this response. Use the returned action_id to poll GET /actions/{action_id} for the final result.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "actions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action_type\": \"withdraw\",\n  \"object_type\": \"ws-offer\",\n  \"marketplace_type\": \"aws\",\n  \"object_id\": \"offer-1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"action_id\": \"WS-MarketplaceAction-550e8400-e29b-41d4-a716-446655440000\",\n  \"object_id\": \"offer-1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p\",\n  \"object_type\": \"ws-offer\",\n  \"marketplace_type\": \"aws\",\n  \"action_type\": \"withdraw\",\n  \"status\": \"IN_PROGRESS\",\n  \"message\": \"Withdrawal request in progress.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9e7494fc-3e55-4d1a-be2c-28a4b69b60de",
+              "name": "Bad Request. Possible reasons: missing required field, invalid action_type / object_type / marketplace_type, object_id not found, access denied, or a duplicate IN_PROGRESS action already exists for this object.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "actions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action_type\": \"withdraw\",\n  \"object_type\": \"ws-offer\",\n  \"marketplace_type\": \"aws\",\n  \"object_id\": \"offer-1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c805c4df-7a7d-40cc-bbcc-b6d379639d3a",
+              "name": "Authorization Error - Invalid or missing authentication token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "actions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action_type\": \"withdraw\",\n  \"object_type\": \"ws-offer\",\n  \"marketplace_type\": \"aws\",\n  \"object_id\": \"offer-1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d576c067-0069-4ba7-98e8-e540d3580ceb",
+              "name": "Forbidden - Application User does not have the MARKETPLACE_ACTIONS security profile.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "actions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action_type\": \"withdraw\",\n  \"object_type\": \"ws-offer\",\n  \"marketplace_type\": \"aws\",\n  \"object_id\": \"offer-1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "97c58852-31de-4d49-bc0d-03eaf611e66a",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "actions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action_type\": \"withdraw\",\n  \"object_type\": \"ws-offer\",\n  \"marketplace_type\": \"aws\",\n  \"object_id\": \"offer-1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-sandbox.workspan.com/oauth",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "noauth"
+  },
+  "info": {
+    "_postman_id": "d0550d66-9759-4eb6-91f8-45e966190f43",
+    "name": "Authentication Actions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Implementation of [OAuth 2.0](https://tools.ietf.org/html/rfc6749  \"Docs\") with Client Credentials Grant type\n",
+      "type": "text/plain"
+    }
+  }
+}

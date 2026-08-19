@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Authentication Actions Audit API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Audit",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Supply Audit information for a WorkSpan ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api-sandbox.workspan.com/oauth/:object_id/audit",
+            "params": [
+              {
+                "name": "object_id",
+                "value": "",
+                "type": "path",
+                "description": "Object ID of object receiving audit information assigned by WorkSpan (long ID)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Supply Audit information for a WorkSpan ID"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

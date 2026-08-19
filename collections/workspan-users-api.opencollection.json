@@ -1,0 +1,130 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Authentication Actions Users API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "search or list users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.workspan.com/oauth/Users",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "only support 'userName' filter expressions for now"
+              },
+              {
+                "name": "startIndex",
+                "value": "",
+                "type": "query",
+                "description": "start index (1-based)"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "page size"
+              }
+            ]
+          },
+          "docs": "search or list users"
+        },
+        {
+          "info": {
+            "name": "Create the user if user doesnt exist with the same email",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.workspan.com/oauth/Users",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create User"
+        },
+        {
+          "info": {
+            "name": "Get the user based on the id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.workspan.com/oauth/Users/:user_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path",
+                "description": "User id to Get"
+              }
+            ]
+          },
+          "docs": "Get User"
+        },
+        {
+          "info": {
+            "name": "Update/Suspend User if user with same id exist",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api-sandbox.workspan.com/oauth/Users/:user_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path",
+                "description": "User id to be updated"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update User"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

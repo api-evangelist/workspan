@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Authentication Actions Bulkload API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Bulkload",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Bulk Load Objects to WorkSpan",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.workspan.com/oauth/bulkload",
+            "params": [
+              {
+                "name": "integration_id",
+                "value": "",
+                "type": "path",
+                "description": "Integration ID of CRM integration that is configured in WorkSpan App"
+              },
+              {
+                "name": "data_format",
+                "value": "",
+                "type": "query",
+                "description": "The format of the data which is sent in the request body or in the attached file; this is case insensitive"
+              },
+              {
+                "name": "file_token",
+                "value": "",
+                "type": "query",
+                "description": "Upload token that is associated with a GCS Signed URL."
+              },
+              {
+                "name": "column_delimiter",
+                "value": "",
+                "type": "query",
+                "description": "The column delimiter for the CSV data that is passed in or attached; default is ','"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Bulk Load Objects to WorkSpan. Data can be attached to the request body as JSON/CSV format, or attached as a JSON/CSV/XLSX file."
+        },
+        {
+          "info": {
+            "name": "Get a Signed URL to upload a file directly to the Cloud Storage of WorkSpan.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.workspan.com/oauth/bulkload/:integration_id/upload_url",
+            "params": [
+              {
+                "name": "integration_id",
+                "value": "",
+                "type": "path",
+                "description": "Integration ID that is configured in WorkSpan App"
+              },
+              {
+                "name": "file_name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the file, with the file extension, to use when storing the file in the Cloud Storage of WorkSpan."
+              }
+            ]
+          },
+          "docs": "Get a Signed URL to upload a file directly to the File Cloud Storage of WorkSpan."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

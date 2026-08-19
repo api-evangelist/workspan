@@ -1,0 +1,321 @@
+{
+  "item": [
+    {
+      "id": "6e289abc-45c6-4ac6-9a7d-39fafc3fcf24",
+      "name": "Status",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "75b443ea-838f-4940-a1c0-a293bb1d91f9",
+          "name": "Get Status of execution of integration using integration id",
+          "request": {
+            "name": "Get Status of execution of integration using integration id",
+            "description": {
+              "content": "Check the execution status of your integration.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "status",
+                ":integration_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "include_errors",
+                  "value": "false",
+                  "description": "Include errors in the response if there are any errors"
+                },
+                {
+                  "disabled": false,
+                  "key": "max_errors",
+                  "value": "10",
+                  "description": "Maximum number of errors to return back in the response"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "integration_id",
+                  "description": "(Required) Integration ID that is configured in WorkSpan App"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "execution_id",
+                  "description": "(Required) Execution ID of an integration execution which is returned from bulk API"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cb977e39-1009-454a-9066-8e13de069634",
+              "name": "Execution is retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "status",
+                    ":integration_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include_errors",
+                      "value": "false"
+                    },
+                    {
+                      "key": "max_errors",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_id",
+                      "description": "(Required) Integration ID that is configured in WorkSpan App"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "execution_id",
+                      "description": "(Required) Execution ID of an integration execution which is returned from bulk API"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\r\\n  \\\"integration_id\\\": \\\"WS-Integration_agpzfndzLW\\\",\\r\\n  \\\"execution_id\\\": \\\"a64690c2450\\\",\\r\\n  \\\"status\\\": \\\"completed\\\",\\r\\n  \\\"input_count\\\": 200,\\r\\n  \\\"error_count\\\": 3,\\r\\n  \\\"success_count\\\": 197,\\r\\n  \\\"skip_count\\\": 0,\\r\\n  \\\"started_at\\\": \\\"2020-05-07T14:06:57.572Z\\\",\\r\\n  \\\"completed_at\\\": \\\"2020-05-07T14:07:10.572Z\\\",\\r\\n  \\\"include_errors\\\": true,\\r\\n  \\\"errors\\\": [\\r\\n    {\\r\\n      \\\"id\\\": \\\"aw00079\\\",\\r\\n      \\\"message\\\": \\\"invalid value in field 'close_date'\\\",\\r\\n      \\\"data_row\\\": {\\r\\n        \\\"opportunity_id\\\": \\\"aw00079\\\",\\r\\n        \\\"close_date\\\": \\\"20-jan-2020\\\",\\r\\n        \\\"amount\\\": 250000\\r\\n      }\\r\\n    },\\r\\n    {\\r\\n      \\\"id\\\": \\\"aw00082\\\",\\r\\n      \\\"message\\\": \\\"invalid value in field 'amount'\\\",\\r\\n      \\\"data_row\\\": {\\r\\n        \\\"opportunity_id\\\": \\\"aw00082\\\",\\r\\n        \\\"close_date\\\": \\\"2021-01-20\\\",\\r\\n        \\\"amount\\\": \\\"-\\\"\\r\\n      }\\r\\n    },\\r\\n    {\\r\\n      \\\"id\\\": \\\"\\\",\\r\\n      \\\"message\\\": \\\"Missing value of key field\\\",\\r\\n      \\\"data_row\\\": {\\r\\n        \\\"opportunity_id\\\": \\\"\\\",\\r\\n        \\\"close_date\\\": \\\"2020-10-20\\\",\\r\\n        \\\"amount\\\": 75000\\r\\n      }\\r\\n    }\\r\\n  ]\\r\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d92599de-fe1d-4be5-9c84-5899cd6e8ef5",
+              "name": "invalid execution_id",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "status",
+                    ":integration_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include_errors",
+                      "value": "false"
+                    },
+                    {
+                      "key": "max_errors",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_id",
+                      "description": "(Required) Integration ID that is configured in WorkSpan App"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "execution_id",
+                      "description": "(Required) Execution ID of an integration execution which is returned from bulk API"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "05a4c42e-50b0-42c0-882c-e849ef4fc54d",
+              "name": "Authorization Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "status",
+                    ":integration_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include_errors",
+                      "value": "false"
+                    },
+                    {
+                      "key": "max_errors",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_id",
+                      "description": "(Required) Integration ID that is configured in WorkSpan App"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "execution_id",
+                      "description": "(Required) Execution ID of an integration execution which is returned from bulk API"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "eed3a878-66f6-4d7a-aae5-e167e0733fe5",
+              "name": "integration_id or execution_id not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "status",
+                    ":integration_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include_errors",
+                      "value": "false"
+                    },
+                    {
+                      "key": "max_errors",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_id",
+                      "description": "(Required) Integration ID that is configured in WorkSpan App"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "execution_id",
+                      "description": "(Required) Execution ID of an integration execution which is returned from bulk API"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-sandbox.workspan.com/oauth",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "noauth"
+  },
+  "info": {
+    "_postman_id": "00c1d836-7209-4b6b-a01e-a54fb2b9d470",
+    "name": "Authentication Actions Status API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Implementation of [OAuth 2.0](https://tools.ietf.org/html/rfc6749  \"Docs\") with Client Credentials Grant type\n",
+      "type": "text/plain"
+    }
+  }
+}

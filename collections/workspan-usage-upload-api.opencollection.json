@@ -1,0 +1,47 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Authentication Actions Usage Upload API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Usage Upload",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Upload marketplace usage data",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.workspan.com/oauth/usage_upload",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "integration_id",
+                "value": "",
+                "type": "path",
+                "description": "WorkSpan integration ID identifying the target marketplace integration. Example: WS-Integration_ag1zfm1jYS1hcmp1bi00chULEgtJbnRlZ3JhdGlvbhiR7viJAQw"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Upload marketplace usage data for AWS, Azure, or Google Cloud marketplace integrations. Supports both JSON payload and CSV file uploads. Data is processed in batches and returns execution IDs for tracking. Payload structure varies by marketplace type - see definitions for AwsMarketplaceUsageUploadReq, AzureMarketplaceUsageUploadReq, or GoogleMarketplaceUsageUploadReq."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -2,8 +2,8 @@ generated: '2026-07-21'
 method: derived
 status: candidate
 source: openapi/ (11 specs harvested from developer.workspan.com)
-note: WorkSpan publishes no official MCP server (none in npm, the MCP registry surfaces checked, or its GitHub org).
-  Candidate tool list derived from the published API operations.
+note: WorkSpan publishes no official MCP server (none in npm, the MCP registry surfaces checked, or its
+  GitHub org). Candidate tool list derived from the published API operations.
 server:
   name: workspan
   transport: http
@@ -18,8 +18,8 @@ tools:
   description: Provide Authorization code (dummy)
   source_operation: openapi/workspan-authentication-openapi.yml#get-authorize
 - name: bulkload
-  description: Bulk Load Objects to WorkSpan. Data can be attached to the request body as JSON/CSV format, or attached
-    as a JSON/CSV/XLSX file.
+  description: Bulk Load Objects to WorkSpan. Data can be attached to the request body as JSON/CSV format,
+    or attached as a JSON/CSV/XLSX file.
   source_operation: openapi/workspan-bulk-openapi.yml#bulkload
 - name: bulkload_opportunities
   description: Bulk Load Opportunities to WorkSpan. Data can be Json or CSV
@@ -46,8 +46,8 @@ tools:
   description: Co-Sell PickList
   source_operation: openapi/workspan-co-sell-openapi.yml#co-sell-picklist
 - name: test_bulk
-  description: Bulk Load Objects to WorkSpan. Data can be attached to the request body as JSON/CSV format, or attached
-    as a JSON/CSV/XLSX file.
+  description: Bulk Load Objects to WorkSpan. Data can be attached to the request body as JSON/CSV format,
+    or attached as a JSON/CSV/XLSX file.
   source_operation: openapi/workspan-co-sell-openapi.yml#test-bulk
 - name: test_dummy_api
   description: Test dummy api
@@ -80,31 +80,35 @@ tools:
   description: 'Webhook registration: Subscribe to object update notification'
   source_operation: openapi/workspan-events-openapi.yml#WebhookRegistration
 - name: getmarketplaceactionbyid
-  description: Returns the current status of a previously submitted marketplace action, identified by action_id.
-    For GCP actions, the status is synced live from the project's google_integration_status field on every
+  description: Returns the current status of a previously submitted marketplace action, identified by
+    action_id. For GCP actions, the status is synced live from the project's google_integration_status
+    field on every
   source_operation: openapi/workspan-marketplace-openapi.yml#getMarketplaceActionById
 - name: getmarketplaceusagestatus
-  description: Retrieves the status of marketplace usage upload by execution_id. Returns a list of projects associated
-    with the execution_id, including their workflow status, project name, external ID, and project I
+  description: Retrieves the status of marketplace usage upload by execution_id. Returns a list of projects
+    associated with the execution_id, including their workflow status, project name, external ID, and
+    project I
   source_operation: openapi/workspan-marketplace-openapi.yml#getMarketplaceUsageStatus
 - name: marketplace_report_export
   description: Returns real-time report data (paginated).
   source_operation: openapi/workspan-marketplace-openapi.yml#marketplace_report_export
 - name: inbound_v2
-  description: Load AWS marketplace authorization objects to WorkSpan. Creates or updates marketplace authorizations
-    with flexible pricing and payment configurations.
+  description: Load AWS marketplace authorization objects to WorkSpan. Creates or updates marketplace
+    authorizations with flexible pricing and payment configurations.
   source_operation: openapi/workspan-marketplace-openapi.yml#inbound_v2
 - name: inbound
-  description: Load Object to WorkSpan. Data can be attached to the form data as JSON, and an agreement file can
-    be attached to form as a PDF/TXT file.
+  description: Load Object to WorkSpan. Data can be attached to the form data as JSON, and an agreement
+    file can be attached to form as a PDF/TXT file.
   source_operation: openapi/workspan-marketplace-openapi.yml#inbound
 - name: createmarketplaceaction
-  description: Initiates an asynchronous marketplace action on a WorkSpan offer. The request is validated synchronously
-    — if all checks pass, an action_id is returned immediately with status IN_PROGRESS and the oper
+  description: Initiates an asynchronous marketplace action on a WorkSpan offer. The request is validated
+    synchronously — if all checks pass, an action_id is returned immediately with status IN_PROGRESS and
+    the oper
   source_operation: openapi/workspan-marketplace-openapi.yml#createMarketplaceAction
 - name: uploadmarketplaceusage
-  description: Upload marketplace usage data for AWS, Azure, or Google Cloud marketplace integrations. Supports
-    both JSON payload and CSV file uploads. Data is processed in batches and returns execution IDs for trac
+  description: Upload marketplace usage data for AWS, Azure, or Google Cloud marketplace integrations.
+    Supports both JSON payload and CSV file uploads. Data is processed in batches and returns execution
+    IDs for trac
   source_operation: openapi/workspan-marketplace-openapi.yml#uploadMarketplaceUsage
 - name: get_external_id
   description: Get external ID for WorkSpan ID
@@ -116,8 +120,8 @@ tools:
   description: Supply Audit information for a WorkSpan ID
   source_operation: openapi/workspan-object-openapi.yml#audit_object
 - name: uploadpartneraccount
-  description: Bulk Load Partner Accounts to WorkSpan. Data can be attached to the request body as JSON/CSV format,
-    or attached as a JSON/CSV/XLSX file.
+  description: Bulk Load Partner Accounts to WorkSpan. Data can be attached to the request body as JSON/CSV
+    format, or attached as a JSON/CSV/XLSX file.
   source_operation: openapi/workspan-partner-account-load-openapi.yml#uploadPartnerAccount
 - name: getchartdata
   description: Returns real-time chart data for a report.
@@ -164,3 +168,9 @@ tools:
 - name: check_attribute
   description: Checks user attribute values for the given user.
   source_operation: openapi/workspan-users-openapi.yml#check-attribute
+deployment:
+  mode: none
+  verified: derived
+  tools: 49
+  checked: '2026-08-12'
+  source: catalog MCP census

@@ -1,0 +1,60 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Authentication Actions External Id API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "External Id",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get external ID for WorkSpan ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.workspan.com/oauth/:object_id/external_id",
+            "params": [
+              {
+                "name": "object_id",
+                "value": "",
+                "type": "path",
+                "description": "Object ID assigned by WorkSpan (long ID)"
+              }
+            ]
+          },
+          "docs": "Get external ID for WorkSpan ID"
+        },
+        {
+          "info": {
+            "name": "Connect an external ID to a WorkSpan ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api-sandbox.workspan.com/oauth/:object_id/external_id",
+            "params": [
+              {
+                "name": "object_id",
+                "value": "",
+                "type": "path",
+                "description": "Object ID assigned by WorkSpan (long ID)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Connect an external ID to a WorkSpan ID"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

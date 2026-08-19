@@ -1,0 +1,400 @@
+{
+  "item": [
+    {
+      "id": "37bdf604-2a48-4377-88e7-61f3c7269384",
+      "name": "External Id",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2f6ad1a3-04f3-49f3-81d9-80d951dbb05e",
+          "name": "Connect an external ID to a WorkSpan ID",
+          "request": {
+            "name": "Connect an external ID to a WorkSpan ID",
+            "description": {
+              "content": "Connect an external ID to a WorkSpan ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":object_id",
+                "external_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "object_id",
+                  "description": "(Required) Object ID assigned by WorkSpan (long ID)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"field_name\": \"sales_details.crm_opportunity_id\",\r\n  \"external_id\": \"000owa24575\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "44a11e8c-0c5c-4a36-9669-6445ded38bfa",
+              "name": "Connection of external object to WorkSpan object is successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":object_id",
+                    "external_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "object_id",
+                      "description": "(Required) Object ID assigned by WorkSpan (long ID)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"field_name\": \"sales_details.crm_opportunity_id\",\r\n  \"external_id\": \"000owa24575\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\r\\n  \\\"object_id\\\": \\\"WS-Project_agpzfndzLWF\\\",\\r\\n  \\\"external_id\\\": \\\"000owa24575\\\",\\r\\n  \\\"field_name\\\": \\\"sales_details.crm_opportunity_id\\\"\\r\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8de5974e-98ff-47dd-b99c-fd87af61dc11",
+              "name": "Authorization Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":object_id",
+                    "external_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "object_id",
+                      "description": "(Required) Object ID assigned by WorkSpan (long ID)"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"field_name\": \"sales_details.crm_opportunity_id\",\r\n  \"external_id\": \"000owa24575\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "45e318f1-b385-45fc-8d7b-1b9a6a8a8ac5",
+              "name": "WorkSpan object not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":object_id",
+                    "external_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "object_id",
+                      "description": "(Required) Object ID assigned by WorkSpan (long ID)"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"field_name\": \"sales_details.crm_opportunity_id\",\r\n  \"external_id\": \"000owa24575\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5a5b389c-fff8-4564-8ddd-63604a7d1404",
+          "name": "Get external ID for WorkSpan ID",
+          "request": {
+            "name": "Get external ID for WorkSpan ID",
+            "description": {
+              "content": "Get external ID for WorkSpan ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":object_id",
+                "external_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "object_id",
+                  "description": "(Required) Object ID assigned by WorkSpan (long ID)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "670183b8-4a08-4191-bb13-30e4dbf0d660",
+              "name": "Retrieving external ID of a WorkSpan Object is successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":object_id",
+                    "external_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "object_id",
+                      "description": "(Required) Object ID assigned by WorkSpan (long ID)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\r\\n  \\\"object_id\\\": \\\"WS-Project_agpzfndzLWF\\\",\\r\\n  \\\"external_ids\\\": [\\r\\n    {\\r\\n      \\\"external_id\\\": \\\"000owa24575\\\",\\r\\n      \\\"field_name\\\": \\\"sales_details.crm_opportunity_id\\\"\\r\\n    },\\r\\n    {\\r\\n      \\\"external_id\\\": \\\"pc-a1w09875\\\",\\r\\n      \\\"field_name\\\": \\\"partner_center.referral_id\\\"\\r\\n    }\\r\\n  ]\\r\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "510cbe31-702e-4cf6-9e91-45124b37cd96",
+              "name": "Authorization Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":object_id",
+                    "external_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "object_id",
+                      "description": "(Required) Object ID assigned by WorkSpan (long ID)"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cdc14cdb-8aad-4f4b-8c7d-0062995fb9af",
+              "name": "WorkSpan object not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":object_id",
+                    "external_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "object_id",
+                      "description": "(Required) Object ID assigned by WorkSpan (long ID)"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-sandbox.workspan.com/oauth",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "noauth"
+  },
+  "info": {
+    "_postman_id": "72daff5e-e568-456a-a402-2337cfb5be46",
+    "name": "Authentication Actions External Id API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Implementation of [OAuth 2.0](https://tools.ietf.org/html/rfc6749  \"Docs\") with Client Credentials Grant type\n",
+      "type": "text/plain"
+    }
+  }
+}

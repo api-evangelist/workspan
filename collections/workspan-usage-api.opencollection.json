@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Authentication Actions Usage API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Usage",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get marketplace usage upload status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.workspan.com/oauth/usage/status",
+            "params": [
+              {
+                "name": "execution_id",
+                "value": "",
+                "type": "path",
+                "description": "The execution ID to search for. This is the execution ID returned from the usage upload endpoint."
+              }
+            ]
+          },
+          "docs": "Retrieves the status of marketplace usage upload by execution_id. Returns a list of projects associated with the execution_id, including their workflow status, project name, external ID, and project ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

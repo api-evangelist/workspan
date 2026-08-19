@@ -1,0 +1,202 @@
+{
+  "item": [
+    {
+      "id": "c81677a8-7b2f-4778-bf80-5772db0c4d22",
+      "name": "Crm Inbound V2",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "81db6930-ceff-453d-800c-53000568c255",
+          "name": "Load AWS Marketplace Authorization to WorkSpan",
+          "request": {
+            "name": "Load AWS Marketplace Authorization to WorkSpan",
+            "description": {
+              "content": "Load AWS marketplace authorization objects to WorkSpan. Creates or updates marketplace authorizations with flexible pricing and payment configurations.\n\nREQUEST MODEL: AwsMarketplaceAuthorizationInboundRequest\n\nNESTED MODELS (in data payload):\n- pricing_terms (array) → Dimension model\n- payment_schedules (array) → PaymentScheduleTerms model\n\nFILE UPLOADS (form fields):\n- customer_eula_file (optional): Customer EULA document\n- reseller_eula_file (optional): Reseller EULA document\n\nDATA FORMAT: Send AwsMarketplaceAuthorizationInboundRequest as JSON in the 'data' form field.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "crm_inbound_v2"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "integration_id",
+                  "description": "(Required) Integration ID of CRM integration that is configured in WorkSpan App."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            }
+          },
+          "response": [
+            {
+              "id": "38d93b72-907b-4e1e-954e-bc3b0cc98112",
+              "name": "Data upload successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "crm_inbound_v2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_id",
+                      "description": "(Required) Integration ID of CRM integration that is configured in WorkSpan App."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "25c03ff0-daad-48e0-b775-b93e2f8ae000",
+              "name": "Invalid input, object invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "crm_inbound_v2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_id",
+                      "description": "(Required) Integration ID of CRM integration that is configured in WorkSpan App."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "59a442c2-4a7e-4c91-9f66-335a7617a561",
+              "name": "Authorization error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "crm_inbound_v2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_id",
+                      "description": "(Required) Integration ID of CRM integration that is configured in WorkSpan App."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-sandbox.workspan.com/oauth",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "noauth"
+  },
+  "info": {
+    "_postman_id": "7e808736-af9c-4867-80e3-7025fb83b37a",
+    "name": "Authentication Actions Crm Inbound V2 API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Implementation of [OAuth 2.0](https://tools.ietf.org/html/rfc6749  \"Docs\") with Client Credentials Grant type\n",
+      "type": "text/plain"
+    }
+  }
+}

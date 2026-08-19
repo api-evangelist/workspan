@@ -1,0 +1,47 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Authentication Actions Chart Data API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Chart Data",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get charts data for a report",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.workspan.com/oauth/:reportId/chart-data",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "reportId",
+                "value": "",
+                "type": "path",
+                "description": "Format - int64."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Returns real-time chart data for a report."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

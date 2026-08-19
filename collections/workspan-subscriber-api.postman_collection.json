@@ -1,0 +1,607 @@
+{
+  "item": [
+    {
+      "id": "fd838df5-27b1-475d-9742-6fde9988647f",
+      "name": "Subscriber",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2a1adfb6-7f1e-42c7-a579-1bc0392e26f8",
+          "name": "Delete a subscriber (unregister a webhook)",
+          "request": {
+            "name": "Delete a subscriber (unregister a webhook)",
+            "description": {
+              "content": "Delete a subscriber (unregister a webhook)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriber",
+                ":subscriber_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "subscriber_id",
+                  "description": "(Required) ID of the subscriber that needs to be deleted"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "716aa598-7b57-420d-9a86-bf54f691ec64",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriber",
+                    ":subscriber_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriber_id",
+                      "description": "(Required) ID of the subscriber that needs to be deleted"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1e743f08-0c10-47ff-8d24-b34a9c8f622b",
+              "name": "Invalid ID supplied",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriber",
+                    ":subscriber_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriber_id",
+                      "description": "(Required) ID of the subscriber that needs to be deleted"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cffa0eff-0eef-4a31-984a-eae7dfe61565",
+              "name": "subscriber not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriber",
+                    ":subscriber_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriber_id",
+                      "description": "(Required) ID of the subscriber that needs to be deleted"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f5ca6fcb-1acb-4525-b530-14ef9321f39c",
+          "name": "Read subscriber information",
+          "request": {
+            "name": "Read subscriber information",
+            "description": {
+              "content": "Read details of subscription",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriber",
+                ":subscriber_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "subscriber_id",
+                  "description": "(Required) subscriber id assigened by WorkSpan"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c7133af9-91e2-463a-8470-93975c7c1169",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriber",
+                    ":subscriber_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriber_id",
+                      "description": "(Required) subscriber id assigened by WorkSpan"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\r\\n  \\\"subscriber_id\\\": \\\"string\\\",\\r\\n  \\\"name\\\": \\\"string\\\",\\r\\n  \\\"objectids\\\": [\\r\\n    \\\"string\\\"\\r\\n  ],\\r\\n  \\\"integration_id\\\": \\\"string\\\",\\r\\n  \\\"filters\\\": \\\"string\\\",\\r\\n  \\\"subscriber_type\\\": \\\"webhook\\\"\\r\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "af719a6a-2c06-4922-92ee-f9522808e094",
+              "name": "API Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriber",
+                    ":subscriber_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriber_id",
+                      "description": "(Required) subscriber id assigened by WorkSpan"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cdde3566-b2dd-4e6d-9f3d-7037a05fb629",
+              "name": "Subscriber not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriber",
+                    ":subscriber_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscriber_id",
+                      "description": "(Required) subscriber id assigened by WorkSpan"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cf9b11f0-d344-4fdd-bd29-a3373ff34d07",
+          "name": "List subscribers",
+          "request": {
+            "name": "List subscribers",
+            "description": {
+              "content": "List Subscribers",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriber"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "220baa75-c24e-4ef2-b6f6-7ee31ee51d7b",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriber"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\r\\n  \\\"items\\\": [\\r\\n    {\\r\\n      \\\"subscriber_id\\\": \\\"string\\\",\\r\\n      \\\"name\\\": \\\"string\\\",\\r\\n      \\\"objectids\\\": [\\r\\n        \\\"string\\\"\\r\\n      ],\\r\\n      \\\"integration_id\\\": \\\"string\\\",\\r\\n      \\\"filters\\\": \\\"string\\\",\\r\\n      \\\"subscriber_type\\\": \\\"webhook\\\"\\r\\n    }\\r\\n  ]\\r\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ad296638-ac2e-4aa1-8afc-ce9009849aba",
+              "name": "API Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriber"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cc0533ae-b695-4a0c-b577-656b0851f0a4",
+              "name": "Subscriber not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriber"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "98b7b537-19e3-439a-9b60-eacd3dc9b67d",
+          "name": "Webhook: subscribe to object update notification",
+          "request": {
+            "name": "Webhook: subscribe to object update notification",
+            "description": {
+              "content": "Webhook registration: Subscribe to object update notification",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriber"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3e348785-883a-4790-a3e4-db4cd69e4568",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriber"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\r\\n  \\\"subscriber_id\\\": \\\"string\\\"\\r\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c6dc16bc-0c1a-470b-906c-6fe4b8fc2344",
+              "name": "Error when subscribing to event via webhook",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriber"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-sandbox.workspan.com/oauth",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "noauth"
+  },
+  "info": {
+    "_postman_id": "743e3fe4-b6de-4c93-90b2-fbc1c376612f",
+    "name": "Authentication Actions Subscriber API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Implementation of [OAuth 2.0](https://tools.ietf.org/html/rfc6749  \"Docs\") with Client Credentials Grant type\n",
+      "type": "text/plain"
+    }
+  }
+}

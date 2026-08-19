@@ -1,0 +1,85 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Authentication Actions Cosell API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Cosell",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Co-Sell Action",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.workspan.com/oauth/cosell/action",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Co-Sell Action Public API"
+        },
+        {
+          "info": {
+            "name": "Co-Sell count AWS partner",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.workspan.com/oauth/cosell/aws/partners/count"
+          },
+          "docs": "Co-Sell count AWS partner"
+        },
+        {
+          "info": {
+            "name": "Co-Sell List AWS Partner",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.workspan.com/oauth/cosell/aws/partners"
+          },
+          "docs": "Co-Sell List AWS Partner"
+        },
+        {
+          "info": {
+            "name": "CoSell Opportunity CRM Validate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.workspan.com/oauth/cosell/opportunity/validate/crm",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Validate the Opportunity for crm"
+        },
+        {
+          "info": {
+            "name": "Test dummy api",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.workspan.com/oauth/cosell/demo/test",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Test dummy api"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,126 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Authentication Actions View API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "View",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get report view data",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.workspan.com/oauth/view/:viewId/data",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "viewId",
+                "value": "",
+                "type": "path",
+                "description": "Format - int64."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Returns report view data (paginated).\nReport view data is guaranteed not to change after the view has been created. In case of subsequent report update new report view needs to be created."
+        },
+        {
+          "info": {
+            "name": "Get report view metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.workspan.com/oauth/view/:viewId",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "viewId",
+                "value": "",
+                "type": "path",
+                "description": "Format - int64."
+              }
+            ]
+          },
+          "docs": "Returns the report view details (metadata information)."
+        },
+        {
+          "info": {
+            "name": "Get report view status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.workspan.com/oauth/view/:viewId/status",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "viewId",
+                "value": "",
+                "type": "path",
+                "description": "Format - int64."
+              }
+            ]
+          },
+          "docs": "Returns the status of the report view.\nThe report view has following lifecycle:\n  - PENDING - creation of report view is scheduled\n  - RUNNING - report view is being created\n  - SUCCESS - report view has been successfully created\n  - FAILED - report view could not have been created\n  - DELETED - report view older then 24h have been deleted"
+        },
+        {
+          "info": {
+            "name": "Prepare report view",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.workspan.com/oauth/view/:reportId/prepare_export",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "reportId",
+                "value": "",
+                "type": "path",
+                "description": "Format - int64."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Triggers a background job that will create a report view.\nThe report view will be created in a single transaction ensuring data consistency while exporting the data.\nThis approach is good for reports of any size but it is recommended way for exporting bigger reports when data consistency has to be guaranteed."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

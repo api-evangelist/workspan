@@ -1,0 +1,132 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Authentication Actions Metadata API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Metadata",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Co-Sell PickList",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.workspan.com/oauth/metadata/picklists/hyperscaler",
+            "params": [
+              {
+                "name": "partner_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "field_names",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Co-Sell PickList"
+        },
+        {
+          "info": {
+            "name": "Get list of events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.workspan.com/oauth/metadata/event"
+          },
+          "docs": "Get list of events"
+        },
+        {
+          "info": {
+            "name": "Get list of integrations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.workspan.com/oauth/metadata/integration"
+          },
+          "docs": "Get list of integrations"
+        },
+        {
+          "info": {
+            "name": "Get schema of event",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.workspan.com/oauth/metadata/event/:event",
+            "headers": [
+              {
+                "name": "x-ws-env",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "event",
+                "value": "",
+                "type": "path",
+                "description": "Name of event"
+              }
+            ]
+          },
+          "docs": "Get schema of event"
+        },
+        {
+          "info": {
+            "name": "Get schema of object event",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.workspan.com/oauth/metadata/integration/:integration_id",
+            "params": [
+              {
+                "name": "integration_id",
+                "value": "",
+                "type": "path",
+                "description": "Integration Id of Object Event Integration"
+              }
+            ]
+          },
+          "docs": "Get schema of object event"
+        },
+        {
+          "info": {
+            "name": "Get report metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.workspan.com/oauth/:reportId/metadata",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "reportId",
+                "value": "",
+                "type": "path",
+                "description": "Format - int64."
+              }
+            ]
+          },
+          "docs": "Returns metadata information about the report."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

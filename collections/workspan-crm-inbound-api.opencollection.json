@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Authentication Actions Crm Inbound API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Crm Inbound",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Load Object to WorkSpan",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.workspan.com/oauth/crm_inbound",
+            "params": [
+              {
+                "name": "integration_id",
+                "value": "",
+                "type": "path",
+                "description": "Integration ID of CRM integration that is configured in WorkSpan App."
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": []
+            }
+          },
+          "docs": "Load Object to WorkSpan. Data can be attached to the form data as JSON, and an agreement file can be attached to form as a PDF/TXT file."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

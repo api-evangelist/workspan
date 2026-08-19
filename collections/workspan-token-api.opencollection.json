@@ -1,0 +1,50 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Authentication Actions Token API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Token",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Request Access Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.workspan.com/oauth/token",
+            "headers": [
+              {
+                "name": "x-ws-env",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Partner makes a request to the token endpoint by adding the\nfollowing parameters describerd  below\n"
+        },
+        {
+          "info": {
+            "name": "Invalidate access token",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api-sandbox.workspan.com/oauth/token"
+          },
+          "docs": "Invalidate access token"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

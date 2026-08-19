@@ -1,0 +1,56 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Authentication Actions Bulkload Opportunity API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Bulkload Opportunity",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Bulk Load Opportunities to WorkSpan",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.workspan.com/oauth/bulkload_opportunity",
+            "params": [
+              {
+                "name": "integration_id",
+                "value": "",
+                "type": "path",
+                "description": "Integration ID of that is configured in WorkSpan App"
+              },
+              {
+                "name": "content_type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "column_delimiter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "has_header_row",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Bulk Load Opportunities to WorkSpan. Data can be Json or CSV"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

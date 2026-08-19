@@ -1,0 +1,267 @@
+{
+  "item": [
+    {
+      "id": "5d0c5a77-fb8a-4545-aa54-bf623efd12b5",
+      "name": "Bulkload Opportunity",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4cafdce5-a3ae-4dd6-81d6-37c7be2bda60",
+          "name": "Bulk Load Opportunities to WorkSpan",
+          "request": {
+            "name": "Bulk Load Opportunities to WorkSpan",
+            "description": {
+              "content": "Bulk Load Opportunities to WorkSpan. Data can be Json or CSV",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bulkload_opportunity"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "content_type",
+                  "value": "CSV"
+                },
+                {
+                  "disabled": false,
+                  "key": "column_delimiter",
+                  "value": ","
+                },
+                {
+                  "disabled": false,
+                  "key": "has_header_row",
+                  "value": "true"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "integration_id",
+                  "description": "(Required) Integration ID of that is configured in WorkSpan App"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            }
+          },
+          "response": [
+            {
+              "id": "f88cee72-9805-4465-af4a-65b44a2ac7dc",
+              "name": "data uploaded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bulkload_opportunity"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "content_type",
+                      "value": "CSV"
+                    },
+                    {
+                      "key": "column_delimiter",
+                      "value": ","
+                    },
+                    {
+                      "key": "has_header_row",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_id",
+                      "description": "(Required) Integration ID of that is configured in WorkSpan App"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\r\\n  \\\"integration_id\\\": \\\"WS-Integration_agpzfndzLW\\\",\\r\\n  \\\"execution_id\\\": \\\"a64690c2450\\\",\\r\\n  \\\"created_at\\\": \\\"2020-05-18T14:06:57.572Z\\\"\\r\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "00b996c9-b1fd-4bc1-b3e9-11f75cd7a2ba",
+              "name": "invalid input, object invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bulkload_opportunity"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "content_type",
+                      "value": "CSV"
+                    },
+                    {
+                      "key": "column_delimiter",
+                      "value": ","
+                    },
+                    {
+                      "key": "has_header_row",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_id",
+                      "description": "(Required) Integration ID of that is configured in WorkSpan App"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f592ec91-da23-478d-ae8d-a3e156138792",
+              "name": "Authorization Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bulkload_opportunity"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "content_type",
+                      "value": "CSV"
+                    },
+                    {
+                      "key": "column_delimiter",
+                      "value": ","
+                    },
+                    {
+                      "key": "has_header_row",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_id",
+                      "description": "(Required) Integration ID of that is configured in WorkSpan App"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-sandbox.workspan.com/oauth",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "noauth"
+  },
+  "info": {
+    "_postman_id": "5cbbf1f5-90d0-4298-90b0-88248a283c0b",
+    "name": "Authentication Actions Bulkload Opportunity API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Implementation of [OAuth 2.0](https://tools.ietf.org/html/rfc6749  \"Docs\") with Client Credentials Grant type\n",
+      "type": "text/plain"
+    }
+  }
+}

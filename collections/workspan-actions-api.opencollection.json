@@ -1,0 +1,52 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Authentication Actions API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Actions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get marketplace action status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.workspan.com/oauth/actions/:action_id",
+            "params": [
+              {
+                "name": "action_id",
+                "value": "",
+                "type": "path",
+                "description": "The action_id returned from POST /actions."
+              }
+            ]
+          },
+          "docs": "Returns the current status of a previously submitted marketplace action, identified by action_id. For GCP actions, the status is synced live from the project's google_integration_status field on every call. For AWS actions, status is updated by the changeset polling infrastructure. For Azure actions, status is updated by the job polling infrastructure."
+        },
+        {
+          "info": {
+            "name": "Submit a marketplace action (e.g. withdraw offer or authorization)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.workspan.com/oauth/actions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Initiates an asynchronous marketplace action on a WorkSpan offer. The request is validated synchronously — if all checks pass, an action_id is returned immediately with status IN_PROGRESS and the operation runs in the background. Poll GET /actions/{action_id} for the final status.\n\nValidation checks performed before the action is accepted (in order):\n1. Application User must have the MARKETPLACE_ACTIONS security profile.\n2. action_type must be 'withdraw'.\n3. object_type must be 'ws-offer'.\n4. ma"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

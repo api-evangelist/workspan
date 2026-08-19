@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Authentication Actions Authorize API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authorize",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Request Authorization Code",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.workspan.com/oauth/authorize"
+          },
+          "docs": "Provide Authorization code (dummy)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

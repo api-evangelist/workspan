@@ -1,0 +1,366 @@
+{
+  "item": [
+    {
+      "id": "b1f83fea-e4dc-4cf4-a657-a7f3c4e72bd6",
+      "name": "Chart Data",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "953f97cb-0912-4064-859e-34bd38369345",
+          "name": "Get charts data for a report",
+          "request": {
+            "name": "Get charts data for a report",
+            "description": {
+              "content": "Returns real-time chart data for a report.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":reportId",
+                "chart-data"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "reportId",
+                  "description": "(Required) Format - int64."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"filters\": {\n    \"op\": \"AND\",\n    \"group\": [\n      {\n        \"op\": \"OR\",\n        \"group\": [],\n        \"fieldFilters\": [\n          {\n            \"type\": \"TEXT\",\n            \"colId\": \"0\",\n            \"filter\": {\n              \"op\": \"EQUAL_TO\",\n              \"negate\": true,\n              \"values\": [\n                \"TESTED\"\n              ]\n            }\n          },\n          {\n            \"type\": \"TEXT\",\n            \"colId\": \"0\",\n            \"filter\": {\n              \"op\": \"EQUAL_TO\",\n              \"negate\": false,\n              \"values\": [\n                \"UPDATE_FAILED\"\n              ]\n            }\n          }\n        ]\n      }\n    ],\n    \"fieldFilters\": [\n      {\n        \"type\": \"TEXT\",\n        \"colId\": \"1\",\n        \"filter\": {\n          \"op\": \"EQUAL_TO\",\n          \"negate\": true,\n          \"values\": [\n            \"FAILED\"\n          ]\n        }\n      }\n    ]\n  },\n  \"chartIds\": [\n    1,\n    2,\n    3,\n    4\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "139e1f0a-8fda-4823-8efd-c68e3f2bb7a1",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":reportId",
+                    "chart-data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "reportId",
+                      "description": "(Required) Format - int64."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Format: bearer ${token}",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filters\": {\n    \"op\": \"AND\",\n    \"group\": [\n      {\n        \"op\": \"OR\",\n        \"group\": [],\n        \"fieldFilters\": [\n          {\n            \"type\": \"TEXT\",\n            \"colId\": \"0\",\n            \"filter\": {\n              \"op\": \"EQUAL_TO\",\n              \"negate\": true,\n              \"values\": [\n                \"TESTED\"\n              ]\n            }\n          },\n          {\n            \"type\": \"TEXT\",\n            \"colId\": \"0\",\n            \"filter\": {\n              \"op\": \"EQUAL_TO\",\n              \"negate\": false,\n              \"values\": [\n                \"UPDATE_FAILED\"\n              ]\n            }\n          }\n        ]\n      }\n    ],\n    \"fieldFilters\": [\n      {\n        \"type\": \"TEXT\",\n        \"colId\": \"1\",\n        \"filter\": {\n          \"op\": \"EQUAL_TO\",\n          \"negate\": true,\n          \"values\": [\n            \"FAILED\"\n          ]\n        }\n      }\n    ]\n  },\n  \"chartIds\": [\n    1,\n    2,\n    3,\n    4\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"reportVersion\": 5,\n  \"reportName\": \"report name\",\n  \"charts\": [\n    {\n      \"id\": 1,\n      \"version\": 10,\n      \"name\": \"chart name\",\n      \"results\": [\n        {\n          \"Object name\": \"Obj name\",\n          \"count\": 12,\n          \"Object Id\": \"WS-7007\"\n        },\n        {\n          \"Object name\": \"New Obj name\",\n          \"count\": 1,\n          \"Object Id\": \"WS-7127\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b28b5091-3891-47a6-8168-1c6eda2d3145",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":reportId",
+                    "chart-data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "reportId",
+                      "description": "(Required) Format - int64."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Format: bearer ${token}",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filters\": {\n    \"op\": \"AND\",\n    \"group\": [\n      {\n        \"op\": \"OR\",\n        \"group\": [],\n        \"fieldFilters\": [\n          {\n            \"type\": \"TEXT\",\n            \"colId\": \"0\",\n            \"filter\": {\n              \"op\": \"EQUAL_TO\",\n              \"negate\": true,\n              \"values\": [\n                \"TESTED\"\n              ]\n            }\n          },\n          {\n            \"type\": \"TEXT\",\n            \"colId\": \"0\",\n            \"filter\": {\n              \"op\": \"EQUAL_TO\",\n              \"negate\": false,\n              \"values\": [\n                \"UPDATE_FAILED\"\n              ]\n            }\n          }\n        ]\n      }\n    ],\n    \"fieldFilters\": [\n      {\n        \"type\": \"TEXT\",\n        \"colId\": \"1\",\n        \"filter\": {\n          \"op\": \"EQUAL_TO\",\n          \"negate\": true,\n          \"values\": [\n            \"FAILED\"\n          ]\n        }\n      }\n    ]\n  },\n  \"chartIds\": [\n    1,\n    2,\n    3,\n    4\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3f6edc89-a12a-49c2-b510-923296687580",
+              "name": "Authorization Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":reportId",
+                    "chart-data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "reportId",
+                      "description": "(Required) Format - int64."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Format: bearer ${token}",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filters\": {\n    \"op\": \"AND\",\n    \"group\": [\n      {\n        \"op\": \"OR\",\n        \"group\": [],\n        \"fieldFilters\": [\n          {\n            \"type\": \"TEXT\",\n            \"colId\": \"0\",\n            \"filter\": {\n              \"op\": \"EQUAL_TO\",\n              \"negate\": true,\n              \"values\": [\n                \"TESTED\"\n              ]\n            }\n          },\n          {\n            \"type\": \"TEXT\",\n            \"colId\": \"0\",\n            \"filter\": {\n              \"op\": \"EQUAL_TO\",\n              \"negate\": false,\n              \"values\": [\n                \"UPDATE_FAILED\"\n              ]\n            }\n          }\n        ]\n      }\n    ],\n    \"fieldFilters\": [\n      {\n        \"type\": \"TEXT\",\n        \"colId\": \"1\",\n        \"filter\": {\n          \"op\": \"EQUAL_TO\",\n          \"negate\": true,\n          \"values\": [\n            \"FAILED\"\n          ]\n        }\n      }\n    ]\n  },\n  \"chartIds\": [\n    1,\n    2,\n    3,\n    4\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d81ea9ea-d30c-442f-bfdb-f6b7b60c77b9",
+              "name": "WorkSpan object Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":reportId",
+                    "chart-data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "reportId",
+                      "description": "(Required) Format - int64."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Format: bearer ${token}",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filters\": {\n    \"op\": \"AND\",\n    \"group\": [\n      {\n        \"op\": \"OR\",\n        \"group\": [],\n        \"fieldFilters\": [\n          {\n            \"type\": \"TEXT\",\n            \"colId\": \"0\",\n            \"filter\": {\n              \"op\": \"EQUAL_TO\",\n              \"negate\": true,\n              \"values\": [\n                \"TESTED\"\n              ]\n            }\n          },\n          {\n            \"type\": \"TEXT\",\n            \"colId\": \"0\",\n            \"filter\": {\n              \"op\": \"EQUAL_TO\",\n              \"negate\": false,\n              \"values\": [\n                \"UPDATE_FAILED\"\n              ]\n            }\n          }\n        ]\n      }\n    ],\n    \"fieldFilters\": [\n      {\n        \"type\": \"TEXT\",\n        \"colId\": \"1\",\n        \"filter\": {\n          \"op\": \"EQUAL_TO\",\n          \"negate\": true,\n          \"values\": [\n            \"FAILED\"\n          ]\n        }\n      }\n    ]\n  },\n  \"chartIds\": [\n    1,\n    2,\n    3,\n    4\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f575f666-b8be-428d-8a97-bc05e3cd0c35",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":reportId",
+                    "chart-data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "reportId",
+                      "description": "(Required) Format - int64."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Format: bearer ${token}",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filters\": {\n    \"op\": \"AND\",\n    \"group\": [\n      {\n        \"op\": \"OR\",\n        \"group\": [],\n        \"fieldFilters\": [\n          {\n            \"type\": \"TEXT\",\n            \"colId\": \"0\",\n            \"filter\": {\n              \"op\": \"EQUAL_TO\",\n              \"negate\": true,\n              \"values\": [\n                \"TESTED\"\n              ]\n            }\n          },\n          {\n            \"type\": \"TEXT\",\n            \"colId\": \"0\",\n            \"filter\": {\n              \"op\": \"EQUAL_TO\",\n              \"negate\": false,\n              \"values\": [\n                \"UPDATE_FAILED\"\n              ]\n            }\n          }\n        ]\n      }\n    ],\n    \"fieldFilters\": [\n      {\n        \"type\": \"TEXT\",\n        \"colId\": \"1\",\n        \"filter\": {\n          \"op\": \"EQUAL_TO\",\n          \"negate\": true,\n          \"values\": [\n            \"FAILED\"\n          ]\n        }\n      }\n    ]\n  },\n  \"chartIds\": [\n    1,\n    2,\n    3,\n    4\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-sandbox.workspan.com/oauth",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "noauth"
+  },
+  "info": {
+    "_postman_id": "90de7cb8-3d4b-4356-9fb2-dceb7ac064e0",
+    "name": "Authentication Actions Chart Data API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Implementation of [OAuth 2.0](https://tools.ietf.org/html/rfc6749  \"Docs\") with Client Credentials Grant type\n",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,512 @@
+{
+  "item": [
+    {
+      "id": "68bbd09b-64ab-45bf-a119-42aee42c73e5",
+      "name": "Bulkload",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c5e41f99-b73a-459d-a03f-e19dbdac154c",
+          "name": "Bulk Load Objects to WorkSpan",
+          "request": {
+            "name": "Bulk Load Objects to WorkSpan",
+            "description": {
+              "content": "Bulk Load Objects to WorkSpan. Data can be attached to the request body as JSON/CSV format, or attached as a JSON/CSV/XLSX file.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bulkload"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "data_format",
+                  "value": "CSV",
+                  "description": "The format of the data which is sent in the request body or in the attached file; this is case insensitive"
+                },
+                {
+                  "disabled": false,
+                  "key": "file_token",
+                  "value": "<string>",
+                  "description": "Upload token that is associated with a GCS Signed URL."
+                },
+                {
+                  "disabled": false,
+                  "key": "column_delimiter",
+                  "value": ",",
+                  "description": "The column delimiter for the CSV data that is passed in or attached; default is ','"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "integration_id",
+                  "description": "(Required) Integration ID of CRM integration that is configured in WorkSpan App"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            }
+          },
+          "response": [
+            {
+              "id": "df9ba1b3-0d29-4ebe-86e6-646862daf1bb",
+              "name": "data uploaded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bulkload"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "data_format",
+                      "value": "CSV"
+                    },
+                    {
+                      "key": "file_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "column_delimiter",
+                      "value": ","
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_id",
+                      "description": "(Required) Integration ID of CRM integration that is configured in WorkSpan App"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\r\\n  \\\"integration_id\\\": \\\"WS-Integration_agpzfndzLW\\\",\\r\\n  \\\"execution_id\\\": \\\"a64690c2450\\\",\\r\\n  \\\"created_at\\\": \\\"2020-05-18T14:06:57.572Z\\\",\\r\\n  \\\"data_format\\\": \\\"JSON\\\"\\r\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fac4d1e2-086e-4fc3-bcb9-25c886202675",
+              "name": "invalid input, object invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bulkload"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "data_format",
+                      "value": "CSV"
+                    },
+                    {
+                      "key": "file_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "column_delimiter",
+                      "value": ","
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_id",
+                      "description": "(Required) Integration ID of CRM integration that is configured in WorkSpan App"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d479c4d0-bae8-4c07-8c58-4a51904f6378",
+              "name": "Authorization Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bulkload"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "data_format",
+                      "value": "CSV"
+                    },
+                    {
+                      "key": "file_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "column_delimiter",
+                      "value": ","
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_id",
+                      "description": "(Required) Integration ID of CRM integration that is configured in WorkSpan App"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "389002b3-8c5b-48dc-ad6d-b84c4cfa941c",
+          "name": "Get a Signed URL to upload a file directly to the Cloud Storage of WorkSpan.",
+          "request": {
+            "name": "Get a Signed URL to upload a file directly to the Cloud Storage of WorkSpan.",
+            "description": {
+              "content": "Get a Signed URL to upload a file directly to the File Cloud Storage of WorkSpan.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bulkload",
+                ":integration_id",
+                "upload_url"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "integration_id",
+                  "description": "(Required) Integration ID that is configured in WorkSpan App"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "file_name",
+                  "description": "(Required) The name of the file, with the file extension, to use when storing the file in the Cloud Storage of WorkSpan."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e46a5583-a969-4242-8d8f-a5979368fedc",
+              "name": "Signed URL for file upload successfully retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bulkload",
+                    ":integration_id",
+                    "upload_url"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_id",
+                      "description": "(Required) Integration ID that is configured in WorkSpan App"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "file_name",
+                      "description": "(Required) The name of the file, with the file extension, to use when storing the file in the Cloud Storage of WorkSpan."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\r\\n  \\\"upload_url\\\": \\\"https://storage.googleapis.com/server/file_name.extension?Expires=12345567&GoogleAccessId=foobar&Signature=barfoo\\\",\\r\\n  \\\"upload_token\\\": \\\"eYgh4bLaH2qemcas9dTOKEN\\\"\\r\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "30d5cc58-6e69-461e-80dc-247b665f6523",
+              "name": "invalid integration_id",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bulkload",
+                    ":integration_id",
+                    "upload_url"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_id",
+                      "description": "(Required) Integration ID that is configured in WorkSpan App"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "file_name",
+                      "description": "(Required) The name of the file, with the file extension, to use when storing the file in the Cloud Storage of WorkSpan."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c46d37bd-e39c-4032-bc2f-4bebb6361258",
+              "name": "Authorization Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bulkload",
+                    ":integration_id",
+                    "upload_url"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_id",
+                      "description": "(Required) Integration ID that is configured in WorkSpan App"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "file_name",
+                      "description": "(Required) The name of the file, with the file extension, to use when storing the file in the Cloud Storage of WorkSpan."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a2b9259a-dd06-4fc7-86eb-4555650a0f2f",
+              "name": "integration_id not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bulkload",
+                    ":integration_id",
+                    "upload_url"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_id",
+                      "description": "(Required) Integration ID that is configured in WorkSpan App"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "file_name",
+                      "description": "(Required) The name of the file, with the file extension, to use when storing the file in the Cloud Storage of WorkSpan."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-sandbox.workspan.com/oauth",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "noauth"
+  },
+  "info": {
+    "_postman_id": "0a1612e6-1210-4c1d-8e84-6b3b235c257e",
+    "name": "Authentication Actions Bulkload API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Implementation of [OAuth 2.0](https://tools.ietf.org/html/rfc6749  \"Docs\") with Client Credentials Grant type\n",
+      "type": "text/plain"
+    }
+  }
+}

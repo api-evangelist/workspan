@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Authentication Actions Data Schema API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Data Schema",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get report data schema",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.workspan.com/oauth/:reportId/data-schema",
+            "params": [
+              {
+                "name": "reportId",
+                "value": "",
+                "type": "path",
+                "description": "Format - int64."
+              }
+            ]
+          },
+          "docs": "Returns schema information about the report data."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

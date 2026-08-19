@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Authentication Actions List API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "List",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all exportable reports",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.workspan.com/oauth/list",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List all exportable reports (paginated)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

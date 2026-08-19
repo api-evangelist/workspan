@@ -1,0 +1,275 @@
+{
+  "item": [
+    {
+      "id": "d8154536-6106-4287-9807-556d8cab09f0",
+      "name": "Usage",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f77db164-8f62-4e57-9065-7de095047648",
+          "name": "Get marketplace usage upload status",
+          "request": {
+            "name": "Get marketplace usage upload status",
+            "description": {
+              "content": "Retrieves the status of marketplace usage upload by execution_id. Returns a list of projects associated with the execution_id, including their workflow status, project name, external ID, and project ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "usage",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "execution_id",
+                  "description": "(Required) The execution ID to search for. This is the execution ID returned from the usage upload endpoint."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bff00de8-7170-4c1d-b1fa-7a2eff99c99f",
+              "name": "Successfully retrieved usage upload status",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "usage",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "execution_id",
+                      "description": "(Required) The execution ID to search for. This is the execution ID returned from the usage upload endpoint."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"execution_id\": \"execution-id-123\",\n  \"projects\": [\n    {\n      \"project_name\": \"Usage Project Name 1\",\n      \"status\": \"Received\",\n      \"external_id\": \"usage-external-id-123\",\n      \"project_id\": \"ws_global_id_1\",\n      \"error_message\": [\n        {\n          \"ErrorMessage\": \"No active entitlement found for the combination of product 'my-product' and customer 'customer-123'\",\n          \"ErrorCode\": \"USAGE-21\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "96f4ff44-9939-4505-bae9-3de061f638a4",
+              "name": "Bad Request - execution_id query parameter is required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "usage",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "execution_id",
+                      "description": "(Required) The execution ID to search for. This is the execution ID returned from the usage upload endpoint."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5cdfa87a-27a9-49c3-afe9-d3f21dbb7c6c",
+              "name": "Authorization Error - Invalid or missing authentication token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "usage",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "execution_id",
+                      "description": "(Required) The execution ID to search for. This is the execution ID returned from the usage upload endpoint."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "20434123-4c39-4e18-881b-fab0956c2bf4",
+              "name": "Permissions denied",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "usage",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "execution_id",
+                      "description": "(Required) The execution ID to search for. This is the execution ID returned from the usage upload endpoint."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6ae14b35-c984-4cc3-8c8e-be5393657933",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "usage",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "execution_id",
+                      "description": "(Required) The execution ID to search for. This is the execution ID returned from the usage upload endpoint."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-sandbox.workspan.com/oauth",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "noauth"
+  },
+  "info": {
+    "_postman_id": "c7df0fe7-d2e6-4b79-88b8-126dbcf0cf63",
+    "name": "Authentication Actions Usage API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Implementation of [OAuth 2.0](https://tools.ietf.org/html/rfc6749  \"Docs\") with Client Credentials Grant type\n",
+      "type": "text/plain"
+    }
+  }
+}

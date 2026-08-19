@@ -1,0 +1,282 @@
+{
+  "item": [
+    {
+      "id": "5119b465-3b19-411c-9bd5-2f697d58a206",
+      "name": "Audit",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3022676c-d4a3-4335-be92-d6621c1b169c",
+          "name": "Supply Audit information for a WorkSpan ID",
+          "request": {
+            "name": "Supply Audit information for a WorkSpan ID",
+            "description": {
+              "content": "Supply Audit information for a WorkSpan ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":object_id",
+                "audit"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "object_id",
+                  "description": "(Required) Object ID of object receiving audit information assigned by WorkSpan (long ID)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"field_name\": \"partner_center.integration_status\",\r\n  \"integration_id\": \"WS-Integration_XYZabc123\",\r\n  \"external_id\": \"000owa24575\",\r\n  \"status_code\": \"CREATE_FAILED\",\r\n  \"message\": \"Successfully created Referral in Partner Center.\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "19f5f9ca-3913-4f28-a483-9c4702959885",
+              "name": "Audit update is successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":object_id",
+                    "audit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "object_id",
+                      "description": "(Required) Object ID of object receiving audit information assigned by WorkSpan (long ID)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"field_name\": \"partner_center.integration_status\",\r\n  \"integration_id\": \"WS-Integration_XYZabc123\",\r\n  \"external_id\": \"000owa24575\",\r\n  \"status_code\": \"CREATE_FAILED\",\r\n  \"message\": \"Successfully created Referral in Partner Center.\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\r\\n  \\\"object_id\\\": \\\"WS-Project_agpzfndzLWF.\\\",\\r\\n  \\\"field_name\\\": \\\"partner_center.integration_status\\\",\\r\\n  \\\"status_code\\\": \\\"LINKED\\\"\\r\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a84de826-076d-4c6e-8fd8-c1077a943b34",
+              "name": "Invalid input.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":object_id",
+                    "audit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "object_id",
+                      "description": "(Required) Object ID of object receiving audit information assigned by WorkSpan (long ID)"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"field_name\": \"partner_center.integration_status\",\r\n  \"integration_id\": \"WS-Integration_XYZabc123\",\r\n  \"external_id\": \"000owa24575\",\r\n  \"status_code\": \"CREATE_FAILED\",\r\n  \"message\": \"Successfully created Referral in Partner Center.\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cf7c42c4-28e0-4df7-b546-9805c1596ac3",
+              "name": "Authorization Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":object_id",
+                    "audit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "object_id",
+                      "description": "(Required) Object ID of object receiving audit information assigned by WorkSpan (long ID)"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"field_name\": \"partner_center.integration_status\",\r\n  \"integration_id\": \"WS-Integration_XYZabc123\",\r\n  \"external_id\": \"000owa24575\",\r\n  \"status_code\": \"CREATE_FAILED\",\r\n  \"message\": \"Successfully created Referral in Partner Center.\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c72b1258-8fd7-42a8-b926-18a67e84e328",
+              "name": "WorkSpan object not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":object_id",
+                    "audit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "object_id",
+                      "description": "(Required) Object ID of object receiving audit information assigned by WorkSpan (long ID)"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"field_name\": \"partner_center.integration_status\",\r\n  \"integration_id\": \"WS-Integration_XYZabc123\",\r\n  \"external_id\": \"000owa24575\",\r\n  \"status_code\": \"CREATE_FAILED\",\r\n  \"message\": \"Successfully created Referral in Partner Center.\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-sandbox.workspan.com/oauth",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "noauth"
+  },
+  "info": {
+    "_postman_id": "dd5aaea1-a54f-4f55-b6d6-2d635c38a3f0",
+    "name": "Authentication Actions Audit API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Implementation of [OAuth 2.0](https://tools.ietf.org/html/rfc6749  \"Docs\") with Client Credentials Grant type\n",
+      "type": "text/plain"
+    }
+  }
+}

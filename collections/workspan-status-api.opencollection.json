@@ -1,0 +1,55 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Authentication Actions Status API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Status",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Status of execution of integration using integration id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.workspan.com/oauth/status/:integration_id",
+            "params": [
+              {
+                "name": "integration_id",
+                "value": "",
+                "type": "path",
+                "description": "Integration ID that is configured in WorkSpan App"
+              },
+              {
+                "name": "execution_id",
+                "value": "",
+                "type": "path",
+                "description": "Execution ID of an integration execution which is returned from bulk API"
+              },
+              {
+                "name": "include_errors",
+                "value": "",
+                "type": "query",
+                "description": "Include errors in the response if there are any errors"
+              },
+              {
+                "name": "max_errors",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of errors to return back in the response"
+              }
+            ]
+          },
+          "docs": "Check the execution status of your integration."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

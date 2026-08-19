@@ -1,0 +1,82 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Authentication Actions Subscriber API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Subscriber",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Read subscriber information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.workspan.com/oauth/subscriber/:subscriber_id",
+            "params": [
+              {
+                "name": "subscriber_id",
+                "value": "",
+                "type": "path",
+                "description": "subscriber id assigened by WorkSpan"
+              }
+            ]
+          },
+          "docs": "Read details of subscription"
+        },
+        {
+          "info": {
+            "name": "Delete a subscriber (unregister a webhook)",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api-sandbox.workspan.com/oauth/subscriber/:subscriber_id",
+            "params": [
+              {
+                "name": "subscriber_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the subscriber that needs to be deleted"
+              }
+            ]
+          },
+          "docs": "Delete a subscriber (unregister a webhook)"
+        },
+        {
+          "info": {
+            "name": "List subscribers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.workspan.com/oauth/subscriber"
+          },
+          "docs": "List Subscribers"
+        },
+        {
+          "info": {
+            "name": "Webhook: subscribe to object update notification",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.workspan.com/oauth/subscriber",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Webhook registration: Subscribe to object update notification"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

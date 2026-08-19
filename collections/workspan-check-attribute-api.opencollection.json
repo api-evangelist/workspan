@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Authentication Actions Check Attribute API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Check Attribute",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Check user attribute values",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.workspan.com/oauth/check-attribute",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Checks user attribute values for the given user."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
