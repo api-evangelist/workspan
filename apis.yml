@@ -33,6 +33,14 @@ tags:
 - Cloud Marketplaces
 - Sales
 - B2B
+- Software-as-a-Service
+tags_raw:
+- Co-Sell
+- Partnerships
+- Ecosystem
+- Cloud Marketplaces
+- Sales
+- B2B
 - SaaS
 apis:
 - aid: workspan:workspan-actions-api
@@ -121,6 +129,8 @@ apis:
   humanURL: https://developer.workspan.com/api-details#api=authentication-api
   baseURL: https://api-sandbox.workspan.com/oauth
   tags:
+  - Co-Sell
+  tags_raw:
   - Cosell
   properties:
   - type: OpenAPI
@@ -201,6 +211,8 @@ apis:
   humanURL: https://developer.workspan.com/api-details#api=authentication-api
   baseURL: https://api-sandbox.workspan.com/oauth
   tags:
+  - List
+  tags_raw:
   - Lists
   properties:
   - type: OpenAPI
@@ -282,6 +294,8 @@ apis:
   humanURL: https://developer.workspan.com/api-details#api=authentication-api
   baseURL: https://api-sandbox.workspan.com/oauth
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
@@ -292,6 +306,8 @@ apis:
   humanURL: https://developer.workspan.com/api-details#api=authentication-api
   baseURL: https://api-sandbox.workspan.com/oauth
   tags:
+  - Views
+  tags_raw:
   - View
   properties:
   - type: OpenAPI
