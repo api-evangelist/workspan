@@ -5,6 +5,18 @@ description: WorkSpan is an ecosystem business management platform that helps co
   on an Azure API Management developer portal, cover OAuth 2.0 authentication, co-sell actions and CRM opportunity
   validation, bulk data loading, webhook event subscriptions, cloud marketplace offers and usage reporting, report
   data access, and SCIM 2.0 user provisioning.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
