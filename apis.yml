@@ -141,7 +141,7 @@ apis:
   humanURL: https://developer.workspan.com/api-details#api=authentication-api
   baseURL: https://api-sandbox.workspan.com/oauth
   tags:
-  - Cosell
+  - Co-Sell
   tags_raw:
   - Cosell
   properties:
