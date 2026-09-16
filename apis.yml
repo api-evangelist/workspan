@@ -85,16 +85,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/workspan-authorize-api-openapi.yml
-- aid: workspan:workspan-bulkload-api
-  name: WorkSpan Bulkload API
-  description: The Bulkload API from WorkSpan — 2 operation(s) for bulkload.
-  humanURL: https://developer.workspan.com/api-details#api=authentication-api
-  baseURL: https://api-sandbox.workspan.com/oauth
-  tags:
-  - Bulkload
-  properties:
-  - type: OpenAPI
-    url: openapi/workspan-bulkload-api-openapi.yml
 - aid: workspan:workspan-bulkload-opportunity-api
   name: WorkSpan Bulkload Opportunity API
   description: The Bulkload Opportunity API from WorkSpan — 1 operation(s) for bulkload opportunity.
@@ -324,6 +314,16 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/workspan-view-api-openapi.yml
+- aid: workspan:workspan-bulk-load-api
+  name: WorkSpan Bulk Load API
+  description: The Bulk Load API from WorkSpan — 2 operation(s) for bulk load.
+  humanURL: https://developer.workspan.com/api-details#api=authentication-api
+  baseURL: https://api-sandbox.workspan.com/oauth
+  tags:
+  - Bulk Load
+  properties:
+  - type: OpenAPI
+    url: openapi/workspan-bulk-load-api-openapi.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
