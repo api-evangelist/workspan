@@ -1,12 +1,10 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Authentication Actions Chart Data API
-  description: 'Implementation of [OAuth 2.0](https://tools.ietf.org/html/rfc6749  "Docs") with Client Credentials Grant type
-
-    '
+  title: WorkSpan Report Chart Data API
+  description: API for WorkSpan Reports
   version: '1.0'
 servers:
-- url: https://api-sandbox.workspan.com/oauth
+- url: https://api-sandbox.workspan.com/report/v1
 security:
 - {}
 - apiKeyHeader: []
@@ -113,7 +111,7 @@ components:
       name: subscription-key
       in: query
 x-harvest:
-  source: https://developer.workspan.com/developer/apis/authentication-api?export=true&format=openapi+json&api-version=2022-04-01-preview
-  operations_source: https://developer.workspan.com/developer/apis/authentication-api/operations?api-version=2022-04-01-preview
+  source: https://developer.workspan.com/developer/apis/workspan-report-api?export=true&format=openapi+json&api-version=2022-04-01-preview
+  operations_source: https://developer.workspan.com/developer/apis/workspan-report-api/operations?api-version=2022-04-01-preview
   harvested: '2026-07-21'
   note: Assembled from WorkSpan's Azure APIM developer portal data API (export skeleton + published operations/schemas).

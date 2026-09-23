@@ -1,18 +1,17 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Authentication Actions Bulkload API
-  description: 'Implementation of [OAuth 2.0](https://tools.ietf.org/html/rfc6749  "Docs") with Client Credentials Grant type
-
-    '
+  title: Workspan Bulkload API
   version: '1.0'
+  description: 'Operations tagged Bulkload across 2 of this provider''s published API definitions: workspan-bulk-openapi.yml, workspan-co-sell-openapi.yml. Each path carries the servers of the definition it was published in.'
 servers:
-- url: https://api-sandbox.workspan.com/oauth
+- url: https://api-sandbox.workspan.com/bulk/v1
+- url: https://api-sandbox.workspan.com
 security:
 - {}
 - apiKeyHeader: []
 - apiKeyQuery: []
 tags:
-- name: Bulkload
+- name: Bulk Load
 paths:
   /bulkload:
     post:
@@ -61,17 +60,19 @@ paths:
             application/json:
               examples:
                 default:
-                  value: "{\r\n  \"integration_id\": \"WS-Integration_agpzfndzLW\",\r\n  \"execution_id\": \"a64690c2450\",\r\n  \"created_at\": \"2020-05-18T14:06:57.572Z\",\r\n  \"data_format\": \"JSON\"\r\n}"
+                  value: "{\n  \"integration_id\": \"WS-Integration_agpzfndzLW\",\n  \"execution_id\": \"a64690c2450\",\n  \"created_at\": \"2020-05-18T14:06:57.572Z\",\n  \"data_format\": \"JSON\"\n}"
         '400':
           description: invalid input, object invalid
         '401':
           description: Authorization Error
       tags:
-      - Bulkload
+      - Bulk Load
+    servers:
+    - url: https://api-sandbox.workspan.com/bulk/v1
   /bulkload/{integration_id}/upload_url:
     get:
       operationId: upload_url
-      summary: Get a Signed URL to upload a file directly to the Cloud Storage of WorkSpan.
+      summary: Get a Signed URL to upload a file directly to the Cloud Storage of WorkSpan
       description: Get a Signed URL to upload a file directly to the File Cloud Storage of WorkSpan.
       parameters:
       - name: integration_id
@@ -93,7 +94,7 @@ paths:
             application/json:
               examples:
                 default:
-                  value: "{\r\n  \"upload_url\": \"https://storage.googleapis.com/server/file_name.extension?Expires=12345567&GoogleAccessId=foobar&Signature=barfoo\",\r\n  \"upload_token\": \"eYgh4bLaH2qemcas9dTOKEN\"\r\n}"
+                  value: "{\n  \"upload_url\": \"https://storage.googleapis.com/server/file_name.extension?Expires=12345567&GoogleAccessId=foobar&Signature=barfoo\",\n  \"upload_token\": \"eYgh4bLaH2qemcas9dTOKEN\"\n}"
         '400':
           description: invalid integration_id
         '401':
@@ -101,8 +102,12 @@ paths:
         '404':
           description: integration_id not found
       tags:
-      - Bulkload
+      - Bulk Load
+    servers:
+    - url: https://api-sandbox.workspan.com/bulk/v1
 components:
+  schemas:
+    Bulk-API-Request: {}
   securitySchemes:
     apiKeyHeader:
       type: apiKey
@@ -112,6 +117,9 @@ components:
       type: apiKey
       name: subscription-key
       in: query
+x-refined-from:
+- workspan-bulk-openapi.yml
+- workspan-co-sell-openapi.yml
 x-harvest:
   source: https://developer.workspan.com/developer/apis/authentication-api?export=true&format=openapi+json&api-version=2022-04-01-preview
   operations_source: https://developer.workspan.com/developer/apis/authentication-api/operations?api-version=2022-04-01-preview

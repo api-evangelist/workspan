@@ -1,9 +1,7 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Authentication Actions Token API
-  description: 'Implementation of [OAuth 2.0](https://tools.ietf.org/html/rfc6749  "Docs") with Client Credentials Grant type
-
-    '
+  title: Authentication Token API
+  description: Implementation of OAuth 2.0 with Client Credentials Grant type
   version: '1.0'
 servers:
 - url: https://api-sandbox.workspan.com/oauth
@@ -18,7 +16,6 @@ paths:
     delete:
       operationId: delete-token
       summary: Invalidate access token
-      description: Invalidate access token
       responses:
         '200':
           description: Empty body with 200 code
@@ -33,9 +30,7 @@ paths:
       summary: Request Access Token
       description: 'Partner makes a request to the token endpoint by adding the
 
-        following parameters describerd  below
-
-        '
+        following parameters describerd below'
       parameters:
       - name: x-ws-env
         in: header
@@ -53,14 +48,14 @@ paths:
             application/json:
               examples:
                 default:
-                  value: "{\r\n  \"access_token\": \"2YotnFZFEjr1zCsicMWpAA\",\r\n  \"token_type\": \"Bearer\",\r\n  \"expires_in\": 3600,\r\n  \"refresh_token\": \"FZFEicMWpA\"\r\n}"
+                  value: "{\n  \"access_token\": \"2YotnFZFEjr1zCsicMWpAA\",\n  \"token_type\": \"Bearer\",\n  \"expires_in\": 3600,\n  \"refresh_token\": \"FZFEicMWpA\"\n}"
         '400':
           description: As per RFC authorisation server responds with 400 in case of error
           content:
             application/json:
               examples:
                 default:
-                  value: "{\r\n  \"error\": \"invalid_request\"\r\n}"
+                  value: "{\n  \"error\": \"invalid_request\"\n}"
       tags:
       - Token
 components:

@@ -1,12 +1,10 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Authentication Actions Subscriber API
-  description: 'Implementation of [OAuth 2.0](https://tools.ietf.org/html/rfc6749  "Docs") with Client Credentials Grant type
-
-    '
+  title: WorkSpan Events Subscriber API
+  description: Subscribe to events
   version: '1.0'
 servers:
-- url: https://api-sandbox.workspan.com/oauth
+- url: https://api-sandbox.workspan.com/event/v1
 security:
 - {}
 - apiKeyHeader: []
@@ -18,7 +16,6 @@ paths:
     delete:
       operationId: DeleteSubscriber
       summary: Delete a subscriber (unregister a webhook)
-      description: Delete a subscriber (unregister a webhook)
       parameters:
       - name: subscriber_id
         in: path
@@ -53,7 +50,7 @@ paths:
             application/json:
               examples:
                 default:
-                  value: "{\r\n  \"subscriber_id\": \"string\",\r\n  \"name\": \"string\",\r\n  \"objectids\": [\r\n    \"string\"\r\n  ],\r\n  \"integration_id\": \"string\",\r\n  \"filters\": \"string\",\r\n  \"subscriber_type\": \"webhook\"\r\n}"
+                  value: "{\n  \"subscriber_id\": \"string\",\n  \"name\": \"string\",\n  \"objectids\": [\n    \"string\"\n  ],\n  \"integration_id\": \"string\",\n  \"filters\": \"string\",\n  \"subscriber_type\": \"webhook\"\n}"
         '400':
           description: API Error
         '404':
@@ -72,7 +69,7 @@ paths:
             application/json:
               examples:
                 default:
-                  value: "{\r\n  \"items\": [\r\n    {\r\n      \"subscriber_id\": \"string\",\r\n      \"name\": \"string\",\r\n      \"objectids\": [\r\n        \"string\"\r\n      ],\r\n      \"integration_id\": \"string\",\r\n      \"filters\": \"string\",\r\n      \"subscriber_type\": \"webhook\"\r\n    }\r\n  ]\r\n}"
+                  value: "{\n  \"items\": [\n    {\n      \"subscriber_id\": \"string\",\n      \"name\": \"string\",\n      \"objectids\": [\n        \"string\"\n      ],\n      \"integration_id\": \"string\",\n      \"filters\": \"string\",\n      \"subscriber_type\": \"webhook\"\n    }\n  ]\n}"
         '400':
           description: API Error
         '404':
@@ -93,7 +90,7 @@ paths:
             application/json:
               examples:
                 default:
-                  value: "{\r\n  \"subscriber_id\": \"string\"\r\n}"
+                  value: "{\n  \"subscriber_id\": \"string\"\n}"
         '400':
           description: Error when subscribing to event via webhook
       tags:
@@ -109,7 +106,7 @@ components:
       name: subscription-key
       in: query
 x-harvest:
-  source: https://developer.workspan.com/developer/apis/authentication-api?export=true&format=openapi+json&api-version=2022-04-01-preview
-  operations_source: https://developer.workspan.com/developer/apis/authentication-api/operations?api-version=2022-04-01-preview
+  source: https://developer.workspan.com/developer/apis/workspan-events-api?export=true&format=openapi+json&api-version=2022-04-01-preview
+  operations_source: https://developer.workspan.com/developer/apis/workspan-events-api/operations?api-version=2022-04-01-preview
   harvested: '2026-07-21'
   note: Assembled from WorkSpan's Azure APIM developer portal data API (export skeleton + published operations/schemas).

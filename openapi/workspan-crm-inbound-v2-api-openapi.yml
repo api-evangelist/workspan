@@ -1,12 +1,12 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Authentication Actions Crm Inbound V2 API
-  description: 'Implementation of [OAuth 2.0](https://tools.ietf.org/html/rfc6749  "Docs") with Client Credentials Grant type
-
-    '
+  title: WorkSpan Marketplace Crm Inbound V2 API
+  description: 'Unified API for WorkSpan marketplace operations. This API provides endpoints for: (1) Creating and updating marketplace offers for AWS, Azure, and Google Cloud, (2) Uploading marketplace usage data for AWS, Azure, or Google Cloud marketplace integrations, (3) Retrieving usage upload status, and (4) Exporting report data with presigned read URLs for EULA files.'
+  contact:
+    email: api-team@workspan.com
   version: '1.0'
 servers:
-- url: https://api-sandbox.workspan.com/oauth
+- url: https://api-sandbox.workspan.com/app/v1/marketplace
 security:
 - {}
 - apiKeyHeader: []
@@ -69,7 +69,7 @@ components:
       name: subscription-key
       in: query
 x-harvest:
-  source: https://developer.workspan.com/developer/apis/authentication-api?export=true&format=openapi+json&api-version=2022-04-01-preview
-  operations_source: https://developer.workspan.com/developer/apis/authentication-api/operations?api-version=2022-04-01-preview
+  source: https://developer.workspan.com/developer/apis/workspan-marketplace-object-inbound-api?export=true&format=openapi+json&api-version=2022-04-01-preview
+  operations_source: https://developer.workspan.com/developer/apis/workspan-marketplace-object-inbound-api/operations?api-version=2022-04-01-preview
   harvested: '2026-07-21'
   note: Assembled from WorkSpan's Azure APIM developer portal data API (export skeleton + published operations/schemas).

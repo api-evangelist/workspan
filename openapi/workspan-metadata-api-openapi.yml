@@ -1,12 +1,12 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Authentication Actions Metadata API
-  description: 'Implementation of [OAuth 2.0](https://tools.ietf.org/html/rfc6749  "Docs") with Client Credentials Grant type
-
-    '
+  title: Workspan Metadata API
   version: '1.0'
+  description: 'Operations tagged Metadata across 3 of this provider''s published API definitions: workspan-co-sell-openapi.yml, workspan-events-openapi.yml, workspan-report-openapi.yml. Each path carries the servers of the definition it was published in.'
 servers:
-- url: https://api-sandbox.workspan.com/oauth
+- url: https://api-sandbox.workspan.com
+- url: https://api-sandbox.workspan.com/event/v1
+- url: https://api-sandbox.workspan.com/report/v1
 security:
 - {}
 - apiKeyHeader: []
@@ -40,11 +40,12 @@ paths:
           description: ''
       tags:
       - Metadata
+    servers:
+    - url: https://api-sandbox.workspan.com
   /metadata/event:
     get:
       operationId: GetEventList
       summary: Get list of events
-      description: Get list of events
       responses:
         '200':
           description: successful operation
@@ -52,18 +53,19 @@ paths:
             application/json:
               examples:
                 default:
-                  value: "{\r\n  \"events\": [\r\n    {\r\n      \"name\": \"string\",\r\n      \"description\": \"string\"\r\n    }\r\n  ]\r\n}"
+                  value: "{\n  \"events\": [\n    {\n      \"name\": \"string\",\n      \"description\": \"string\"\n    }\n  ]\n}"
         '400':
           description: API Error
         '404':
           description: event not defined
       tags:
       - Metadata
+    servers:
+    - url: https://api-sandbox.workspan.com/event/v1
   /metadata/integration:
     get:
       operationId: GetIntegrationList
       summary: Get list of integrations
-      description: Get list of integrations
       responses:
         '200':
           description: Successful in listing integrations
@@ -71,18 +73,19 @@ paths:
             application/json:
               examples:
                 default:
-                  value: "{\r\n  \"integrations\": [\r\n    {\r\n      \"integration_id\": \"string\",\r\n      \"integration_type\": \"string\",\r\n      \"description\": \"string\",\r\n      \"name\": \"string\"\r\n    }\r\n  ]\r\n}"
+                  value: "{\n  \"integrations\": [\n    {\n      \"integration_id\": \"string\",\n      \"integration_type\": \"string\",\n      \"description\": \"string\",\n      \"name\": \"string\"\n    }\n  ]\n}"
         '400':
           description: API Error
         '404':
           description: integration not defined
       tags:
       - Metadata
+    servers:
+    - url: https://api-sandbox.workspan.com/event/v1
   /metadata/event/{event}:
     get:
       operationId: GetEventSchema
       summary: Get schema of event
-      description: Get schema of event
       parameters:
       - name: event
         in: path
@@ -110,11 +113,12 @@ paths:
           description: event not defined
       tags:
       - Metadata
+    servers:
+    - url: https://api-sandbox.workspan.com/event/v1
   /metadata/integration/{integration_id}:
     get:
       operationId: GetObjectEventSchema
       summary: Get schema of object event
-      description: Get schema of object event
       parameters:
       - name: integration_id
         in: path
@@ -136,6 +140,8 @@ paths:
           description: integration not defined
       tags:
       - Metadata
+    servers:
+    - url: https://api-sandbox.workspan.com/event/v1
   /{reportId}/metadata:
     post:
       operationId: getReportMetadata
@@ -167,6 +173,8 @@ paths:
           description: Internal Server Error
       tags:
       - Metadata
+    servers:
+    - url: https://api-sandbox.workspan.com/report/v1
 components:
   securitySchemes:
     apiKeyHeader:
@@ -177,6 +185,10 @@ components:
       type: apiKey
       name: subscription-key
       in: query
+x-refined-from:
+- workspan-co-sell-openapi.yml
+- workspan-events-openapi.yml
+- workspan-report-openapi.yml
 x-harvest:
   source: https://developer.workspan.com/developer/apis/authentication-api?export=true&format=openapi+json&api-version=2022-04-01-preview
   operations_source: https://developer.workspan.com/developer/apis/authentication-api/operations?api-version=2022-04-01-preview

@@ -1,12 +1,10 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Authentication Actions External Id API
-  description: 'Implementation of [OAuth 2.0](https://tools.ietf.org/html/rfc6749  "Docs") with Client Credentials Grant type
-
-    '
+  title: WorkSpan Object External Id API
+  description: Operations on WorkSpan objects
   version: '1.0'
 servers:
-- url: https://api-sandbox.workspan.com/oauth
+- url: https://api-sandbox.workspan.com/app/v1/object
 security:
 - {}
 - apiKeyHeader: []
@@ -18,7 +16,6 @@ paths:
     patch:
       operationId: update_external_id
       summary: Connect an external ID to a WorkSpan ID
-      description: Connect an external ID to a WorkSpan ID
       parameters:
       - name: object_id
         in: path
@@ -31,7 +28,7 @@ paths:
           application/json:
             examples:
               default:
-                value: "{\r\n  \"field_name\": \"sales_details.crm_opportunity_id\",\r\n  \"external_id\": \"000owa24575\"\r\n}"
+                value: "{\n  \"field_name\": \"sales_details.crm_opportunity_id\",\n  \"external_id\": \"000owa24575\"\n}"
       responses:
         '200':
           description: Connection of external object to WorkSpan object is successful
@@ -39,7 +36,7 @@ paths:
             application/json:
               examples:
                 default:
-                  value: "{\r\n  \"object_id\": \"WS-Project_agpzfndzLWF\",\r\n  \"external_id\": \"000owa24575\",\r\n  \"field_name\": \"sales_details.crm_opportunity_id\"\r\n}"
+                  value: "{\n  \"object_id\": \"WS-Project_agpzfndzLWF\",\n  \"external_id\": \"000owa24575\",\n  \"field_name\": \"sales_details.crm_opportunity_id\"\n}"
         '401':
           description: Authorization Error
         '404':
@@ -49,7 +46,6 @@ paths:
     get:
       operationId: get_external_id
       summary: Get external ID for WorkSpan ID
-      description: Get external ID for WorkSpan ID
       parameters:
       - name: object_id
         in: path
@@ -64,7 +60,7 @@ paths:
             application/json:
               examples:
                 default:
-                  value: "{\r\n  \"object_id\": \"WS-Project_agpzfndzLWF\",\r\n  \"external_ids\": [\r\n    {\r\n      \"external_id\": \"000owa24575\",\r\n      \"field_name\": \"sales_details.crm_opportunity_id\"\r\n    },\r\n    {\r\n      \"external_id\": \"pc-a1w09875\",\r\n      \"field_name\": \"partner_center.referral_id\"\r\n    }\r\n  ]\r\n}"
+                  value: "{\n  \"object_id\": \"WS-Project_agpzfndzLWF\",\n  \"external_ids\": [\n    {\n      \"external_id\": \"000owa24575\",\n      \"field_name\": \"sales_details.crm_opportunity_id\"\n    },\n    {\n      \"external_id\": \"pc-a1w09875\",\n      \"field_name\": \"partner_center.referral_id\"\n    }\n  ]\n}"
         '401':
           description: Authorization Error
         '404':
@@ -82,7 +78,7 @@ components:
       name: subscription-key
       in: query
 x-harvest:
-  source: https://developer.workspan.com/developer/apis/authentication-api?export=true&format=openapi+json&api-version=2022-04-01-preview
-  operations_source: https://developer.workspan.com/developer/apis/authentication-api/operations?api-version=2022-04-01-preview
+  source: https://developer.workspan.com/developer/apis/update-external-id-in-workspan-object?export=true&format=openapi+json&api-version=2022-04-01-preview
+  operations_source: https://developer.workspan.com/developer/apis/update-external-id-in-workspan-object/operations?api-version=2022-04-01-preview
   harvested: '2026-07-21'
   note: Assembled from WorkSpan's Azure APIM developer portal data API (export skeleton + published operations/schemas).

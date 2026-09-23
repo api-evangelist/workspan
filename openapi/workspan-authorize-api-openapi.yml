@@ -1,9 +1,7 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Authentication Actions Authorize API
-  description: 'Implementation of [OAuth 2.0](https://tools.ietf.org/html/rfc6749  "Docs") with Client Credentials Grant type
-
-    '
+  title: Authentication Authorize API
+  description: Implementation of OAuth 2.0 with Client Credentials Grant type
   version: '1.0'
 servers:
 - url: https://api-sandbox.workspan.com/oauth

@@ -1,12 +1,10 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Authentication Actions Status API
-  description: 'Implementation of [OAuth 2.0](https://tools.ietf.org/html/rfc6749  "Docs") with Client Credentials Grant type
-
-    '
+  title: WorkSpan Bulk Status API
+  description: Use this API to load objects in bulk
   version: '1.0'
 servers:
-- url: https://api-sandbox.workspan.com/oauth
+- url: https://api-sandbox.workspan.com/bulk/v1
 security:
 - {}
 - apiKeyHeader: []
@@ -53,7 +51,7 @@ paths:
             application/json:
               examples:
                 default:
-                  value: "{\r\n  \"integration_id\": \"WS-Integration_agpzfndzLW\",\r\n  \"execution_id\": \"a64690c2450\",\r\n  \"status\": \"completed\",\r\n  \"input_count\": 200,\r\n  \"error_count\": 3,\r\n  \"success_count\": 197,\r\n  \"skip_count\": 0,\r\n  \"started_at\": \"2020-05-07T14:06:57.572Z\",\r\n  \"completed_at\": \"2020-05-07T14:07:10.572Z\",\r\n  \"include_errors\": true,\r\n  \"errors\": [\r\n    {\r\n      \"id\": \"aw00079\",\r\n      \"message\": \"invalid value in field 'close_date'\",\r\n      \"data_row\": {\r\n        \"opportunity_id\": \"aw00079\",\r\n        \"close_date\": \"20-jan-2020\",\r\n        \"amount\": 250000\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"aw00082\",\r\n      \"message\": \"invalid value in field 'amount'\",\r\n      \"data_row\": {\r\n        \"opportunity_id\": \"aw00082\",\r\n        \"close_date\": \"2021-01-20\",\r\n        \"amount\": \"-\"\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"\",\r\n      \"message\": \"Missing value of key field\",\r\n      \"data_row\": {\r\n        \"opportunity_id\": \"\",\r\n        \"close_date\": \"2020-10-20\",\r\n        \"amount\": 75000\r\n      }\r\n    }\r\n  ]\r\n}"
+                  value: "{\n  \"integration_id\": \"WS-Integration_agpzfndzLW\",\n  \"execution_id\": \"a64690c2450\",\n  \"status\": \"completed\",\n  \"input_count\": 200,\n  \"error_count\": 3,\n  \"success_count\": 197,\n  \"skip_count\": 0,\n  \"started_at\": \"2020-05-07T14:06:57.572Z\",\n  \"completed_at\": \"2020-05-07T14:07:10.572Z\",\n  \"include_errors\": true,\n  \"errors\": [\n    {\n      \"id\": \"aw00079\",\n      \"message\": \"invalid value in field 'close_date'\",\n      \"data_row\": {\n        \"opportunity_id\": \"aw00079\",\n        \"close_date\": \"20-jan-2020\",\n        \"amount\": 250000\n      }\n    },\n    {\n      \"id\": \"aw00082\",\n      \"message\": \"invalid value in field 'amount'\",\n      \"data_row\": {\n        \"opportunity_id\": \"aw00082\",\n        \"close_date\": \"2021-01-20\",\n        \"amount\": \"-\"\n      }\n    },\n    {\n      \"id\": \"\",\n      \"message\": \"Missing value of key field\",\n      \"data_row\": {\n        \"opportunity_id\": \"\",\n        \"close_date\": \"2020-10-20\",\n        \"amount\": 75000\n      }\n    }\n  ]\n}"
         '400':
           description: invalid execution_id
         '401':
@@ -73,7 +71,7 @@ components:
       name: subscription-key
       in: query
 x-harvest:
-  source: https://developer.workspan.com/developer/apis/authentication-api?export=true&format=openapi+json&api-version=2022-04-01-preview
-  operations_source: https://developer.workspan.com/developer/apis/authentication-api/operations?api-version=2022-04-01-preview
+  source: https://developer.workspan.com/developer/apis/workspan-crm-opportunity-integration-api?export=true&format=openapi+json&api-version=2022-04-01-preview
+  operations_source: https://developer.workspan.com/developer/apis/workspan-crm-opportunity-integration-api/operations?api-version=2022-04-01-preview
   harvested: '2026-07-21'
   note: Assembled from WorkSpan's Azure APIM developer portal data API (export skeleton + published operations/schemas).
