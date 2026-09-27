@@ -159,7 +159,6 @@ paths:
       - Cosell
 components:
   schemas:
-    Test_definition: {}
     payload_crm_validate:
       unrecognizedKeywords:
         unrecognizedKeywords:
@@ -213,6 +212,7 @@ components:
               type: string
         version:
           type: string
+    Test_definition: {}
   securitySchemes:
     apiKeyHeader:
       type: apiKey
