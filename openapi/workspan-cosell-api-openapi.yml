@@ -188,6 +188,7 @@ components:
             aws_account_id: '123456789012'
             procurement_type: AWS Marketplace
             customer_software_value: '10000'
+    Test_definition: {}
     Invite_aws_partner_action:
       type: object
       properties:
@@ -212,7 +213,6 @@ components:
               type: string
         version:
           type: string
-    Test_definition: {}
   securitySchemes:
     apiKeyHeader:
       type: apiKey
