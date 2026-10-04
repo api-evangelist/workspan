@@ -159,6 +159,31 @@ paths:
       - Cosell
 components:
   schemas:
+    Test_definition: {}
+    Invite_aws_partner_action:
+      type: object
+      properties:
+        action:
+          type: string
+        payload:
+          type: object
+          properties:
+            inviting_from:
+              type: string
+            opportunity_project_id:
+              type: string
+            referral_id:
+              type: string
+            partner_project_id:
+              type: string
+            partner_responsibility:
+              type: array
+              items:
+                type: string
+            invitation_message:
+              type: string
+        version:
+          type: string
     payload_crm_validate:
       unrecognizedKeywords:
         unrecognizedKeywords:
@@ -188,31 +213,6 @@ components:
             aws_account_id: '123456789012'
             procurement_type: AWS Marketplace
             customer_software_value: '10000'
-    Test_definition: {}
-    Invite_aws_partner_action:
-      type: object
-      properties:
-        action:
-          type: string
-        payload:
-          type: object
-          properties:
-            inviting_from:
-              type: string
-            opportunity_project_id:
-              type: string
-            referral_id:
-              type: string
-            partner_project_id:
-              type: string
-            partner_responsibility:
-              type: array
-              items:
-                type: string
-            invitation_message:
-              type: string
-        version:
-          type: string
   securitySchemes:
     apiKeyHeader:
       type: apiKey
