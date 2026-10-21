@@ -27,3 +27,16 @@
   relationship: distribution-channel
   status: not-a-workflow
   arazzo: null
+- slug: workspan-hubspot-own
+  label: HubSpot (own)
+  partner: hubspot
+  partner_name: HubSpot (own)
+  category: PARTNER_MANAGEMENT
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://ecosystem.hubspot.com/marketplace/listing/workspan-hyperscaler-edition
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
